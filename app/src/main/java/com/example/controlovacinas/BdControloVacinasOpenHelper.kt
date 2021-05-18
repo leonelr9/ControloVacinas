@@ -14,6 +14,8 @@ class BdControloVacinasOpenHelper(context: Context?)
      */
     override fun onCreate(db: SQLiteDatabase?) {
         TabelaVacina(db).cria()
+        TabelaPaciente(db).cria()
+        TabelaEfeitosSecundarios(db).cria()
     }
 
     /**

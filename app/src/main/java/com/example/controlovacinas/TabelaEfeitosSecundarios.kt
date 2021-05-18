@@ -19,7 +19,7 @@ class TabelaEfeitosSecundarios(db: SQLiteDatabase) {
                 DIARREIA + " BOOLEAN, " +
                 DOR_BRACO + " BOOLEAN, " +
                 CAMPO_ID_PACIENTE + " INTEGER NOT NULL, " +
-                "FOREING KEY(" + CAMPO_ID_PACIENTE + ") " +
+                "FOREIGN KEY(" + CAMPO_ID_PACIENTE + ") " +
                     "REFERENCES " + TabelaPaciente.NOME_TABELA +
                 ")")
     }

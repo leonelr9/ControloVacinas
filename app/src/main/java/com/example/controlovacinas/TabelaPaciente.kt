@@ -16,7 +16,7 @@ class TabelaPaciente (db: SQLiteDatabase) {
                 SEXO + " TEXT NOT NULL, " +
                 CONTACTO + " TEXT NOT NULL, " +
                 CAMPO_ID_VACINA + " INTEGER NOT NULL, " +
-                "FOREING KEY(" + CAMPO_ID_VACINA + ") " +
+                "FOREIGN KEY(" + CAMPO_ID_VACINA + ") " +
                 "REFERENCES " + TabelaVacina.NOME_TABELA +
                 ")")
     }

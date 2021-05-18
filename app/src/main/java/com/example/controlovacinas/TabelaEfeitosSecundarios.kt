@@ -1,11 +1,35 @@
 package com.example.controlovacinas
 
 import android.database.sqlite.SQLiteDatabase
+import android.provider.BaseColumns
 
 class TabelaEfeitosSecundarios(db: SQLiteDatabase?) {
     private val db: SQLiteDatabase? = db
 
     fun cria(){
-        db?.execSQL("CREATE TABLE efeitos_secundarios(_id INTEGER PRIMARY KEY AUTOINCREMENT, febre BOOLEAN, fadiga BOOLEAN, dor_de_cabeca BOOLEAN, dores_mosculares BOOLEAN, calafrios BOOLEAN, diarreia BOOLEAN, dor_no_braco BOOLEAN)")
+        db?.execSQL("CREATE TABLE " + NOME_TABELA + "(" +
+                BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                FEBRE + " BOOLEAN, " +
+                FADIGA +" BOOLEAN, " +
+                DOR_CABECA + " BOOLEAN, " +
+                DORES_MOSCULARES + " BOOLEAN, " +
+                CALAFRIOS + " BOOLEAN, " +
+                DIARREIA + " BOOLEAN, " +
+                DOR_BRACO + " BOOLEAN, " +
+                CAMPO_ID_PACIENTE + " INTEGER NOT NULL, " +
+                "FOREING KEY(" + CAMPO_ID_PACIENTE + ") " +
+                    "REFERENCES " + TabelaPaciente.NOME_TABELA +
+                ")")
+    }
+    companion object{
+        const val NOME_TABELA = "efeitos_secundarios"
+        const val FEBRE = "febre"
+        const val FADIGA = "fadiga"
+        const val DOR_CABECA = "dor_de_cabeca"
+        const val DORES_MOSCULARES = "dores_mosculares"
+        const val CALAFRIOS = "calafrios"
+        const val DIARREIA = "diarreia"
+        const val DOR_BRACO = "dor_no_braco"
+        const val CAMPO_ID_PACIENTE = "id_paciente"
     }
 }

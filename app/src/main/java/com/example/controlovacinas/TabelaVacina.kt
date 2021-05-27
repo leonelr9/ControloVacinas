@@ -11,9 +11,15 @@ class TabelaVacina(db: SQLiteDatabase) {
     fun cria(){
         db.execSQL("CREATE TABLE " + NOME_TABELA + "(" +
                 BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                FABRICANTE + " TEXT NOT NULL, " +
-                NUM_SERIE + " INTEGER NOT NULL, " +
-                DATA_VACINACAO + " DATE)")
+                NUM_LOTE + " TEXT NOT NULL, " +
+                DATA_VACINACAO + " DATE NOT NULL" +
+                CAMPO_ID_PACIENTE + " INTEGER NOT NULL, " +
+                "FOREIGN KEY(" + CAMPO_ID_PACIENTE + ") " +
+                "REFERENCES " + TabelaPaciente.NOME_TABELA +
+                CAMPO_ID_FABRICANTE + " INTEGER NOT NULL, " +
+                "FOREIGN KEY(" + CAMPO_ID_FABRICANTE + ") " +
+                "REFERENCES " + TabelaFabricante.NOME_TABELA +
+                ")")
     }
 
     fun insert(values: ContentValues): Long {
@@ -41,8 +47,9 @@ class TabelaVacina(db: SQLiteDatabase) {
 
     companion object{
         const val NOME_TABELA = "vacina"
-        const val FABRICANTE = "fabricante"
-        const val NUM_SERIE = "numero_serie"
+        const val NUM_LOTE = "numero_lote"
         const val DATA_VACINACAO = "data_vacinacao"
+        const val CAMPO_ID_PACIENTE = "id_paciente"
+        const val CAMPO_ID_FABRICANTE = "id_fabricante"
     }
 }

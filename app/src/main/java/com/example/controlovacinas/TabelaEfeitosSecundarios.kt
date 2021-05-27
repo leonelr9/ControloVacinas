@@ -18,9 +18,10 @@ class TabelaEfeitosSecundarios(db: SQLiteDatabase) {
                 CALAFRIOS + " BOOLEAN, " +
                 DIARREIA + " BOOLEAN, " +
                 DOR_BRACO + " BOOLEAN, " +
-                CAMPO_ID_PACIENTE + " INTEGER NOT NULL, " +
-                "FOREIGN KEY(" + CAMPO_ID_PACIENTE + ") " +
-                    "REFERENCES " + TabelaPaciente.NOME_TABELA +
+                OUTRO + " TEXT, " +
+                CAMPO_ID_VACINA + " INTEGER NOT NULL, " +
+                "FOREIGN KEY(" + CAMPO_ID_VACINA + ") " +
+                    "REFERENCES " + TabelaVacina.NOME_TABELA +
                 ")")
     }
 
@@ -56,6 +57,7 @@ class TabelaEfeitosSecundarios(db: SQLiteDatabase) {
         const val CALAFRIOS = "calafrios"
         const val DIARREIA = "diarreia"
         const val DOR_BRACO = "dor_no_braco"
-        const val CAMPO_ID_PACIENTE = "id_paciente"
+        const val OUTRO = "outro"
+        const val CAMPO_ID_VACINA = "id_vacina"
     }
 }

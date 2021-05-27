@@ -17,6 +17,7 @@ class BdControloVacinasOpenHelper(context: Context?)
             TabelaVacina(db).cria()
             TabelaPaciente(db).cria()
             TabelaEfeitosSecundarios(db).cria()
+            TabelaFabricante(db).cria()
         }
     }
 

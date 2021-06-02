@@ -256,4 +256,95 @@ class TestesBaseDados {
 
         db.close()
     }
+
+    @Test
+    fun consegueAlterarVacina() {
+        val db = getBdControloVacinasOpenHelper().writableDatabase
+
+        val tabelaFabricante = TabelaFabricante(db)
+
+        val fabricanteModerna = Fabricante(nome = "Moderna")
+        fabricanteModerna.id = insereFabricante(tabelaFabricante, fabricanteModerna)
+
+        val fabricantePfizer = Fabricante(nome = "Pfizer")
+        fabricantePfizer.id = insereFabricante(tabelaFabricante, fabricantePfizer)
+
+        val tabelaPaciente = TabelaPaciente(db)
+
+        val pacienteJonas = Paciente(nome = "Jonas", data_nascimento = 9/1/1974, sexo = "Masculino", contacto = "961258976")
+        pacienteJonas.id = inserePaciente(tabelaPaciente, pacienteJonas)
+
+        val pacienteRute = Paciente(nome = "Rute", data_nascimento = 1/5/1990, sexo = "Feminino", contacto = "961258976")
+        pacienteRute.id = inserePaciente(tabelaPaciente, pacienteRute)
+
+
+        val tabelaVacina = TabelaVacina(db)
+        val vacina = Vacina(num_lote = "?", data_vacinacao = 1 , idPaciente = pacienteJonas.id, idFabricante = fabricanteModerna.id)
+        vacina.id = insereVacina(tabelaVacina, vacina)
+
+        vacina.num_lote = "MO5158L"
+        vacina.data_vacinacao = 1/6/2021
+        vacina.idPaciente = pacienteRute.id
+        vacina.idFabricante = fabricantePfizer.id
+
+        val registosAlterados = tabelaVacina.update(
+            vacina.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf(vacina.id.toString())
+        )
+
+        assertEquals(1, registosAlterados)
+
+        assertEquals(vacina, getVacinaBaseDados(tabelaVacina, vacina.id))
+
+        db.close()
+    }
+
+    @Test
+    fun consegueEliminarVacina() {
+        val db = getBdControloVacinasOpenHelper().writableDatabase
+
+        val tabelaFabricante = TabelaFabricante(db)
+        val fabricante = Fabricante(nome = "johnson")
+        fabricante.id = insereFabricante(tabelaFabricante, fabricante)
+
+        val tabelaPaciente = TabelaPaciente(db)
+        val paciente = Paciente(nome = "Rute", data_nascimento = 1/5/1990, sexo = "Feminino", contacto = "961258976")
+        paciente.id = inserePaciente(tabelaPaciente, paciente)
+
+
+        val tabelaVacina = TabelaVacina(db)
+        val vacina = Vacina(num_lote = "PP1257", data_vacinacao = 23/5/2021, idPaciente = paciente.id, idFabricante = fabricante.id)
+        vacina.id = insereVacina(tabelaVacina, vacina)
+
+        val registosEliminados = tabelaVacina.delete(
+            "${BaseColumns._ID}=?",
+            arrayOf(vacina.id.toString())
+        )
+
+        assertEquals(1, registosEliminados)
+
+        db.close()
+    }
+
+    @Test
+    fun consegueLerVacina() {
+        val db = getBdControloVacinasOpenHelper().writableDatabase
+
+        val tabelaFabricante = TabelaFabricante(db)
+        val fabricante = Fabricante(nome = "Curevac")
+        fabricante.id = insereFabricante(tabelaFabricante, fabricante)
+
+        val tabelaPaciente = TabelaPaciente(db)
+        val paciente = Paciente(nome = "Bruno", data_nascimento = 4/5/1970, sexo = "Masculino", contacto = "911252973")
+        paciente.id = inserePaciente(tabelaPaciente, paciente)
+
+        val tabelaVacina = TabelaVacina(db)
+        val vacina = Vacina(num_lote = "UC12897", data_vacinacao = 5/5/2021, idPaciente = paciente.id, idFabricante = fabricante.id)
+        vacina.id = insereVacina(tabelaVacina, vacina)
+
+        assertEquals(vacina, getVacinaBaseDados(tabelaVacina, vacina.id))
+
+        db.close()
+    }
 }

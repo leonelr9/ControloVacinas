@@ -39,11 +39,11 @@ class TabelaEfeitosSecundarios(db: SQLiteDatabase) {
 
     fun query(
         columns: Array<String>,
-        selection: String,
-        selectionArgs: Array<String>,
-        groupBy: String,
-        having: String,
-        orderBy: String
+        selection: String?,
+        selectionArgs: Array<String>?,
+        groupBy: String?,
+        having: String?,
+        orderBy: String?
     ): Cursor? {
         return db.query(NOME_TABELA, columns, selection, selectionArgs, groupBy, having, orderBy)
     }
@@ -59,5 +59,7 @@ class TabelaEfeitosSecundarios(db: SQLiteDatabase) {
         const val DOR_BRACO = "dor_no_braco"
         const val OUTRO = "outro"
         const val CAMPO_ID_VACINA = "id_vacina"
+
+        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, FEBRE, FADIGA, DOR_CABECA, DORES_MOSCULARES, CALAFRIOS, DIARREIA, DOR_BRACO, OUTRO, CAMPO_ID_VACINA)
     }
 }

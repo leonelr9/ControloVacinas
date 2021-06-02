@@ -32,4 +32,17 @@ class TestesBaseDados {
         db.close()
     }
 
+    @Test
+    fun consegueInserirFabricante() {
+        val db = getBdControloVacinasOpenHelper().writableDatabase
+        val tabelaFabricante= TabelaFabricante(db)
+
+        val id = tabelaFabricante.insert(Fabricante(nome = "AstraZeneca").toContentValues())
+
+
+        assertNotEquals(-1, id)
+
+        db.close()
+    }
+
 }

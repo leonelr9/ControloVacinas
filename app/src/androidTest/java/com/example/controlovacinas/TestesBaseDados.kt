@@ -1,5 +1,6 @@
 package com.example.controlovacinas
 
+import android.provider.BaseColumns
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 
@@ -19,6 +20,13 @@ class TestesBaseDados {
     private fun getAppContext() = InstrumentationRegistry.getInstrumentation().targetContext
     private fun getBdControloVacinasOpenHelper() = BdControloVacinasOpenHelper(getAppContext())
 
+    private fun insereFabricante(tabela: TabelaFabricante, fabricante: Fabricante): Long {
+        val id = tabela.insert(fabricante.toContentValues())
+        assertNotEquals(-1, id)
+
+        return id
+    }
+
     @Before
     fun apagaBaseDados(){
         getAppContext().deleteDatabase(BdControloVacinasOpenHelper.NOME_BASE_DADOS)
@@ -37,11 +45,31 @@ class TestesBaseDados {
         val db = getBdControloVacinasOpenHelper().writableDatabase
         val tabelaFabricante= TabelaFabricante(db)
 
-        val id = tabelaFabricante.insert(Fabricante(nome = "AstraZeneca").toContentValues())
+        val fabricante = Fabricante(nome = "AstraZeneca")
+        fabricante.id = insereFabricante(tabelaFabricante, fabricante)
 
+//        assertNotEquals(-1, id)
 
-        assertNotEquals(-1, id)
+        db.close()
+    }
 
+    @Test
+    fun consegueAlterarFabricante() {
+        val db = getBdControloVacinasOpenHelper().writableDatabase
+        val tabelaFabricante= TabelaFabricante(db)
+
+        val fabricante = Fabricante(nome = "Pfizer")
+        fabricante.id = insereFabricante(tabelaFabricante, fabricante)
+
+        fabricante.nome = "Pfizer-Biontech"
+
+        val registosAlterados = tabelaFabricante.update(
+            fabricante.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf(fabricante.id.toString())
+        )
+
+        assertEquals(1, registosAlterados)
         db.close()
     }
 

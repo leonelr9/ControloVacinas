@@ -12,13 +12,23 @@ class TabelaVacina(db: SQLiteDatabase) {
         db.execSQL("CREATE TABLE " + NOME_TABELA + "(" +
                 BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 NUM_LOTE + " TEXT NOT NULL, " +
-                DATA_VACINACAO + " DATE NOT NULL" +
+                DATA_VACINACAO + " DATE NOT NULL, " +
                 CAMPO_ID_PACIENTE + " INTEGER NOT NULL, " +
+                CAMPO_ID_FABRICANTE + " INTEGER NOT NULL, " +
+                " FOREIGN KEY(" + CAMPO_ID_PACIENTE + ") " +
+                    "REFERENCES " + TabelaPaciente.NOME_TABELA +", "+
+                " FOREIGN KEY(" + CAMPO_ID_FABRICANTE + ") " +
+                    "REFERENCES " + TabelaFabricante.NOME_TABELA +
+
+    /*            CAMPO_ID_PACIENTE + " INTEGER NOT NULL, " +
                 "FOREIGN KEY(" + CAMPO_ID_PACIENTE + ") " +
-                "REFERENCES " + TabelaPaciente.NOME_TABELA +
+                    "REFERENCES " + TabelaPaciente.NOME_TABELA +", "+
+
                 CAMPO_ID_FABRICANTE + " INTEGER NOT NULL, " +
                 "FOREIGN KEY(" + CAMPO_ID_FABRICANTE + ") " +
-                "REFERENCES " + TabelaFabricante.NOME_TABELA +
+                    "REFERENCES " + TabelaFabricante.NOME_TABELA +
+
+     */
                 ")")
     }
 

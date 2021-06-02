@@ -29,11 +29,11 @@ class TabelaFabricante (db: SQLiteDatabase) {
 
     fun query(
         columns: Array<String>,
-        selection: String,
-        selectionArgs: Array<String>,
-        groupBy: String,
-        having: String,
-        orderBy: String
+        selection: String?,
+        selectionArgs: Array<String>?,
+        groupBy: String?,
+        having: String?,
+        orderBy: String?
     ): Cursor? {
         return db.query(NOME_TABELA, columns, selection, selectionArgs, groupBy, having, orderBy)
     }
@@ -41,5 +41,7 @@ class TabelaFabricante (db: SQLiteDatabase) {
     companion object{
         const val NOME_TABELA = "fabricante"
         const val NOME = "nome"
+
+        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, NOME)
     }
 }

@@ -20,12 +20,28 @@ class TestesBaseDados {
     private fun getAppContext() = InstrumentationRegistry.getInstrumentation().targetContext
     private fun getBdControloVacinasOpenHelper() = BdControloVacinasOpenHelper(getAppContext())
 
+
     private fun insereFabricante(tabela: TabelaFabricante, fabricante: Fabricante): Long {
         val id = tabela.insert(fabricante.toContentValues())
         assertNotEquals(-1, id)
 
         return id
     }
+
+    private fun getFabricanteBaseDados(tabela: TabelaFabricante, id: Long): Fabricante {
+        val cursor = tabela.query(
+            TabelaFabricante.TODAS_COLUNAS,
+            "${BaseColumns._ID}=?",
+            arrayOf(id.toString()),
+            null, null, null
+        )
+
+        assertNotNull(cursor)
+        assert(cursor!!.moveToNext())
+
+        return Fabricante.fromCursor(cursor)
+    }
+
 
     @Before
     fun apagaBaseDados(){
@@ -48,7 +64,7 @@ class TestesBaseDados {
         val fabricante = Fabricante(nome = "AstraZeneca")
         fabricante.id = insereFabricante(tabelaFabricante, fabricante)
 
-//        assertNotEquals(-1, id)
+        assertEquals(fabricante, getFabricanteBaseDados(tabelaFabricante, fabricante.id))
 
         db.close()
     }
@@ -70,6 +86,9 @@ class TestesBaseDados {
         )
 
         assertEquals(1, registosAlterados)
+
+        assertEquals(fabricante, getFabricanteBaseDados(tabelaFabricante, fabricante.id))
+
         db.close()
     }
 
@@ -92,4 +111,16 @@ class TestesBaseDados {
         db.close()
     }
 
+    @Test
+    fun consegueLerFabricante() {
+        val db = getBdControloVacinasOpenHelper().writableDatabase
+        val tabelaFabricante= TabelaFabricante(db)
+
+        val fabricante = Fabricante(nome = "Moderna")
+        fabricante.id = insereFabricante(tabelaFabricante, fabricante)
+
+        assertEquals(fabricante, getFabricanteBaseDados(tabelaFabricante, fabricante.id))
+
+        db.close()
+    }
 }

@@ -64,6 +64,27 @@ class TestesBaseDados {
         return Paciente.fromCursor(cursor)
     }
 
+    private fun insereVacina(tabela: TabelaVacina, vacina: Vacina): Long {
+        val id = tabela.insert(vacina.toContentValues())
+        assertNotEquals(-1, id)
+
+        return id
+    }
+
+    private fun getVacinaBaseDados(tabela: TabelaVacina, id: Long): Vacina {
+        val cursor = tabela.query(
+            TabelaVacina.TODAS_COLUNAS,
+            "${BaseColumns._ID}=?",
+            arrayOf(id.toString()),
+            null, null, null
+        )
+
+        assertNotNull(cursor)
+        assert(cursor!!.moveToNext())
+
+        return Vacina.fromCursor(cursor)
+    }
+
     @Before
     fun apagaBaseDados(){
         getAppContext().deleteDatabase(BdControloVacinasOpenHelper.NOME_BASE_DADOS)
@@ -214,4 +235,25 @@ class TestesBaseDados {
         db.close()
     }
 
+
+    @Test
+    fun consegueInserirVacina() {
+        val db = getBdControloVacinasOpenHelper().writableDatabase
+
+        val tabelaFabricante = TabelaFabricante(db)
+        val fabricante = Fabricante(nome = "AstraZeneca")
+        fabricante.id = insereFabricante(tabelaFabricante, fabricante)
+
+        val tabelaPaciente = TabelaPaciente(db)
+        val paciente = Paciente(nome = "Alberto", data_nascimento = 4/10/1951, sexo = "Masculino", contacto = "961258976")
+        paciente.id = inserePaciente(tabelaPaciente, paciente)
+
+        val tabelaVacina = TabelaVacina(db)
+        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = 1/6/2021, idPaciente = paciente.id, idFabricante = fabricante.id)
+        vacina.id = insereVacina(tabelaVacina, vacina)
+
+        assertEquals(vacina, getVacinaBaseDados(tabelaVacina, vacina.id))
+
+        db.close()
+    }
 }

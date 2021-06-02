@@ -43,6 +43,27 @@ class TestesBaseDados {
     }
 
 
+    private fun inserePaciente(tabela: TabelaPaciente, paciente: Paciente): Long {
+        val id = tabela.insert(paciente.toContentValues())
+        assertNotEquals(-1, id)
+
+        return id
+    }
+
+    private fun getPacienteBaseDados(tabela: TabelaPaciente, id: Long): Paciente {
+        val cursor = tabela.query(
+            TabelaPaciente.TODAS_COLUNAS,
+            "${BaseColumns._ID}=?",
+            arrayOf(id.toString()),
+            null, null, null
+        )
+
+        assertNotNull(cursor)
+        assert(cursor!!.moveToNext())
+
+        return Paciente.fromCursor(cursor)
+    }
+
     @Before
     fun apagaBaseDados(){
         getAppContext().deleteDatabase(BdControloVacinasOpenHelper.NOME_BASE_DADOS)
@@ -120,6 +141,19 @@ class TestesBaseDados {
         fabricante.id = insereFabricante(tabelaFabricante, fabricante)
 
         assertEquals(fabricante, getFabricanteBaseDados(tabelaFabricante, fabricante.id))
+
+        db.close()
+    }
+
+    @Test
+    fun consegueInserirPaciente() {
+        val db = getBdControloVacinasOpenHelper().writableDatabase
+        val tabelaPaciente= TabelaPaciente(db)
+
+        val paciente = Paciente(nome = "José", data_nascimento = 4/7/1960, sexo = "Masculino", contacto = "961258976")
+        paciente.id = inserePaciente(tabelaPaciente, paciente)
+
+        assertEquals(paciente, getPacienteBaseDados(tabelaPaciente, paciente.id))
 
         db.close()
     }

@@ -73,4 +73,23 @@ class TestesBaseDados {
         db.close()
     }
 
+
+    @Test
+    fun consegueEliminarFabricante() {
+        val db = getBdControloVacinasOpenHelper().writableDatabase
+        val tabelaFabricante= TabelaFabricante(db)
+
+        val fabricante = Fabricante(nome = "Teste")
+        fabricante.id = insereFabricante(tabelaFabricante, fabricante)
+
+
+        val registosEliminados = tabelaFabricante.delete(
+            "${BaseColumns._ID}=?",
+            arrayOf(fabricante.id.toString())
+        )
+
+        assertEquals(1, registosEliminados)
+        db.close()
+    }
+
 }

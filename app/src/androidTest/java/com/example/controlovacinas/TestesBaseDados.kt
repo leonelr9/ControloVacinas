@@ -163,7 +163,7 @@ class TestesBaseDados {
         val db = getBdControloVacinasOpenHelper().writableDatabase
         val tabelaPaciente= TabelaPaciente(db)
 
-        val paciente = Paciente(nome = "José", data_nascimento = 4/7/1960, sexo = "Masculino", contacto = "961258976")
+        val paciente = Paciente(nome = "Maria", data_nascimento = 20/4/1955, sexo = "Feminino", contacto = "911898944")
         paciente.id = inserePaciente(tabelaPaciente, paciente)
 
         paciente.contacto = "927891593"
@@ -178,6 +178,25 @@ class TestesBaseDados {
         assertEquals(1, registosAlterados)
 
         assertEquals(paciente, getPacienteBaseDados(tabelaPaciente, paciente.id))
+
+        db.close()
+    }
+
+    @Test
+    fun consegueEliminarPaciente() {
+        val db = getBdControloVacinasOpenHelper().writableDatabase
+        val tabelaPaciente= TabelaPaciente(db)
+
+        val paciente = Paciente(nome = "Marco", data_nascimento = 7/7/1968, sexo = "Masculino", contacto = "961478523")
+        paciente.id = inserePaciente(tabelaPaciente, paciente)
+
+
+        val registosEliminados = tabelaPaciente.delete(
+            "${BaseColumns._ID}=?",
+            arrayOf(paciente.id.toString())
+        )
+
+        assertEquals(1, registosEliminados)
 
         db.close()
     }

@@ -4,7 +4,7 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
 
-data class EfeitosSecundarios (var id: Long, var febre: Boolean, var fadiga: Boolean, var dor_cabeca: Boolean, var dores_mosculares: Boolean, var calafrios: Boolean, var diarreia: Boolean, var dor_braco: Boolean, var outro: String, var idVacina: Long){
+data class EfeitosSecundarios (var id: Long = -1, var febre: Boolean, var fadiga: Boolean, var dor_cabeca: Boolean, var dores_mosculares: Boolean, var calafrios: Boolean, var diarreia: Boolean, var dor_braco: Boolean, var outro: String, var idVacina: Long){
     fun toContentValues(): ContentValues {
         val valores = ContentValues().apply {
             put(TabelaEfeitosSecundarios.FEBRE, febre)

@@ -85,6 +85,27 @@ class TestesBaseDados {
         return Vacina.fromCursor(cursor)
     }
 
+    private fun insereEfeitosSecundarios(tabela: TabelaEfeitosSecundarios, efeitosSecundarios: EfeitosSecundarios): Long {
+        val id = tabela.insert(efeitosSecundarios.toContentValues())
+        assertNotEquals(-1, id)
+
+        return id
+    }
+
+    private fun getEfeitosSecundariosBaseDados(tabela: TabelaEfeitosSecundarios, id: Long): EfeitosSecundarios {
+        val cursor = tabela.query(
+            TabelaEfeitosSecundarios.TODAS_COLUNAS,
+            "${BaseColumns._ID}=?",
+            arrayOf(id.toString()),
+            null, null, null
+        )
+
+        assertNotNull(cursor)
+        assert(cursor!!.moveToNext())
+
+        return EfeitosSecundarios.fromCursor(cursor)
+    }
+
     @Before
     fun apagaBaseDados(){
         getAppContext().deleteDatabase(BdControloVacinasOpenHelper.NOME_BASE_DADOS)
@@ -344,6 +365,31 @@ class TestesBaseDados {
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         assertEquals(vacina, getVacinaBaseDados(tabelaVacina, vacina.id))
+
+        db.close()
+    }
+
+    @Test
+    fun consegueInserirEfeitosSecundarios() {
+        val db = getBdControloVacinasOpenHelper().writableDatabase
+
+        val tabelaFabricante = TabelaFabricante(db)
+        val fabricante = Fabricante(nome = "AstraZeneca")
+        fabricante.id = insereFabricante(tabelaFabricante, fabricante)
+
+        val tabelaPaciente = TabelaPaciente(db)
+        val paciente = Paciente(nome = "Alberto", data_nascimento = 4/10/1951, sexo = "Masculino", contacto = "961258976")
+        paciente.id = inserePaciente(tabelaPaciente, paciente)
+
+        val tabelaVacina = TabelaVacina(db)
+        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = 1/6/2021, idPaciente = paciente.id, idFabricante = fabricante.id)
+        vacina.id = insereVacina(tabelaVacina, vacina)
+
+        val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)
+        val efeitosSecundarios = EfeitosSecundarios(febre = false, fadiga = true, dor_cabeca = true, dores_mosculares = true, calafrios = false, diarreia = false, dor_braco = false, outro = "", idVacina = vacina.id)
+        efeitosSecundarios.id = insereEfeitosSecundarios(tabelaEfeitosSecundarios, efeitosSecundarios)
+
+        assertEquals(fabricante, getFabricanteBaseDados(tabelaFabricante, fabricante.id))
 
         db.close()
     }

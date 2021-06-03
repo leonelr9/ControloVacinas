@@ -463,5 +463,30 @@ class TestesBaseDados {
 
         db.close()
     }
-    
+
+    @Test
+    fun consegueLerEfeitosSecundarios() {
+        val db = getBdControloVacinasOpenHelper().writableDatabase
+
+        val tabelaFabricante = TabelaFabricante(db)
+        val fabricante = Fabricante(nome = "Curevac")
+        fabricante.id = insereFabricante(tabelaFabricante, fabricante)
+
+        val tabelaPaciente = TabelaPaciente(db)
+        val paciente = Paciente(nome = "Jose", data_nascimento = 19/12/1970, sexo = "Masculino", contacto = "969255921")
+        paciente.id = inserePaciente(tabelaPaciente, paciente)
+
+        val tabelaVacina = TabelaVacina(db)
+        val vacina = Vacina(num_lote = "JB2279", data_vacinacao = 21/4/2021, idPaciente = paciente.id, idFabricante = fabricante.id)
+        vacina.id = insereVacina(tabelaVacina, vacina)
+
+        val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)
+        val efeitosSecundarios = EfeitosSecundarios(febre = true, fadiga = true, dor_cabeca = true, dores_mosculares = false, calafrios = false, diarreia = false, dor_braco = true, outro = "Tonturas", idVacina = vacina.id)
+        efeitosSecundarios.id = insereEfeitosSecundarios(tabelaEfeitosSecundarios, efeitosSecundarios)
+
+        assertEquals(fabricante, getFabricanteBaseDados(tabelaFabricante, fabricante.id))
+
+        db.close()
+    }
+
 }

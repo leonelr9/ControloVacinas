@@ -432,4 +432,36 @@ class TestesBaseDados {
 
         db.close()
     }
+
+    @Test
+    fun consegueEliminarEfeitosSecundarios() {
+        val db = getBdControloVacinasOpenHelper().writableDatabase
+
+        val tabelaFabricante = TabelaFabricante(db)
+        val fabricante = Fabricante(nome = "PFizer")
+        fabricante.id = insereFabricante(tabelaFabricante, fabricante)
+
+        val tabelaPaciente = TabelaPaciente(db)
+        val paciente = Paciente(nome = "Rute", data_nascimento = 1/5/1990, sexo = "Feminino", contacto = "961258976")
+        paciente.id = inserePaciente(tabelaPaciente, paciente)
+
+        val tabelaVacina = TabelaVacina(db)
+        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = 1/6/2021, idPaciente = paciente.id, idFabricante = fabricante.id)
+        vacina.id = insereVacina(tabelaVacina, vacina)
+
+        val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)
+        val efeitosSecundarios = EfeitosSecundarios(febre = false, fadiga = true, dor_cabeca = true, dores_mosculares = true, calafrios = false, diarreia = false, dor_braco = false, outro = "", idVacina = vacina.id)
+        efeitosSecundarios.id = insereEfeitosSecundarios(tabelaEfeitosSecundarios, efeitosSecundarios)
+
+
+        val registosEliminados = tabelaEfeitosSecundarios.delete(
+            "${BaseColumns._ID}=?",
+            arrayOf(efeitosSecundarios.id.toString())
+        )
+
+        assertEquals(1, registosEliminados)
+
+        db.close()
+    }
+    
 }

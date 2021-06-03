@@ -369,6 +369,7 @@ class TestesBaseDados {
         db.close()
     }
 
+
     @Test
     fun consegueInserirEfeitosSecundarios() {
         val db = getBdControloVacinasOpenHelper().writableDatabase
@@ -390,6 +391,44 @@ class TestesBaseDados {
         efeitosSecundarios.id = insereEfeitosSecundarios(tabelaEfeitosSecundarios, efeitosSecundarios)
 
         assertEquals(fabricante, getFabricanteBaseDados(tabelaFabricante, fabricante.id))
+
+        db.close()
+    }
+
+    @Test
+    fun consegueAlterarEfeitosSecundarios() {
+        val db = getBdControloVacinasOpenHelper().writableDatabase
+
+        val tabelaFabricante = TabelaFabricante(db)
+        val fabricante = Fabricante(nome = "Moderna")
+        fabricante.id = insereFabricante(tabelaFabricante, fabricante)
+
+        val tabelaPaciente = TabelaPaciente(db)
+        val paciente = Paciente(nome = "Jonas", data_nascimento = 9/1/1974, sexo = "Masculino", contacto = "961258976")
+        paciente.id = inserePaciente(tabelaPaciente, paciente)
+
+        val tabelaVacina = TabelaVacina(db)
+        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = 1/6/2021, idPaciente = paciente.id, idFabricante = fabricante.id)
+        vacina.id = insereVacina(tabelaVacina, vacina)
+
+        val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)
+        val efeitosSecundarios = EfeitosSecundarios(febre = false, fadiga = true, dor_cabeca = true, dores_mosculares = true, calafrios = false, diarreia = false, dor_braco = false, outro = "", idVacina = vacina.id)
+        efeitosSecundarios.id = insereEfeitosSecundarios(tabelaEfeitosSecundarios, efeitosSecundarios)
+
+        efeitosSecundarios.febre = true
+        efeitosSecundarios.fadiga = false
+        efeitosSecundarios.outro = "Vomitos"
+
+
+        val registosAlterados = tabelaEfeitosSecundarios.update(
+            efeitosSecundarios.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf(efeitosSecundarios.id.toString())
+        )
+
+        assertEquals(1, registosAlterados)
+
+        assertEquals(vacina, getVacinaBaseDados(tabelaVacina, vacina.id))
 
         db.close()
     }

@@ -272,7 +272,7 @@ class TestesBaseDados {
         paciente.id = inserePaciente(tabelaPaciente, paciente)
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = 1/6/2021, idPaciente = paciente.id, idFabricante = fabricante.id)
+        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = Date(121,6,1), idPaciente = paciente.id, idFabricante = fabricante.id)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         assertEquals(vacina, getVacinaBaseDados(tabelaVacina, vacina.id))
@@ -302,11 +302,11 @@ class TestesBaseDados {
 
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "?", data_vacinacao = 1 , idPaciente = pacienteJonas.id, idFabricante = fabricanteModerna.id)
+        val vacina = Vacina(num_lote = "?", data_vacinacao = Date() , idPaciente = pacienteJonas.id, idFabricante = fabricanteModerna.id)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         vacina.num_lote = "MO5158L"
-        vacina.data_vacinacao = 1/6/2021
+        vacina.data_vacinacao = Date(121,6,1)
         vacina.idPaciente = pacienteRute.id
         vacina.idFabricante = fabricantePfizer.id
 
@@ -337,7 +337,7 @@ class TestesBaseDados {
 
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "PP1257", data_vacinacao = 23/5/2021, idPaciente = paciente.id, idFabricante = fabricante.id)
+        val vacina = Vacina(num_lote = "PP1257", data_vacinacao = Date(121,4,23), idPaciente = paciente.id, idFabricante = fabricante.id)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val registosEliminados = tabelaVacina.delete(
@@ -363,7 +363,7 @@ class TestesBaseDados {
         paciente.id = inserePaciente(tabelaPaciente, paciente)
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "UC12897", data_vacinacao = 5/5/2021, idPaciente = paciente.id, idFabricante = fabricante.id)
+        val vacina = Vacina(num_lote = "UC12897", data_vacinacao = Date(121,4,5), idPaciente = paciente.id, idFabricante = fabricante.id)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         assertEquals(vacina, getVacinaBaseDados(tabelaVacina, vacina.id))
@@ -385,7 +385,7 @@ class TestesBaseDados {
         paciente.id = inserePaciente(tabelaPaciente, paciente)
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = 1/6/2021, idPaciente = paciente.id, idFabricante = fabricante.id)
+        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = Date(121,5,1), idPaciente = paciente.id, idFabricante = fabricante.id)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)
@@ -410,7 +410,7 @@ class TestesBaseDados {
         paciente.id = inserePaciente(tabelaPaciente, paciente)
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = 1/6/2021, idPaciente = paciente.id, idFabricante = fabricante.id)
+        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = Date(121,6,1), idPaciente = paciente.id, idFabricante = fabricante.id)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)
@@ -448,7 +448,7 @@ class TestesBaseDados {
         paciente.id = inserePaciente(tabelaPaciente, paciente)
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = 1/6/2021, idPaciente = paciente.id, idFabricante = fabricante.id)
+        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = Date(121,5,1), idPaciente = paciente.id, idFabricante = fabricante.id)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)
@@ -479,7 +479,7 @@ class TestesBaseDados {
         paciente.id = inserePaciente(tabelaPaciente, paciente)
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "JB2279", data_vacinacao = 21/4/2021, idPaciente = paciente.id, idFabricante = fabricante.id)
+        val vacina = Vacina(num_lote = "JB2279", data_vacinacao = Date(121,3,21), idPaciente = paciente.id, idFabricante = fabricante.id)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)

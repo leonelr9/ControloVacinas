@@ -12,7 +12,7 @@ class TabelaPaciente (db: SQLiteDatabase) {
         db.execSQL("CREATE TABLE " + NOME_TABELA + "(" +
                 BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 NOME + " TEXT NOT NULL, " +
-                DATA_NASCIMENTO + " DATE NOT NULL, " +
+                DATA_NASCIMENTO + " INTEGER NOT NULL, " +
                 SEXO + " TEXT NOT NULL, " +
                 CONTACTO + " TEXT NOT NULL)")
     }

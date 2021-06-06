@@ -3,13 +3,15 @@ package com.example.controlovacinas
 import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
+import java.util.*
 
 
-data class Paciente(var id:Long = -1, var nome: String, var data_nascimento: Long, var sexo: String, var contacto: String){
+data class Paciente(var id:Long = -1, var nome: String, var data_nascimento: Date, var sexo: String, var contacto: String){
     fun toContentValues(): ContentValues {
+
         val valores = ContentValues().apply {
             put(TabelaPaciente.NOME, nome)
-            put(TabelaPaciente.DATA_NASCIMENTO, data_nascimento)
+            put(TabelaPaciente.DATA_NASCIMENTO, data_nascimento.time)
             put(TabelaPaciente.SEXO, sexo)
             put(TabelaPaciente.CONTACTO, contacto)
         }
@@ -32,7 +34,7 @@ data class Paciente(var id:Long = -1, var nome: String, var data_nascimento: Lon
             val contacto = cursor.getString(colContacto)
 
 
-            return Paciente(id, nome, data, sexo, contacto)
+            return Paciente(id, nome, Date(data), sexo, contacto)
         }
     }
 }

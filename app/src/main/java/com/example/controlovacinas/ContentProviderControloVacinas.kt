@@ -2,6 +2,7 @@ package com.example.controlovacinas
 
 import android.content.ContentProvider
 import android.content.ContentValues
+import android.content.UriMatcher
 import android.database.Cursor
 import android.net.Uri
 
@@ -205,5 +206,41 @@ class ContentProviderControloVacinas : ContentProvider() {
         selectionArgs: Array<out String>?
     ): Int {
         TODO("Not yet implemented")
+    }
+
+    companion object{
+        private const val AUTHORITY = "com.example.controlovacinas"
+
+        private const val PACIENTE = "paciente"
+        private const val FABRICANTE = "fabricante"
+        private const val VACINA = "vacina"
+        private const val EFEITOS_SECUNDARIOS = "efeitos_secundarios"
+
+        private const val URI_PACIENTE = 100
+        private const val URI_PACIENTE_ESPECIFICO = 101
+
+        private const val URI_FABRICANTE = 200
+        private const val URI_FABRICANTE_ESPECIFICO = 201
+
+        private const val URI_VACINA = 300
+        private const val URI_VACINA_ESPECIFICA = 301
+
+        private const val URI_EFEITOS_SECUNDARIOS = 400
+        private const val URI_EFEITOS_SECUNDARIOS_ESPECIFICOS = 401
+
+        private fun getUriMatcher(): UriMatcher{
+            val uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
+
+            uriMatcher.addURI(AUTHORITY, PACIENTE, URI_PACIENTE)
+            uriMatcher.addURI(AUTHORITY, "$PACIENTE/#", URI_PACIENTE_ESPECIFICO)
+            uriMatcher.addURI(AUTHORITY, FABRICANTE, URI_FABRICANTE)
+            uriMatcher.addURI(AUTHORITY, "$FABRICANTE/#", URI_FABRICANTE_ESPECIFICO)
+            uriMatcher.addURI(AUTHORITY, VACINA, URI_VACINA)
+            uriMatcher.addURI(AUTHORITY, "$VACINA/#", URI_VACINA_ESPECIFICA)
+            uriMatcher.addURI(AUTHORITY, EFEITOS_SECUNDARIOS, URI_EFEITOS_SECUNDARIOS)
+            uriMatcher.addURI(AUTHORITY,"$EFEITOS_SECUNDARIOS/#", URI_EFEITOS_SECUNDARIOS_ESPECIFICOS)
+
+            return uriMatcher
+        }
     }
 }

@@ -5,6 +5,7 @@ import android.content.ContentValues
 import android.content.UriMatcher
 import android.database.Cursor
 import android.net.Uri
+import android.provider.BaseColumns
 
 class ContentProviderControloVacinas : ContentProvider() {
     private var bdControloVacinasOpenHelper : BdControloVacinasOpenHelper? = null
@@ -115,7 +116,83 @@ class ContentProviderControloVacinas : ContentProvider() {
         selectionArgs: Array<out String>?,
         sortOrder: String?
     ): Cursor? {
-        TODO("Not yet implemented")
+        val bd = bdControloVacinasOpenHelper!!.readableDatabase
+
+        return when (getUriMatcher().match(uri)) {
+            URI_PACIENTE -> TabelaPaciente(bd).query(
+                projection as Array<String>,
+                selection,
+                selectionArgs as Array<String>?,
+                null,
+                null,
+                sortOrder
+            )
+
+            URI_PACIENTE_ESPECIFICO -> TabelaPaciente(bd).query(
+                projection as Array<String>,
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!),
+                null,
+                null,
+                null
+            )
+
+            URI_FABRICANTE -> TabelaFabricante(bd).query(
+                projection as Array<String>,
+                selection,
+                selectionArgs as Array<String>?,
+                null,
+                null,
+                sortOrder
+            )
+
+            URI_FABRICANTE_ESPECIFICO -> TabelaFabricante(bd).query(
+                projection as Array<String>,
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!),
+                null,
+                null,
+                null
+            )
+
+            URI_VACINA -> TabelaVacina(bd).query(
+                projection as Array<String>,
+                selection,
+                selectionArgs as Array<String>?,
+                null,
+                null,
+                sortOrder
+            )
+
+            URI_VACINA_ESPECIFICA -> TabelaVacina(bd).query(
+                projection as Array<String>,
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!),
+                null,
+                null,
+                null
+            )
+
+            URI_EFEITOS_SECUNDARIOS -> TabelaEfeitosSecundarios(bd).query(
+                projection as Array<String>,
+                selection,
+                selectionArgs as Array<String>?,
+                null,
+                null,
+                sortOrder
+            )
+
+            URI_EFEITOS_SECUNDARIOS_ESPECIFICOS -> TabelaEfeitosSecundarios(bd).query(
+                projection as Array<String>,
+                "${BaseColumns._ID}=?",
+                arrayOf(uri.lastPathSegment!!),
+                null,
+                null,
+                null
+            )
+
+            else -> null
+        }
     }
 
     /**

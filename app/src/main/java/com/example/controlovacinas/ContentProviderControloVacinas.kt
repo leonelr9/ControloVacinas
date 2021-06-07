@@ -6,6 +6,8 @@ import android.database.Cursor
 import android.net.Uri
 
 class ContentProviderControloVacinas : ContentProvider() {
+    private var bdControloVacinasOpenHelper : BdControloVacinasOpenHelper? = null
+
     /**
      * Implement this to initialize your content provider on startup.
      * This method is called for all registered content providers on the
@@ -34,7 +36,8 @@ class ContentProviderControloVacinas : ContentProvider() {
      * @return true if the provider was successfully loaded, false otherwise
      */
     override fun onCreate(): Boolean {
-        TODO("Not yet implemented")
+        bdControloVacinasOpenHelper = BdControloVacinasOpenHelper(context)
+        return true
     }
 
     /**

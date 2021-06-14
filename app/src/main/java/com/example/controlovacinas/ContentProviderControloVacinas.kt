@@ -381,6 +381,12 @@ class ContentProviderControloVacinas : ContentProvider() {
         private const val MULTIPLOS_ITEMS = "vnd.android.cursor.dir"
         private const val UNICO_ITEM = "vnd.android.cursor.item"
 
+        private val ENDERECO_BASE = Uri.parse("content://$AUTHORITY")
+        public val ENDERECO_PACIENTE = Uri.withAppendedPath(ENDERECO_BASE, PACIENTE)
+        public val ENDERECO_FABRICANTE = Uri.withAppendedPath(ENDERECO_BASE, FABRICANTE)
+        public val ENDERECO_VACINA = Uri.withAppendedPath(ENDERECO_BASE, VACINA)
+        public val ENDERECO_EFEITOS_SECUNDARIOS = Uri.withAppendedPath(ENDERECO_BASE, EFEITOS_SECUNDARIOS)
+
         private fun getUriMatcher(): UriMatcher{
             val uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
 

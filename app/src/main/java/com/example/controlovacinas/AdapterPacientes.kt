@@ -3,10 +3,22 @@ package com.example.controlovacinas
 import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterPacientes(var cursor: Cursor? = null) : RecyclerView.Adapter<AdapterPacientes.ViewHolderPacientes>(){
+class AdapterPacientes(val fragment: ListaPacientesFragment, var cursor: Cursor? = null) : RecyclerView.Adapter<AdapterPacientes.ViewHolderPacientes>(){
     class ViewHolderPacientes(itemView: View) : RecyclerView.ViewHolder(itemView){
+        private val textViewNome = itemView.findViewById<TextView>(R.id.textViewNome)
+        private val textViewDataNascimento = itemView.findViewById<TextView>(R.id.textViewDataNascimento)
+        private val textViewSexo = itemView.findViewById<TextView>(R.id.textViewSexo)
+        private val textViewContato = itemView.findViewById<TextView>(R.id.textViewContato)
+
+        fun atualizaPaciente(paciente: Paciente){
+            textViewNome.text = paciente.nome
+            textViewDataNascimento.text = paciente.data_nascimento.toString()
+            textViewSexo.text = paciente.sexo
+            textViewContato.text = paciente.contacto
+        }
 
     }
 
@@ -34,7 +46,9 @@ class AdapterPacientes(var cursor: Cursor? = null) : RecyclerView.Adapter<Adapte
      * @see .onBindViewHolder
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderPacientes {
-        TODO("Not yet implemented")
+        val itemPacientes = fragment.layoutInflater.inflate(R.layout.item_paciente, parent, false)
+
+        return ViewHolderPacientes((itemPacientes))
     }
 
     /**
@@ -59,7 +73,8 @@ class AdapterPacientes(var cursor: Cursor? = null) : RecyclerView.Adapter<Adapte
      * @param position The position of the item within the adapter's data set.
      */
     override fun onBindViewHolder(holder: ViewHolderPacientes, position: Int) {
-        TODO("Not yet implemented")
+        cursor!!.moveToPosition(position)
+        holder.atualizaPaciente(Paciente.fromCursor(cursor!!))
     }
 
     /**
@@ -68,7 +83,7 @@ class AdapterPacientes(var cursor: Cursor? = null) : RecyclerView.Adapter<Adapte
      * @return The total number of items in this adapter.
      */
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return cursor?.count ?: 0
     }
 
 }

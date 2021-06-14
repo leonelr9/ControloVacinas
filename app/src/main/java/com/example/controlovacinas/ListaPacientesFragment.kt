@@ -40,7 +40,7 @@ class ListaPacientesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerViewPaciente = view.findViewById<RecyclerView>(R.id.recyclerViewPacientes)
-        adapterPacientes = AdapterPacientes()
+        adapterPacientes = AdapterPacientes(this)
         recyclerViewPaciente.adapter = adapterPacientes
         recyclerViewPaciente.layoutManager = LinearLayoutManager(requireContext())
 

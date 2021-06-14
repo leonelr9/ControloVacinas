@@ -195,7 +195,7 @@ class TestesBaseDados {
         val db = getBdControloVacinasOpenHelper().writableDatabase
         val tabelaPaciente= TabelaPaciente(db)
 
-        val paciente = Paciente(nome = "José", data_nascimento = Data(1970,2,20), sexo = "Masculino", contacto = "961258976")
+        val paciente = Paciente(nome = "José Alberto Martins", data_nascimento = Data(1970,2,20), sexo = "Masculino", contacto = "961258976")
         paciente.id = inserePaciente(tabelaPaciente, paciente)
 
         assertEquals(paciente, getPacienteBaseDados(tabelaPaciente, paciente.id))

@@ -1,11 +1,11 @@
 package com.example.controlovacinas
 
+import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterPacientes : RecyclerView.Adapter<AdapterPacientes.ViewHolderPacientes>(){
+class AdapterPacientes(var cursor: Cursor? = null) : RecyclerView.Adapter<AdapterPacientes.ViewHolderPacientes>(){
     class ViewHolderPacientes(itemView: View) : RecyclerView.ViewHolder(itemView){
 
     }

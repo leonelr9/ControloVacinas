@@ -27,11 +27,11 @@ data class Vacina (var id: Long = -1, var num_lote: String, var data_vacinacao: 
 
             val id = cursor.getLong(colId)
             val num_lote = cursor.getString(colNum_Lote)
-            val data_vacinacao = cursor.getLong(colData)
+            val data_vacinacao = Date(cursor.getLong(colData))
             val idPaciente = cursor.getLong(colIdPaciente)
             val idFabricante = cursor.getLong(colIdFabricante)
 
-            return Vacina(id, num_lote, Date(data_vacinacao), idPaciente, idFabricante)
+            return Vacina(id, num_lote, data_vacinacao, idPaciente, idFabricante)
         }
     }
 }

@@ -29,12 +29,12 @@ data class Paciente(var id:Long = -1, var nome: String, var data_nascimento: Dat
 
             val id = cursor.getLong(colId)
             val nome = cursor.getString(colNome)
-            val data = cursor.getLong(colData)
+            val data = Date(cursor.getLong(colData))
             val sexo = cursor.getString(colSexo)
             val contacto = cursor.getString(colContacto)
 
 
-            return Paciente(id, nome, Date(data), sexo, contacto)
+            return Paciente(id, nome, data, sexo, contacto)
         }
     }
 }

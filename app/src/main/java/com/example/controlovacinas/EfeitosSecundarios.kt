@@ -7,13 +7,13 @@ import android.provider.BaseColumns
 data class EfeitosSecundarios (var id: Long = -1, var febre: Boolean, var fadiga: Boolean, var dor_cabeca: Boolean, var dores_mosculares: Boolean, var calafrios: Boolean, var diarreia: Boolean, var dor_braco: Boolean, var outro: String, var idVacina: Long){
     fun toContentValues(): ContentValues {
         val valores = ContentValues().apply {
-            put(TabelaEfeitosSecundarios.FEBRE, febre)
-            put(TabelaEfeitosSecundarios.FADIGA, fadiga)
-            put(TabelaEfeitosSecundarios.DOR_CABECA, dor_cabeca)
-            put(TabelaEfeitosSecundarios.DORES_MOSCULARES, dores_mosculares)
-            put(TabelaEfeitosSecundarios.CALAFRIOS, calafrios)
-            put(TabelaEfeitosSecundarios.DIARREIA, diarreia)
-            put(TabelaEfeitosSecundarios.DOR_BRACO, dor_braco)
+            put(TabelaEfeitosSecundarios.FEBRE, if(febre) 1 else 0)
+            put(TabelaEfeitosSecundarios.FADIGA, if(fadiga) 1 else 0)
+            put(TabelaEfeitosSecundarios.DOR_CABECA, if(dor_cabeca) 1 else 0)
+            put(TabelaEfeitosSecundarios.DORES_MOSCULARES, if(dores_mosculares) 1 else 0)
+            put(TabelaEfeitosSecundarios.CALAFRIOS, if(calafrios) 1 else 0)
+            put(TabelaEfeitosSecundarios.DIARREIA, if(diarreia) 1 else 0)
+            put(TabelaEfeitosSecundarios.DOR_BRACO, if(dor_braco) 1 else 0)
             put(TabelaEfeitosSecundarios.OUTRO, outro)
             put(TabelaEfeitosSecundarios.CAMPO_ID_VACINA, idVacina)
         }
@@ -35,13 +35,13 @@ data class EfeitosSecundarios (var id: Long = -1, var febre: Boolean, var fadiga
             val colIdVacina = cursor.getColumnIndex(TabelaEfeitosSecundarios.CAMPO_ID_VACINA)
 
             val id = cursor.getLong(colId)
-            val febre = cursor.equals(colFebre)
-            val fadiga = cursor.equals(colFadiga)
-            val dor_cabeca = cursor.equals(colDor_Cabeca)
-            val dores_mosculares = cursor.equals(colDores_Mosculares)
-            val calafrios = cursor.equals(colCalafrios)
-            val diarreia = cursor.equals(colDiarreia)
-            val dor_braco = cursor.equals(colDor_Braco)
+            val febre = if (cursor.getInt(colFebre)== 1) true else false
+            val fadiga = if (cursor.getInt(colFadiga)== 1) true else false
+            val dor_cabeca = if (cursor.getInt(colDor_Cabeca)== 1) true else false
+            val dores_mosculares = if (cursor.getInt(colDores_Mosculares)== 1) true else false
+            val calafrios = if (cursor.getInt(colCalafrios)== 1) true else false
+            val diarreia = if (cursor.getInt(colDiarreia)== 1) true else false
+            val dor_braco = if (cursor.getInt(colDor_Braco)== 1) true else false
             val outro = cursor.getString(colOutro)
             val idVacina = cursor.getLong(colIdVacina)
 

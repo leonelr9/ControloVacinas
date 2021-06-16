@@ -111,7 +111,7 @@ class TestesBaseDados {
 
     @Before
     fun apagaBaseDados(){
-        getAppContext().deleteDatabase(BdControloVacinasOpenHelper.NOME_BASE_DADOS)
+       getAppContext().deleteDatabase(BdControloVacinasOpenHelper.NOME_BASE_DADOS)
     }
 
     @Test
@@ -390,10 +390,10 @@ class TestesBaseDados {
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)
-        val efeitosSecundarios = EfeitosSecundarios(febre = false, fadiga = true, dor_cabeca = true, dores_mosculares = true, calafrios = false, diarreia = false, dor_braco = false, outro = "", idVacina = vacina.id)
+        val efeitosSecundarios = EfeitosSecundarios(febre = false, fadiga = true, dor_cabeca = true, dores_mosculares = true, calafrios = false, diarreia = false, dor_braco = false, outro = "0", idVacina = vacina.id)
         efeitosSecundarios.id = insereEfeitosSecundarios(tabelaEfeitosSecundarios, efeitosSecundarios)
 
-        assertEquals(fabricante, getFabricanteBaseDados(tabelaFabricante, fabricante.id))
+        assertEquals(efeitosSecundarios, getEfeitosSecundariosBaseDados(tabelaEfeitosSecundarios, efeitosSecundarios.id))
 
         db.close()
     }
@@ -431,7 +431,7 @@ class TestesBaseDados {
 
         assertEquals(1, registosAlterados)
 
-        assertEquals(vacina, getVacinaBaseDados(tabelaVacina, vacina.id))
+        assertEquals(efeitosSecundarios, getEfeitosSecundariosBaseDados(tabelaEfeitosSecundarios, efeitosSecundarios.id))
 
         db.close()
     }
@@ -487,7 +487,7 @@ class TestesBaseDados {
         val efeitosSecundarios = EfeitosSecundarios(febre = true, fadiga = true, dor_cabeca = true, dores_mosculares = false, calafrios = false, diarreia = false, dor_braco = true, outro = "Tonturas", idVacina = vacina.id)
         efeitosSecundarios.id = insereEfeitosSecundarios(tabelaEfeitosSecundarios, efeitosSecundarios)
 
-        assertEquals(fabricante, getFabricanteBaseDados(tabelaFabricante, fabricante.id))
+        assertEquals(efeitosSecundarios, getEfeitosSecundariosBaseDados(tabelaEfeitosSecundarios, efeitosSecundarios.id))
 
         db.close()
     }

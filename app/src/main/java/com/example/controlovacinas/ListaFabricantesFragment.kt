@@ -35,7 +35,7 @@ class ListaFabricantesFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerViewFabricante = view.findViewById<RecyclerView>(R.id.recyclerViewFabricantes)
-        adapterFabricantes = AdapterFabricantes()
+        adapterFabricantes = AdapterFabricantes(this)
         recyclerViewFabricante.adapter = adapterFabricantes
         recyclerViewFabricante.layoutManager = LinearLayoutManager(requireContext())
 

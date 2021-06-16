@@ -3,10 +3,16 @@ package com.example.controlovacinas
 import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterFabricantes(var cursor: Cursor? = null) : RecyclerView.Adapter<AdapterFabricantes.ViewHolderFabricantes>(){
+class AdapterFabricantes(val fragment: ListaFabricantesFragment, var cursor: Cursor? = null) : RecyclerView.Adapter<AdapterFabricantes.ViewHolderFabricantes>(){
     class ViewHolderFabricantes(itemView: View) :RecyclerView.ViewHolder(itemView){
+        private val textViewNomeFabricante = itemView.findViewById<TextView>(R.id.textViewNomeFabricante)
+
+        fun atualizaFabricante(fabricante: Fabricante){
+            textViewNomeFabricante.text = fabricante.nome
+        }
 
     }
 
@@ -34,7 +40,9 @@ class AdapterFabricantes(var cursor: Cursor? = null) : RecyclerView.Adapter<Adap
      * @see .onBindViewHolder
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderFabricantes {
-        TODO("Not yet implemented")
+        val itemFabricante = fragment.layoutInflater.inflate(R.layout.item_fabricante, parent, false)
+
+        return ViewHolderFabricantes(itemFabricante)
     }
 
     /**
@@ -59,7 +67,8 @@ class AdapterFabricantes(var cursor: Cursor? = null) : RecyclerView.Adapter<Adap
      * @param position The position of the item within the adapter's data set.
      */
     override fun onBindViewHolder(holder: ViewHolderFabricantes, position: Int) {
-        TODO("Not yet implemented")
+        cursor!!.moveToPosition(position)
+        holder.atualizaFabricante(Fabricante.fromCursor(cursor!!))
     }
 
     /**
@@ -68,7 +77,7 @@ class AdapterFabricantes(var cursor: Cursor? = null) : RecyclerView.Adapter<Adap
      * @return The total number of items in this adapter.
      */
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return cursor?.count ?: 0
     }
 
 }

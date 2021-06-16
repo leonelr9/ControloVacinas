@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.recyclerview.widget.RecyclerView
 import com.example.controlovacinas.databinding.FragmentListaFabricantesBinding
 
 
@@ -31,8 +32,9 @@ class ListaFabricantesFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        LoaderManager.getInstance(this)
-            .initLoader(ID_LOADER_MANAGER_FABRICANTES, null, this)
+        val recyclerViewFabricante = view.findViewById<RecyclerView>(R.id.recyclerViewFabricantes)
+
+        LoaderManager.getInstance(this).initLoader(ID_LOADER_MANAGER_FABRICANTES, null, this)
 
 //            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
     }

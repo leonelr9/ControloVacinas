@@ -36,4 +36,9 @@
             android:id="@+id/action_listaFabricantesFragment_to_PaginaInicialFragment"
             app:destination="@id/PaginaInicialFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/listaVacinasFragment"
+        android:name="com.example.controlovacinas.ListaVacinasFragment"
+        android:label="fragment_lista_vacinas"
+        tools:layout="@layout/fragment_lista_vacinas" />
 </navigation>

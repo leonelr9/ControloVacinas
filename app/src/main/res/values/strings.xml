@@ -15,4 +15,6 @@
     <string name="nome">Nome:</string>
     <string name="pacientes">Pacientes</string>
     <string name="fabricantes">Fabricantes</string>
+    <string name="numero_do_lote">Numero do Lote:</string>
+    <string name="data_da_vacinacao">Data da vacinação:</string>
 </resources>

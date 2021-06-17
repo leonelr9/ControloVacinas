@@ -33,7 +33,7 @@ class ListaVacinasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerViewVacinas = view.findViewById<RecyclerView>(R.id.recyclerViewVacinas)
-        adapterVacinas = AdapterVacinas()
+        adapterVacinas = AdapterVacinas(this)
         recyclerViewVacinas.adapter = adapterVacinas
         recyclerViewVacinas.layoutManager = LinearLayoutManager(requireContext())
 

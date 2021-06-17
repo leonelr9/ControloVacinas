@@ -3,10 +3,18 @@ package com.example.controlovacinas
 import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterVacinas(var cursor: Cursor? = null) : RecyclerView.Adapter<AdapterVacinas.ViewHolderVacina>() {
+class AdapterVacinas(val fragment: ListaVacinasFragment, var cursor: Cursor? = null) : RecyclerView.Adapter<AdapterVacinas.ViewHolderVacina>() {
     class ViewHolderVacina(itemView: View) : RecyclerView.ViewHolder(itemView){
+        private val textViewNumLote = itemView.findViewById<TextView>(R.id.textViewNumLote)
+        private val textViewDataVacinacao = itemView.findViewById<TextView>(R.id.textViewDataVacinacao)
+
+        fun atualizaVacina(vacina: Vacina){
+            textViewNumLote.text = vacina.num_lote
+            textViewDataVacinacao.text = vacina.data_vacinacao.toString()
+        }
 
     }
 
@@ -34,7 +42,9 @@ class AdapterVacinas(var cursor: Cursor? = null) : RecyclerView.Adapter<AdapterV
      * @see .onBindViewHolder
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderVacina {
-        TODO("Not yet implemented")
+        val itemVacinas = fragment.layoutInflater.inflate(R.layout.item_vacina, parent,false)
+
+        return ViewHolderVacina(itemVacinas)
     }
 
     /**
@@ -59,7 +69,8 @@ class AdapterVacinas(var cursor: Cursor? = null) : RecyclerView.Adapter<AdapterV
      * @param position The position of the item within the adapter's data set.
      */
     override fun onBindViewHolder(holder: ViewHolderVacina, position: Int) {
-        TODO("Not yet implemented")
+        cursor!!.moveToPosition(position)
+        holder.atualizaVacina(Vacina.fromCursor(cursor!!))
     }
 
     /**
@@ -68,6 +79,6 @@ class AdapterVacinas(var cursor: Cursor? = null) : RecyclerView.Adapter<AdapterV
      * @return The total number of items in this adapter.
      */
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return cursor?.count ?: 0
     }
 }

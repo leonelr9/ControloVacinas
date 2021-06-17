@@ -26,11 +26,11 @@
         android:text="@string/data_da_vacinacao"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintStart_toStartOf="@+id/textViewNumLote"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNumLote" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewNumLote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margem_campos"
@@ -39,7 +39,7 @@
         tools:text="AB1257" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textViewDataVacinacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margem_campos"

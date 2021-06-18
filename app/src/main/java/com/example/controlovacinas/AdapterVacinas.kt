@@ -6,7 +6,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterVacinas(val fragment: ListaVacinasFragment, var cursor: Cursor? = null) : RecyclerView.Adapter<AdapterVacinas.ViewHolderVacina>() {
+class AdapterVacinas(val fragment: ListaVacinasFragment) : RecyclerView.Adapter<AdapterVacinas.ViewHolderVacina>() {
+    public var cursor: Cursor? = null
+        get() = field
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
     class ViewHolderVacina(itemView: View) : RecyclerView.ViewHolder(itemView){
         private val textViewNumLote = itemView.findViewById<TextView>(R.id.textViewNumLote)
         private val textViewDataVacinacao = itemView.findViewById<TextView>(R.id.textViewDataVacinacao)

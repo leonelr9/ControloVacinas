@@ -6,7 +6,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterFabricantes(val fragment: ListaFabricantesFragment, var cursor: Cursor? = null) : RecyclerView.Adapter<AdapterFabricantes.ViewHolderFabricantes>(){
+class AdapterFabricantes(val fragment: ListaFabricantesFragment) : RecyclerView.Adapter<AdapterFabricantes.ViewHolderFabricantes>(){
+    public var cursor: Cursor? = null
+        get() = field
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
     class ViewHolderFabricantes(itemView: View) :RecyclerView.ViewHolder(itemView){
         private val textViewNomeFabricante = itemView.findViewById<TextView>(R.id.textViewNomeFabricante)
 

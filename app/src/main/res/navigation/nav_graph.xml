@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_PaginaInicialFragment_to_ListaFabricantesFragment"
             app:destination="@id/listaFabricantesFragment" />
+        <action
+            android:id="@+id/action_PaginaInicialFragment_to_listaVacinasFragment"
+            app:destination="@id/listaVacinasFragment" />
     </fragment>
     <fragment
         android:id="@+id/listaFabricantesFragment"
@@ -40,5 +43,9 @@
         android:id="@+id/listaVacinasFragment"
         android:name="com.example.controlovacinas.ListaVacinasFragment"
         android:label="fragment_lista_vacinas"
-        tools:layout="@layout/fragment_lista_vacinas" />
+        tools:layout="@layout/fragment_lista_vacinas" >
+        <action
+            android:id="@+id/action_listaVacinasFragment_to_PaginaInicialFragment"
+            app:destination="@id/PaginaInicialFragment" />
+    </fragment>
 </navigation>

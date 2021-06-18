@@ -17,4 +17,5 @@
     <string name="fabricantes">Fabricantes</string>
     <string name="numero_do_lote">Numero do Lote:</string>
     <string name="data_da_vacinacao">Data da vacinação:</string>
+    <string name="vacinas">Vacinas</string>
 </resources>

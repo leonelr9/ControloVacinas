@@ -39,6 +39,10 @@ class PaginaInicialFragment : Fragment() {
         binding.buttonFabricantes.setOnClickListener{
             findNavController().navigate(R.id.action_PaginaInicialFragment_to_ListaFabricantesFragment)
         }
+
+        binding.buttonVacinas.setOnClickListener{
+            findNavController().navigate(R.id.action_PaginaInicialFragment_to_listaVacinasFragment)
+        }
     }
 
     override fun onDestroyView() {

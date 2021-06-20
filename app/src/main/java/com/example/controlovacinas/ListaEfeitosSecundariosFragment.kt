@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.Loader
+import androidx.recyclerview.widget.RecyclerView
 import com.example.controlovacinas.databinding.FragmentListaEfeitosSecundariosBinding
 
 
@@ -30,6 +31,8 @@ class ListaEfeitosSecundariosFragment : Fragment(), LoaderManager.LoaderCallback
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val recyclerViewEfeitosSecundarios = view.findViewById<RecyclerView>(R.id.recyclerViewEfeitosSecundarios)
 
         LoaderManager.getInstance(this).initLoader(ID_LOADER_MANAGER_EFEITOS_SECUNDARIOS, null, this)
 

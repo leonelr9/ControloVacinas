@@ -6,6 +6,7 @@
     tools:context=".ListaEfeitosSecundariosFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewEfeitosSecundarios"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/margem_ecran" />

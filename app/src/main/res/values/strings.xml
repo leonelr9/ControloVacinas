@@ -18,4 +18,12 @@
     <string name="numero_do_lote">Numero do Lote:</string>
     <string name="data_da_vacinacao">Data da vacinação:</string>
     <string name="vacinas">Vacinas</string>
+    <string name="dor_no_braco">Dor no Braço</string>
+    <string name="calafrios">Calafrios</string>
+    <string name="dores_mosculares">Dores Mosculares</string>
+    <string name="diarreia">Diarreia</string>
+    <string name="dor_de_cabeca">Dor de cabeça</string>
+    <string name="fadiga">Fadiga</string>
+    <string name="outros">Outros:</string>
+    <string name="febre">Febre</string>
 </resources>

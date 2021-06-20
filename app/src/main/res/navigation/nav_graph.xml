@@ -48,4 +48,9 @@
             android:id="@+id/action_listaVacinasFragment_to_PaginaInicialFragment"
             app:destination="@id/PaginaInicialFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/listaEfeitosSecundariosFragment"
+        android:name="com.example.controlovacinas.ListaEfeitosSecundariosFragment"
+        android:label="fragment_lista_efeitos_secundarios"
+        tools:layout="@layout/fragment_lista_efeitos_secundarios" />
 </navigation>

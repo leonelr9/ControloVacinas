@@ -27,13 +27,20 @@ class AdapterEfeitosSecundarios(val fragment: ListaEfeitosSecundariosFragment) :
         private val textViewOutros = itemView.findViewById<TextView>(R.id.textViewOutrosSintomas)
 
         fun atualizaEfeitosSecundarios(efeitosSecundarios: EfeitosSecundarios){
-            checkBoxFebre.text = efeitosSecundarios.febre.toString()
-            checkBoxFadiga.text = efeitosSecundarios.fadiga.toString()
-            checkBoxDorCabeca.text = efeitosSecundarios.dor_cabeca.toString()
-            checkBoxDoresMosculares.text = efeitosSecundarios.dores_mosculares.toString()
-            checkBoxCalafrios.text = efeitosSecundarios.calafrios.toString()
-            checkBoxDiarreia.text = efeitosSecundarios.diarreia.toString()
-            checkBoxDorBraco.text = efeitosSecundarios.dor_braco.toString()
+            checkBoxFebre.isChecked = efeitosSecundarios.febre
+            checkBoxFebre.isClickable = false
+            checkBoxFadiga.isChecked = efeitosSecundarios.fadiga
+            checkBoxFadiga.isClickable = false
+            checkBoxDorCabeca.isChecked = efeitosSecundarios.dor_cabeca
+            checkBoxDorCabeca.isClickable = false
+            checkBoxDoresMosculares.isChecked = efeitosSecundarios.dores_mosculares
+            checkBoxDoresMosculares.isClickable = false
+            checkBoxCalafrios.isChecked = efeitosSecundarios.calafrios
+            checkBoxCalafrios.isClickable = false
+            checkBoxDiarreia.isChecked = efeitosSecundarios.diarreia
+            checkBoxDiarreia.isClickable = false
+            checkBoxDorBraco.isChecked = efeitosSecundarios.dor_braco
+            checkBoxDorBraco.isClickable = false
             textViewOutros.text = efeitosSecundarios.outro
 
         }

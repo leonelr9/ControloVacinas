@@ -34,7 +34,7 @@ class TestesBaseDados {
     private fun getFabricanteBaseDados(tabela: TabelaFabricante, id: Long): Fabricante {
         val cursor = tabela.query(
             TabelaFabricante.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaFabricante.NOME_TABELA}.${BaseColumns._ID}=?",
             arrayOf(id.toString()),
             null, null, null
         )
@@ -56,7 +56,7 @@ class TestesBaseDados {
     private fun getPacienteBaseDados(tabela: TabelaPaciente, id: Long): Paciente {
         val cursor = tabela.query(
             TabelaPaciente.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaPaciente.NOME_TABELA}.${BaseColumns._ID}=?",
             arrayOf(id.toString()),
             null, null, null
         )
@@ -77,7 +77,7 @@ class TestesBaseDados {
     private fun getVacinaBaseDados(tabela: TabelaVacina, id: Long): Vacina {
         val cursor = tabela.query(
             TabelaVacina.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaVacina.NOME_TABELA}.${BaseColumns._ID}=?",
             arrayOf(id.toString()),
             null, null, null
         )
@@ -98,7 +98,7 @@ class TestesBaseDados {
     private fun getEfeitosSecundariosBaseDados(tabela: TabelaEfeitosSecundarios, id: Long): EfeitosSecundarios {
         val cursor = tabela.query(
             TabelaEfeitosSecundarios.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaEfeitosSecundarios.NOME_TABELA}.${BaseColumns._ID}=?",
             arrayOf(id.toString()),
             null, null, null
         )

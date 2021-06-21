@@ -37,7 +37,7 @@ class ListaEfeitosSecundariosFragment : Fragment(), LoaderManager.LoaderCallback
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerViewEfeitosSecundarios = view.findViewById<RecyclerView>(R.id.recyclerViewEfeitosSecundarios)
-        adapterEfeitosSecundarios = AdapterEfeitosSecundarios()
+        adapterEfeitosSecundarios = AdapterEfeitosSecundarios(this)
         recyclerViewEfeitosSecundarios.adapter = adapterEfeitosSecundarios
         recyclerViewEfeitosSecundarios.layoutManager = LinearLayoutManager(requireContext())
 

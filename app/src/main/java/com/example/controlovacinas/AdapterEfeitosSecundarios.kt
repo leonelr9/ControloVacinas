@@ -1,12 +1,42 @@
 package com.example.controlovacinas
 
 import android.database.Cursor
+import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterEfeitosSecundarios(var cursor: Cursor? = null) : RecyclerView.Adapter<AdapterEfeitosSecundarios.ViewHolderEfeitosSecundarios>(){
+class AdapterEfeitosSecundarios(val fragment: ListaEfeitosSecundariosFragment) : RecyclerView.Adapter<AdapterEfeitosSecundarios.ViewHolderEfeitosSecundarios>(){
+    public var cursor: Cursor? = null
+        get() = field
+    set(value) {
+        field = value
+        notifyDataSetChanged()
+    }
+
     class ViewHolderEfeitosSecundarios(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val checkBoxFebre = itemView.findViewById<CheckBox>(R.id.checkBoxFebre)
+        private val checkBoxFadiga = itemView.findViewById<CheckBox>(R.id.checkBoxFadiga)
+        private val checkBoxDorCabeca = itemView.findViewById<CheckBox>(R.id.checkBoxDorCabeca)
+        private val checkBoxDoresMosculares = itemView.findViewById<CheckBox>(R.id.checkBoxDoresMosculares)
+        private val checkBoxCalafrios = itemView.findViewById<CheckBox>(R.id.checkBoxCalafrios)
+        private val checkBoxDiarreia = itemView.findViewById<CheckBox>(R.id.checkBoxDiarreia)
+        private val checkBoxDorBraco = itemView.findViewById<CheckBox>(R.id.checkBoxDorBraco)
+        private val textViewOutros = itemView.findViewById<TextView>(R.id.textViewOutrosSintomas)
+
+        fun atualizaEfeitosSecundarios(efeitosSecundarios: EfeitosSecundarios){
+            checkBoxFebre.text = efeitosSecundarios.febre.toString()
+            checkBoxFadiga.text = efeitosSecundarios.fadiga.toString()
+            checkBoxDorCabeca.text = efeitosSecundarios.dor_cabeca.toString()
+            checkBoxDoresMosculares.text = efeitosSecundarios.dores_mosculares.toString()
+            checkBoxCalafrios.text = efeitosSecundarios.calafrios.toString()
+            checkBoxDiarreia.text = efeitosSecundarios.diarreia.toString()
+            checkBoxDorBraco.text = efeitosSecundarios.dor_braco.toString()
+            textViewOutros.text = efeitosSecundarios.outro
+
+        }
 
     }
 
@@ -33,11 +63,10 @@ class AdapterEfeitosSecundarios(var cursor: Cursor? = null) : RecyclerView.Adapt
      * @see .getItemViewType
      * @see .onBindViewHolder
      */
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): AdapterEfeitosSecundarios.ViewHolderEfeitosSecundarios {
-        TODO("Not yet implemented")
+    override fun onCreateViewHolder(parent: ViewGroup,viewType: Int): ViewHolderEfeitosSecundarios {
+        val itemEfeitosSecundarios = fragment.layoutInflater.inflate(R.layout.item_efeitos_secundarios,parent, false)
+
+        return ViewHolderEfeitosSecundarios(itemEfeitosSecundarios)
     }
 
     /**
@@ -61,11 +90,9 @@ class AdapterEfeitosSecundarios(var cursor: Cursor? = null) : RecyclerView.Adapt
      * item at the given position in the data set.
      * @param position The position of the item within the adapter's data set.
      */
-    override fun onBindViewHolder(
-        holder: AdapterEfeitosSecundarios.ViewHolderEfeitosSecundarios,
-        position: Int
-    ) {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(holder: ViewHolderEfeitosSecundarios, position: Int) {
+        cursor!!.moveToPosition(position)
+        holder.atualizaEfeitosSecundarios(EfeitosSecundarios.fromCursor(cursor!!))
     }
 
     /**
@@ -74,6 +101,6 @@ class AdapterEfeitosSecundarios(var cursor: Cursor? = null) : RecyclerView.Adapt
      * @return The total number of items in this adapter.
      */
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return cursor?.count ?: 0
     }
 }

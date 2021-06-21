@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_PaginaInicialFragment_to_listaVacinasFragment"
             app:destination="@id/listaVacinasFragment" />
+        <action
+            android:id="@+id/action_PaginaInicialFragment_to_listaEfeitosSecundariosFragment"
+            app:destination="@id/listaEfeitosSecundariosFragment" />
     </fragment>
     <fragment
         android:id="@+id/listaFabricantesFragment"
@@ -42,7 +45,7 @@
     <fragment
         android:id="@+id/listaVacinasFragment"
         android:name="com.example.controlovacinas.ListaVacinasFragment"
-        android:label="fragment_lista_vacinas"
+        android:label="@string/lista_vacinas_label"
         tools:layout="@layout/fragment_lista_vacinas" >
         <action
             android:id="@+id/action_listaVacinasFragment_to_PaginaInicialFragment"
@@ -51,6 +54,10 @@
     <fragment
         android:id="@+id/listaEfeitosSecundariosFragment"
         android:name="com.example.controlovacinas.ListaEfeitosSecundariosFragment"
-        android:label="fragment_lista_efeitos_secundarios"
-        tools:layout="@layout/fragment_lista_efeitos_secundarios" />
+        android:label="@string/lista_efeitos_secundarios_label"
+        tools:layout="@layout/fragment_lista_efeitos_secundarios" >
+        <action
+            android:id="@+id/action_listaEfeitosSecundariosFragment_to_PaginaInicialFragment"
+            app:destination="@id/PaginaInicialFragment" />
+    </fragment>
 </navigation>

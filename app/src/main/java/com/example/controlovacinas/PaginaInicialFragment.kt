@@ -43,6 +43,10 @@ class PaginaInicialFragment : Fragment() {
         binding.buttonVacinas.setOnClickListener{
             findNavController().navigate(R.id.action_PaginaInicialFragment_to_listaVacinasFragment)
         }
+
+        binding.buttonEfeitosSecundarios.setOnClickListener{
+            findNavController().navigate(R.id.action_PaginaInicialFragment_to_listaEfeitosSecundariosFragment)
+        }
     }
 
     override fun onDestroyView() {

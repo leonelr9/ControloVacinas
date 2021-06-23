@@ -17,10 +17,12 @@ class AdapterVacinas(val fragment: ListaVacinasFragment) : RecyclerView.Adapter<
     class ViewHolderVacina(itemView: View) : RecyclerView.ViewHolder(itemView){
         private val textViewNumLote = itemView.findViewById<TextView>(R.id.textViewNumLote)
         private val textViewDataVacinacao = itemView.findViewById<TextView>(R.id.textViewDataVacinacao)
+        private val textViewNomePaciente = itemView.findViewById<TextView>(R.id.textViewNomePaciente)
 
         fun atualizaVacina(vacina: Vacina){
             textViewNumLote.text = vacina.num_lote
             textViewDataVacinacao.text = vacina.data_vacinacao.toString()
+            textViewNomePaciente.text = vacina.nomePaciente
         }
 
     }

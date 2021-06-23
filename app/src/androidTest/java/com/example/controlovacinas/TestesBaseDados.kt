@@ -111,7 +111,7 @@ class TestesBaseDados {
 
     @Before
     fun apagaBaseDados(){
-       getAppContext().deleteDatabase(BdControloVacinasOpenHelper.NOME_BASE_DADOS)
+       //getAppContext().deleteDatabase(BdControloVacinasOpenHelper.NOME_BASE_DADOS)
     }
 
     @Test
@@ -273,7 +273,12 @@ class TestesBaseDados {
         paciente.id = inserePaciente(tabelaPaciente, paciente)
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = Data(2021,6,1), idPaciente = paciente.id, idFabricante = fabricante.id)
+        val vacina = Vacina(
+            num_lote = "AB1257",
+            data_vacinacao = Data(2021,6,1),
+            idPaciente = paciente.id,
+            nomePaciente = paciente.nome, //Apenas para testes
+            idFabricante = fabricante.id)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         assertEquals(vacina, getVacinaBaseDados(tabelaVacina, vacina.id))
@@ -303,12 +308,18 @@ class TestesBaseDados {
 
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "?", data_vacinacao = Data(2000,1,1) , idPaciente = pacienteJonas.id, idFabricante = fabricanteModerna.id)
+        val vacina = Vacina(
+            num_lote = "?",
+            data_vacinacao = Data(2000,1,1) ,
+            idPaciente = pacienteJonas.id,
+            nomePaciente = pacienteJonas.nome, //Apenas para testes
+            idFabricante = fabricanteModerna.id)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         vacina.num_lote = "MO5158L"
         vacina.data_vacinacao = Data(2021,6,1)
         vacina.idPaciente = pacienteRute.id
+        vacina.nomePaciente = pacienteRute.nome //Apenas para testes
         vacina.idFabricante = fabricantePfizer.id
 
         val registosAlterados = tabelaVacina.update(
@@ -338,7 +349,12 @@ class TestesBaseDados {
 
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "PP1257", data_vacinacao = Data(2021,4,23), idPaciente = paciente.id, idFabricante = fabricante.id)
+        val vacina = Vacina(
+            num_lote = "PP1257",
+            data_vacinacao = Data(2021,4,23),
+            idPaciente = paciente.id,
+            nomePaciente = paciente.nome, //Apenas para testes
+            idFabricante = fabricante.id)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val registosEliminados = tabelaVacina.delete(
@@ -364,7 +380,12 @@ class TestesBaseDados {
         paciente.id = inserePaciente(tabelaPaciente, paciente)
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "UC12897", data_vacinacao = Data(2021,4,5), idPaciente = paciente.id, idFabricante = fabricante.id)
+        val vacina = Vacina(
+            num_lote = "UC12897",
+            data_vacinacao = Data(2021,4,5),
+            idPaciente = paciente.id,
+            nomePaciente = paciente.nome, //Apenas para testes
+            idFabricante = fabricante.id)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         assertEquals(vacina, getVacinaBaseDados(tabelaVacina, vacina.id))

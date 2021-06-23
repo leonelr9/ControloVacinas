@@ -5,7 +5,7 @@ import android.database.Cursor
 import android.provider.BaseColumns
 import java.util.*
 
-data class Vacina (var id: Long = -1, var num_lote: String, var data_vacinacao: Date, var idPaciente: Long, var idFabricante: Long, var nomePaciente: String?) {
+data class Vacina (var id: Long = -1, var num_lote: String, var data_vacinacao: Date, var idPaciente: Long, var idFabricante: Long, var nomePaciente: String? = null) {
     fun toContentValues(): ContentValues {
         val valores = ContentValues().apply {
             put(TabelaVacina.NUM_LOTE, num_lote)

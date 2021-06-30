@@ -5,7 +5,7 @@ import android.database.Cursor
 import android.provider.BaseColumns
 import java.util.*
 
-data class Vacina (var id: Long = -1, var num_lote: String, var data_vacinacao: Date, var idPaciente: Long, var idFabricante: Long, var nomePaciente: String? = null) {
+data class Vacina (var id: Long = -1, var num_lote: String, var data_vacinacao: Date, var idPaciente: Long, var idFabricante: Long, var nomePaciente: String? = null, var nomeFabricante: String? = null) {
     fun toContentValues(): ContentValues {
         val valores = ContentValues().apply {
             put(TabelaVacina.NUM_LOTE, num_lote)
@@ -25,6 +25,7 @@ data class Vacina (var id: Long = -1, var num_lote: String, var data_vacinacao: 
             val colIdPaciente = cursor.getColumnIndex(TabelaVacina.CAMPO_ID_PACIENTE)
             val colIdFabricante = cursor.getColumnIndex(TabelaVacina.CAMPO_ID_FABRICANTE)
             val colNomePaciente = cursor.getColumnIndex(TabelaVacina.CAMPO_EXTERNO_NOME_PACIENTE)
+            val colNomeFabricante = cursor.getColumnIndex(TabelaVacina.CAMPO_EXTERNO_NOME_FABRICANTE)
 
             val id = cursor.getLong(colId)
             val num_lote = cursor.getString(colNum_Lote)
@@ -32,8 +33,9 @@ data class Vacina (var id: Long = -1, var num_lote: String, var data_vacinacao: 
             val idPaciente = cursor.getLong(colIdPaciente)
             val idFabricante = cursor.getLong(colIdFabricante)
             val nomePaciente = if (colNomePaciente != 1) cursor.getString(colNomePaciente) else null
+            val nomeFabricante = if (colNomeFabricante != 1) cursor.getString(colNomeFabricante) else null
 
-            return Vacina(id, num_lote, data_vacinacao, idPaciente, idFabricante, nomePaciente) 
+            return Vacina(id, num_lote, data_vacinacao, idPaciente, idFabricante, nomePaciente, nomeFabricante)
         }
     }
 }

@@ -278,7 +278,9 @@ class TestesBaseDados {
             data_vacinacao = Data(2021,6,1),
             idPaciente = paciente.id,
             nomePaciente = paciente.nome, //Apenas para testes
-            idFabricante = fabricante.id)
+            idFabricante = fabricante.id,
+            nomeFabricante = fabricante.nome //Apenas para testes
+            )
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         assertEquals(vacina, getVacinaBaseDados(tabelaVacina, vacina.id))
@@ -313,7 +315,9 @@ class TestesBaseDados {
             data_vacinacao = Data(2000,1,1) ,
             idPaciente = pacienteJonas.id,
             nomePaciente = pacienteJonas.nome, //Apenas para testes
-            idFabricante = fabricanteModerna.id)
+            idFabricante = fabricanteModerna.id,
+            nomeFabricante = fabricanteModerna.nome //Apenas para testes
+            )
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         vacina.num_lote = "MO5158L"
@@ -321,6 +325,7 @@ class TestesBaseDados {
         vacina.idPaciente = pacienteRute.id
         vacina.nomePaciente = pacienteRute.nome //Apenas para testes
         vacina.idFabricante = fabricantePfizer.id
+        vacina.nomeFabricante = fabricantePfizer.nome //Apenas para testes
 
         val registosAlterados = tabelaVacina.update(
             vacina.toContentValues(),
@@ -354,7 +359,9 @@ class TestesBaseDados {
             data_vacinacao = Data(2021,4,23),
             idPaciente = paciente.id,
             nomePaciente = paciente.nome, //Apenas para testes
-            idFabricante = fabricante.id)
+            idFabricante = fabricante.id,
+            nomeFabricante = fabricante.nome
+            )
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val registosEliminados = tabelaVacina.delete(
@@ -385,7 +392,9 @@ class TestesBaseDados {
             data_vacinacao = Data(2021,4,5),
             idPaciente = paciente.id,
             nomePaciente = paciente.nome, //Apenas para testes
-            idFabricante = fabricante.id)
+            idFabricante = fabricante.id,
+            nomeFabricante = fabricante.nome
+            )
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         assertEquals(vacina, getVacinaBaseDados(tabelaVacina, vacina.id))

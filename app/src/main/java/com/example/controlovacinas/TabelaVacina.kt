@@ -44,14 +44,20 @@ class TabelaVacina(db: SQLiteDatabase) {
         val ultimaColuna = columns.size - 1
 
         var posColNomePaciente = -1 // -1 indica que a coluna não foi pedida
+        //Acrescentar nova var
+        var posColNomeFabricante = -1
+
         for (i in 0..ultimaColuna) {
             if (columns[i] == CAMPO_EXTERNO_NOME_PACIENTE) {
                 posColNomePaciente = i
-                break
+            }else if (columns[i] == CAMPO_EXTERNO_NOME_FABRICANTE) {
+                posColNomeFabricante = i
             }
+             //Tirar o break e fazer else if
         }
 
-        if (posColNomePaciente == -1) {
+        //No prox if alterar posColNomePaciente ou posColNomeFabricante e depois fazer o return da query
+        if (posColNomePaciente == -1 && posColNomeFabricante == -1 ) {
             return db.query(NOME_TABELA, columns, selection, selectionArgs, groupBy, having, orderBy)
         }
 
@@ -61,12 +67,14 @@ class TabelaVacina(db: SQLiteDatabase) {
 
             colunas += if (i == posColNomePaciente) {
                 "${TabelaPaciente.NOME_TABELA}.${TabelaPaciente.NOME} AS $CAMPO_EXTERNO_NOME_PACIENTE"
+            } else if (i == posColNomeFabricante) {
+                "${TabelaFabricante.NOME_TABELA}.${TabelaFabricante.NOME} AS $CAMPO_EXTERNO_NOME_FABRICANTE"
             } else {
                 "${NOME_TABELA}.${columns[i]}"
             }
         }
 
-        val tabelas = "$NOME_TABELA INNER JOIN ${TabelaPaciente.NOME_TABELA} ON ${TabelaPaciente.NOME_TABELA}.${BaseColumns._ID}=${CAMPO_ID_PACIENTE}"
+        val tabelas = "$NOME_TABELA INNER JOIN ${TabelaPaciente.NOME_TABELA} ON ${TabelaPaciente.NOME_TABELA}.${BaseColumns._ID}=${CAMPO_ID_PACIENTE} INNER JOIN ${TabelaFabricante.NOME_TABELA} ON ${TabelaFabricante.NOME_TABELA}.${BaseColumns._ID}=${CAMPO_ID_FABRICANTE}"
 
         var sql = "SELECT $colunas FROM $tabelas"
 
@@ -92,6 +100,6 @@ class TabelaVacina(db: SQLiteDatabase) {
         const val CAMPO_EXTERNO_NOME_FABRICANTE = "nome_fabricante"
 
 
-        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, NUM_LOTE, DATA_VACINACAO, CAMPO_ID_PACIENTE, CAMPO_ID_FABRICANTE, CAMPO_EXTERNO_NOME_PACIENTE)
+        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, NUM_LOTE, DATA_VACINACAO, CAMPO_ID_PACIENTE, CAMPO_ID_FABRICANTE, CAMPO_EXTERNO_NOME_PACIENTE, CAMPO_EXTERNO_NOME_FABRICANTE)
     }
 }

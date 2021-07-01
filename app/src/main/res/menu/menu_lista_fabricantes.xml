@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_novo_fabricante"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="@string/novo_fabricante"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_alterar_fabricante"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="@string/alterar_fabricante"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_eliminar_fabricante"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="@string/eliminar_fabricante"
+        app:showAsAction="ifRoom" />
+</menu>

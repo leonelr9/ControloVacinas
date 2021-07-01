@@ -31,4 +31,7 @@
     <string name="novo_paciente">Novo Paciente</string>
     <string name="alterar_paciente">Alterar Paciente</string>
     <string name="eliminar_paciente">Eliminar Paciente</string>
+    <string name="novo_fabricante">Novo Fabricante</string>
+    <string name="alterar_fabricante">Alterar Fabricante</string>
+    <string name="eliminar_fabricante">Eliminar Fabricante</string>
 </resources>

@@ -5,6 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="5dp"
+        android:layout_marginStart="@dimen/fab_margin"
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:background="#FF0000"
+        android:clickable="false"
+        android:indeterminate="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewOutrosSintomas" />
+
+    <CheckBox
+        android:id="@+id/checkBoxDiarreia"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margem_campos"
+        android:text="@string/diarreia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/checkBoxDoresMosculares"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxDoresMosculares" />
+
     <CheckBox
         android:id="@+id/checkBoxFebre"
         android:layout_width="0dp"
@@ -16,8 +45,9 @@
         android:layout_marginRight="@dimen/margem_campos"
         android:text="@string/febre"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewNumLoteEfeitos" />
 
     <CheckBox
         android:id="@+id/checkBoxFadiga"
@@ -30,8 +60,9 @@
         android:layout_marginRight="@dimen/margem_campos"
         android:text="@string/fadiga"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewNumLoteEfeitos" />
 
     <CheckBox
         android:id="@+id/checkBoxDorCabeca"
@@ -42,6 +73,7 @@
         android:layout_marginTop="@dimen/margem_campos"
         android:text="@string/dor_de_cabeca"
         app:layout_constraintEnd_toEndOf="@+id/checkBoxFebre"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxFebre" />
 
@@ -50,10 +82,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margem_campos"
-        android:layout_marginEnd="@dimen/margem_campos"
-        android:layout_marginRight="@dimen/margem_campos"
         android:text="@string/dores_mosculares"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/checkBoxFadiga"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxFadiga" />
 
@@ -66,6 +97,7 @@
         android:layout_marginTop="@dimen/margem_campos"
         android:text="@string/dor_no_braco"
         app:layout_constraintEnd_toEndOf="@+id/checkBoxCalafrios"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxCalafrios" />
 
@@ -78,27 +110,9 @@
         android:layout_marginTop="@dimen/margem_campos"
         android:text="@string/calafrios"
         app:layout_constraintEnd_toEndOf="@+id/checkBoxDorCabeca"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxDorCabeca" />
-
-    <CheckBox
-        android:id="@+id/checkBoxDiarreia"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margem_campos"
-        android:layout_marginEnd="@dimen/margem_campos"
-        android:layout_marginRight="@dimen/margem_campos"
-        android:text="@string/diarreia"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/checkBoxDoresMosculares"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxDoresMosculares" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
 
     <TextView
         android:id="@+id/textView4"
@@ -120,11 +134,40 @@
         android:layout_marginTop="@dimen/margem_campos"
         android:layout_marginEnd="@dimen/margem_campos"
         android:layout_marginRight="@dimen/margem_campos"
-        android:paddingBottom="@dimen/margem_campos"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         tools:text="Tonturas" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margem_campos"
+        android:layout_marginLeft="@dimen/margem_campos"
+        android:layout_marginTop="@dimen/margem_campos"
+        android:text="@string/numero_do_lote"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#040404"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewNumLoteEfeitos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margem_campos"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        tools:text="AB45831" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

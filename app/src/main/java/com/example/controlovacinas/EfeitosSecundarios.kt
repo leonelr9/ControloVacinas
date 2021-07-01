@@ -4,7 +4,7 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
 
-data class EfeitosSecundarios (var id: Long = -1, var febre: Boolean, var fadiga: Boolean, var dor_cabeca: Boolean, var dores_mosculares: Boolean, var calafrios: Boolean, var diarreia: Boolean, var dor_braco: Boolean, var outro: String, var idVacina: Long){
+data class EfeitosSecundarios (var id: Long = -1, var febre: Boolean, var fadiga: Boolean, var dor_cabeca: Boolean, var dores_mosculares: Boolean, var calafrios: Boolean, var diarreia: Boolean, var dor_braco: Boolean, var outro: String, var idVacina: Long, var numLote: String? = null){
     fun toContentValues(): ContentValues {
         val valores = ContentValues().apply {
             put(TabelaEfeitosSecundarios.FEBRE, if(febre) 1 else 0)
@@ -33,6 +33,7 @@ data class EfeitosSecundarios (var id: Long = -1, var febre: Boolean, var fadiga
             val colDor_Braco = cursor.getColumnIndex(TabelaEfeitosSecundarios.DOR_BRACO)
             val colOutro = cursor.getColumnIndex(TabelaEfeitosSecundarios.OUTRO)
             val colIdVacina = cursor.getColumnIndex(TabelaEfeitosSecundarios.CAMPO_ID_VACINA)
+            val colNumLote = cursor.getColumnIndex(TabelaEfeitosSecundarios.CAMPO_EXTERNO_NUM_LOTE)
 
             val id = cursor.getLong(colId)
             val febre = if (cursor.getInt(colFebre)== 1) true else false
@@ -44,8 +45,9 @@ data class EfeitosSecundarios (var id: Long = -1, var febre: Boolean, var fadiga
             val dor_braco = if (cursor.getInt(colDor_Braco)== 1) true else false
             val outro = cursor.getString(colOutro)
             val idVacina = cursor.getLong(colIdVacina)
+            val numLote = if (colNumLote != -1) cursor.getString(colNumLote) else null
 
-            return EfeitosSecundarios(id, febre, fadiga, dor_cabeca, dores_mosculares, calafrios, diarreia, dor_braco, outro, idVacina)
+            return EfeitosSecundarios(id, febre, fadiga, dor_cabeca, dores_mosculares, calafrios, diarreia, dor_braco, outro, idVacina, numLote)
         }
     }
 }

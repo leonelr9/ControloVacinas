@@ -25,6 +25,7 @@ class AdapterEfeitosSecundarios(val fragment: ListaEfeitosSecundariosFragment) :
         private val checkBoxDiarreia = itemView.findViewById<CheckBox>(R.id.checkBoxDiarreia)
         private val checkBoxDorBraco = itemView.findViewById<CheckBox>(R.id.checkBoxDorBraco)
         private val textViewOutros = itemView.findViewById<TextView>(R.id.textViewOutrosSintomas)
+        private val textViewNumLote = itemView.findViewById<TextView>(R.id.textViewNumLoteEfeitos)
 
         fun atualizaEfeitosSecundarios(efeitosSecundarios: EfeitosSecundarios){
             checkBoxFebre.isChecked = efeitosSecundarios.febre
@@ -42,6 +43,7 @@ class AdapterEfeitosSecundarios(val fragment: ListaEfeitosSecundariosFragment) :
             checkBoxDorBraco.isChecked = efeitosSecundarios.dor_braco
             checkBoxDorBraco.isClickable = false
             textViewOutros.text = efeitosSecundarios.outro
+            textViewNumLote.text = efeitosSecundarios.numLote
 
         }
 

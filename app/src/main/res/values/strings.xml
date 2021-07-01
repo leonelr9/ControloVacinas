@@ -34,4 +34,7 @@
     <string name="novo_fabricante">Novo Fabricante</string>
     <string name="alterar_fabricante">Alterar Fabricante</string>
     <string name="eliminar_fabricante">Eliminar Fabricante</string>
+    <string name="nova_vacina">Adicionar Vacina</string>
+    <string name="alterar_vacina">Alterar Vacina</string>
+    <string name="eliminar_vacina">Eliminar Vacina</string>
 </resources>

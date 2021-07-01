@@ -14,17 +14,45 @@ class AdapterVacinas(val fragment: ListaVacinasFragment) : RecyclerView.Adapter<
             notifyDataSetChanged()
         }
 
-    class ViewHolderVacina(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class ViewHolderVacina(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
         private val textViewNumLote = itemView.findViewById<TextView>(R.id.textViewNumLote)
         private val textViewDataVacinacao = itemView.findViewById<TextView>(R.id.textViewDataVacinacao)
         private val textViewNomePaciente = itemView.findViewById<TextView>(R.id.textViewNomePaciente)
         private val textViewNomeFabricanteVacina = itemView.findViewById<TextView>(R.id.textViewNomeFabricanteVacina)
 
+        init {
+            itemView.setOnClickListener(this)
+        }
+        
         fun atualizaVacina(vacina: Vacina){
             textViewNumLote.text = vacina.num_lote
             textViewDataVacinacao.text = vacina.data_vacinacao.toString()
             textViewNomePaciente.text = vacina.nomePaciente
             textViewNomeFabricanteVacina.text = vacina.nomeFabricante
+        }
+
+        /**
+         * Called when a view has been clicked.
+         *
+         * @param v The view that was clicked.
+         */
+        override fun onClick(v: View?) {
+            selecionado?.desSeleciona()
+            seleciona()
+        }
+
+        private fun seleciona() {
+            selecionado = this
+            itemView.setBackgroundResource(R.color.cor_selecao)
+        }
+
+        private fun desSeleciona() {
+            selecionado = null
+            itemView.setBackgroundResource(android.R.color.white)
+        }
+
+        companion object {
+            var selecionado : ViewHolderVacina? = null
         }
 
     }

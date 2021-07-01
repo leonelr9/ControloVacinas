@@ -37,4 +37,7 @@
     <string name="nova_vacina">Adicionar Vacina</string>
     <string name="alterar_vacina">Alterar Vacina</string>
     <string name="eliminar_vacina">Eliminar Vacina</string>
+    <string name="novo_efeito_secundario">Adicionar Efeitos Secundarios</string>
+    <string name="alterar_efeitos_secundarios">Alterar Efeitos Secundarios</string>
+    <string name="eliminar_efeitos_secundarios">Eliminar Efeitos Secundarios</string>
 </resources>

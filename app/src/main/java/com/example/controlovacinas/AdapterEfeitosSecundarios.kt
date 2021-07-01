@@ -16,7 +16,7 @@ class AdapterEfeitosSecundarios(val fragment: ListaEfeitosSecundariosFragment) :
         notifyDataSetChanged()
     }
 
-    class ViewHolderEfeitosSecundarios(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolderEfeitosSecundarios(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         private val checkBoxFebre = itemView.findViewById<CheckBox>(R.id.checkBoxFebre)
         private val checkBoxFadiga = itemView.findViewById<CheckBox>(R.id.checkBoxFadiga)
         private val checkBoxDorCabeca = itemView.findViewById<CheckBox>(R.id.checkBoxDorCabeca)
@@ -26,6 +26,10 @@ class AdapterEfeitosSecundarios(val fragment: ListaEfeitosSecundariosFragment) :
         private val checkBoxDorBraco = itemView.findViewById<CheckBox>(R.id.checkBoxDorBraco)
         private val textViewOutros = itemView.findViewById<TextView>(R.id.textViewOutrosSintomas)
         private val textViewNumLote = itemView.findViewById<TextView>(R.id.textViewNumLoteEfeitos)
+
+        init {
+            itemView.setOnClickListener(this)
+        }
 
         fun atualizaEfeitosSecundarios(efeitosSecundarios: EfeitosSecundarios){
             checkBoxFebre.isChecked = efeitosSecundarios.febre
@@ -45,6 +49,30 @@ class AdapterEfeitosSecundarios(val fragment: ListaEfeitosSecundariosFragment) :
             textViewOutros.text = efeitosSecundarios.outro
             textViewNumLote.text = efeitosSecundarios.numLote
 
+        }
+
+        /**
+         * Called when a view has been clicked.
+         *
+         * @param v The view that was clicked.
+         */
+        override fun onClick(v: View?) {
+            selecionado?.desSeleciona()
+            seleciona()
+        }
+
+        private fun seleciona() {
+            selecionado = this
+            itemView.setBackgroundResource(R.color.cor_selecao)
+        }
+
+        private fun desSeleciona() {
+            selecionado = null
+            itemView.setBackgroundResource(android.R.color.white)
+        }
+
+        companion object{
+            var selecionado : ViewHolderEfeitosSecundarios? = null
         }
 
     }

@@ -111,7 +111,7 @@ class TestesBaseDados {
 
     @Before
     fun apagaBaseDados(){
-       //getAppContext().deleteDatabase(BdControloVacinasOpenHelper.NOME_BASE_DADOS)
+       getAppContext().deleteDatabase(BdControloVacinasOpenHelper.NOME_BASE_DADOS)
     }
 
     @Test
@@ -416,11 +416,22 @@ class TestesBaseDados {
         paciente.id = inserePaciente(tabelaPaciente, paciente)
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = Data(2021,5,1), idPaciente = paciente.id, idFabricante = fabricante.id)
+        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = Data(2021,5,1), idPaciente = paciente.id, idFabricante = fabricante.id, nomePaciente = paciente.nome)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)
-        val efeitosSecundarios = EfeitosSecundarios(febre = false, fadiga = true, dor_cabeca = true, dores_mosculares = true, calafrios = false, diarreia = false, dor_braco = false, outro = "0", idVacina = vacina.id)
+        val efeitosSecundarios = EfeitosSecundarios(
+            febre = false,
+            fadiga = true,
+            dor_cabeca = true,
+            dores_mosculares = true,
+            calafrios = false,
+            diarreia = false,
+            dor_braco = false,
+            outro = "0",
+            idVacina = vacina.id,
+            numLote = vacina.num_lote
+        )
         efeitosSecundarios.id = insereEfeitosSecundarios(tabelaEfeitosSecundarios, efeitosSecundarios)
 
         assertEquals(efeitosSecundarios, getEfeitosSecundariosBaseDados(tabelaEfeitosSecundarios, efeitosSecundarios.id))
@@ -445,7 +456,18 @@ class TestesBaseDados {
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)
-        val efeitosSecundarios = EfeitosSecundarios(febre = false, fadiga = true, dor_cabeca = true, dores_mosculares = true, calafrios = false, diarreia = false, dor_braco = false, outro = "", idVacina = vacina.id)
+        val efeitosSecundarios = EfeitosSecundarios(
+            febre = false,
+            fadiga = true,
+            dor_cabeca = true,
+            dores_mosculares = true,
+            calafrios = false,
+            diarreia = false,
+            dor_braco = false,
+            outro = "",
+            idVacina = vacina.id,
+            numLote = vacina.num_lote
+        )
         efeitosSecundarios.id = insereEfeitosSecundarios(tabelaEfeitosSecundarios, efeitosSecundarios)
 
         efeitosSecundarios.febre = true
@@ -483,7 +505,18 @@ class TestesBaseDados {
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)
-        val efeitosSecundarios = EfeitosSecundarios(febre = false, fadiga = true, dor_cabeca = true, dores_mosculares = true, calafrios = false, diarreia = false, dor_braco = false, outro = "", idVacina = vacina.id)
+        val efeitosSecundarios = EfeitosSecundarios(
+            febre = false,
+            fadiga = true,
+            dor_cabeca = true,
+            dores_mosculares = true,
+            calafrios = false,
+            diarreia = false,
+            dor_braco = false,
+            outro = "",
+            idVacina = vacina.id,
+            numLote = vacina.num_lote
+        )
         efeitosSecundarios.id = insereEfeitosSecundarios(tabelaEfeitosSecundarios, efeitosSecundarios)
 
 
@@ -514,7 +547,18 @@ class TestesBaseDados {
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)
-        val efeitosSecundarios = EfeitosSecundarios(febre = true, fadiga = true, dor_cabeca = true, dores_mosculares = false, calafrios = false, diarreia = false, dor_braco = true, outro = "Tonturas", idVacina = vacina.id)
+        val efeitosSecundarios = EfeitosSecundarios(
+            febre = true,
+            fadiga = true,
+            dor_cabeca = true,
+            dores_mosculares = false,
+            calafrios = false,
+            diarreia = false,
+            dor_braco = true,
+            outro = "Tonturas",
+            idVacina = vacina.id,
+            numLote = vacina.num_lote
+        )
         efeitosSecundarios.id = insereEfeitosSecundarios(tabelaEfeitosSecundarios, efeitosSecundarios)
 
         assertEquals(efeitosSecundarios, getEfeitosSecundariosBaseDados(tabelaEfeitosSecundarios, efeitosSecundarios.id))

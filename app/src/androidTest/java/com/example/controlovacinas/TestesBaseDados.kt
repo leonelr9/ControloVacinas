@@ -111,7 +111,7 @@ class TestesBaseDados {
 
     @Before
     fun apagaBaseDados(){
-       getAppContext().deleteDatabase(BdControloVacinasOpenHelper.NOME_BASE_DADOS)
+       //getAppContext().deleteDatabase(BdControloVacinasOpenHelper.NOME_BASE_DADOS)
     }
 
     @Test
@@ -430,7 +430,8 @@ class TestesBaseDados {
             dor_braco = false,
             outro = "0",
             idVacina = vacina.id,
-            numLote = vacina.num_lote
+            numLote = vacina.num_lote,
+            nomePacienteVacina = vacina.nomePaciente
         )
         efeitosSecundarios.id = insereEfeitosSecundarios(tabelaEfeitosSecundarios, efeitosSecundarios)
 
@@ -452,7 +453,7 @@ class TestesBaseDados {
         paciente.id = inserePaciente(tabelaPaciente, paciente)
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = Data(2021,6,1), idPaciente = paciente.id, idFabricante = fabricante.id)
+        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = Data(2021,6,1), idPaciente = paciente.id, idFabricante = fabricante.id, nomePaciente = paciente.nome)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)
@@ -466,7 +467,8 @@ class TestesBaseDados {
             dor_braco = false,
             outro = "",
             idVacina = vacina.id,
-            numLote = vacina.num_lote
+            numLote = vacina.num_lote,
+            nomePacienteVacina = vacina.nomePaciente
         )
         efeitosSecundarios.id = insereEfeitosSecundarios(tabelaEfeitosSecundarios, efeitosSecundarios)
 
@@ -501,7 +503,7 @@ class TestesBaseDados {
         paciente.id = inserePaciente(tabelaPaciente, paciente)
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = Data(2021,5,1), idPaciente = paciente.id, idFabricante = fabricante.id)
+        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = Data(2021,5,1), idPaciente = paciente.id, idFabricante = fabricante.id, nomePaciente = paciente.nome)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)
@@ -515,7 +517,8 @@ class TestesBaseDados {
             dor_braco = false,
             outro = "",
             idVacina = vacina.id,
-            numLote = vacina.num_lote
+            numLote = vacina.num_lote,
+            nomePacienteVacina = vacina.nomePaciente
         )
         efeitosSecundarios.id = insereEfeitosSecundarios(tabelaEfeitosSecundarios, efeitosSecundarios)
 
@@ -543,7 +546,7 @@ class TestesBaseDados {
         paciente.id = inserePaciente(tabelaPaciente, paciente)
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "JB2279", data_vacinacao = Data(2021,3,21), idPaciente = paciente.id, idFabricante = fabricante.id)
+        val vacina = Vacina(num_lote = "JB2279", data_vacinacao = Data(2021,3,21), idPaciente = paciente.id, idFabricante = fabricante.id, nomePaciente = paciente.nome)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)
@@ -557,7 +560,8 @@ class TestesBaseDados {
             dor_braco = true,
             outro = "Tonturas",
             idVacina = vacina.id,
-            numLote = vacina.num_lote
+            numLote = vacina.num_lote,
+            nomePacienteVacina = vacina.nomePaciente
         )
         efeitosSecundarios.id = insereEfeitosSecundarios(tabelaEfeitosSecundarios, efeitosSecundarios)
 

@@ -26,6 +26,7 @@ class AdapterEfeitosSecundarios(val fragment: ListaEfeitosSecundariosFragment) :
         private val checkBoxDorBraco = itemView.findViewById<CheckBox>(R.id.checkBoxDorBraco)
         private val textViewOutros = itemView.findViewById<TextView>(R.id.textViewOutrosSintomas)
         private val textViewNumLote = itemView.findViewById<TextView>(R.id.textViewNumLoteEfeitos)
+        private val textViewNomePacienteVacina = itemView.findViewById<TextView>(R.id.textViewNomePacienteVacina)
 
         init {
             itemView.setOnClickListener(this)
@@ -48,6 +49,7 @@ class AdapterEfeitosSecundarios(val fragment: ListaEfeitosSecundariosFragment) :
             checkBoxDorBraco.isClickable = false
             textViewOutros.text = efeitosSecundarios.outro
             textViewNumLote.text = efeitosSecundarios.numLote
+            textViewNomePacienteVacina.text = efeitosSecundarios.nomePacienteVacina
 
         }
 

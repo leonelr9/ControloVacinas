@@ -63,6 +63,7 @@ class NovoPacienteFragment : Fragment() {
         val nome = editTextNome.text.toString()
         if (nome.isEmpty()) {
             editTextNome.setError(getString(R.string.introduza_nome_paciente))
+            editTextNome.requestFocus()
             return
         }
 
@@ -71,12 +72,14 @@ class NovoPacienteFragment : Fragment() {
         val sexo = editTextSexo.text.toString()
         if (sexo.isEmpty()) {
             editTextSexo.setError(getString(R.string.introduza_sexo))
+            editTextSexo.requestFocus()
             return
         }
 
         val contacto = editTextContacto.text.toString()
         if (contacto.isEmpty()) {
             editTextContacto.setError(getString(R.string.introduza_contacto))
+            editTextContacto.requestFocus()
             return
         }
 

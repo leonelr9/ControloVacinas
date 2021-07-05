@@ -23,6 +23,9 @@ class NovoPacienteFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        DadosApp.novoPacienteFragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_novo_paciente
+
         _binding = FragmentNovoPacienteBinding.inflate(inflater, container, false)
         return binding.root
     }

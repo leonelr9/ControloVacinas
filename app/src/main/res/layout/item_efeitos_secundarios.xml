@@ -55,14 +55,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margem_campos"
         android:layout_marginLeft="@dimen/margem_campos"
-        android:layout_marginTop="@dimen/margem_campos"
         android:layout_marginEnd="@dimen/margem_campos"
         android:layout_marginRight="@dimen/margem_campos"
         android:text="@string/fadiga"
+        app:layout_constraintBaseline_toBaselineOf="@+id/checkBoxFebre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNumLoteEfeitos" />
+        app:layout_constraintStart_toStartOf="@+id/guideline6" />
 
     <CheckBox
         android:id="@+id/checkBoxDorCabeca"
@@ -150,37 +149,79 @@
 
     <TextView
         android:id="@+id/textView11"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margem_campos"
         android:layout_marginLeft="@dimen/margem_campos"
         android:layout_marginTop="@dimen/margem_campos"
+        android:layout_marginEnd="@dimen/margem_campos"
+        android:layout_marginRight="@dimen/margem_campos"
         android:text="@string/numero_do_lote"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#040404"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNomePacienteVacina" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewNomeFabricanteVacinaEfeitosSecundarios" />
 
     <TextView
         android:id="@+id/textViewNumLoteEfeitos"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margem_campos"
+        android:layout_marginLeft="@dimen/margem_campos"
         android:layout_marginTop="@dimen/margem_campos"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
+        android:layout_marginEnd="@dimen/margem_campos"
+        android:layout_marginRight="@dimen/margem_campos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
         tools:text="AB45831" />
 
     <TextView
         android:id="@+id/textViewNomePacienteVacina"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margem_campos"
         android:layout_marginLeft="@dimen/margem_campos"
         android:layout_marginTop="@dimen/margem_campos"
+        android:layout_marginEnd="@dimen/margem_campos"
+        android:layout_marginRight="@dimen/margem_campos"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/cor_destaque_nome"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="João Miguel Fernandes" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margem_campos"
+        android:layout_marginLeft="@dimen/margem_campos"
+        android:layout_marginTop="@dimen/margem_campos"
+        android:layout_marginEnd="@dimen/margem_campos"
+        android:layout_marginRight="@dimen/margem_campos"
+        android:text="@string/fabricante"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNomePacienteVacina" />
+
+    <TextView
+        android:id="@+id/textViewNomeFabricanteVacinaEfeitosSecundarios"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margem_campos"
+        android:layout_marginLeft="@dimen/margem_campos"
+        android:layout_marginTop="@dimen/margem_campos"
+        android:layout_marginEnd="@dimen/margem_campos"
+        android:layout_marginRight="@dimen/margem_campos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        tools:text="Moderna" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,5 +41,7 @@
     <string name="novo_efeito_secundario">Adicionar Efeitos Secundarios</string>
     <string name="alterar_efeitos_secundarios">Alterar Efeitos Secundarios</string>
     <string name="eliminar_efeitos_secundarios">Eliminar Efeitos Secundarios</string>
+    <string name="guardar_paciente">Guardar</string>
+    <string name="cancelar">Cancelar</string>
 
 </resources>

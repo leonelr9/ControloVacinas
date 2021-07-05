@@ -45,8 +45,10 @@ class ListaPacientesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         recyclerViewPaciente.layoutManager = LinearLayoutManager(requireContext())
 
         LoaderManager.getInstance(this).initLoader(ID_LOADER_MANAGER_PACIENTES, null, this)
+    }
 
-          //  findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+    fun navegaNovoPaciente() {
+        findNavController().navigate(R.id.action_ListaPacientesFragment_to_novoPacienteFragment)
     }
 
     override fun onDestroyView() {

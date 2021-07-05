@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_ListaPacientesFragment_to_PaginaInicialFragment"
             app:destination="@id/PaginaInicialFragment" />
+        <action
+            android:id="@+id/action_ListaPacientesFragment_to_novoPacienteFragment"
+            app:destination="@id/novoPacienteFragment" />
     </fragment>
     <fragment
         android:id="@+id/PaginaInicialFragment"
@@ -63,6 +66,10 @@
     <fragment
         android:id="@+id/novoPacienteFragment"
         android:name="com.example.controlovacinas.NovoPacienteFragment"
-        android:label="fragment_novo_paciente"
-        tools:layout="@layout/fragment_novo_paciente" />
+        android:label="@string/novo_paciente_label"
+        tools:layout="@layout/fragment_novo_paciente">
+        <action
+            android:id="@+id/action_novoPacienteFragment_to_ListaPacientesFragment"
+            app:destination="@id/ListaPacientesFragment" />
+    </fragment>
 </navigation>

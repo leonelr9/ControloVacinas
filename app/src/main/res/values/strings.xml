@@ -7,6 +7,7 @@
     <string name="lista_fabricante_label">Fabricantes</string>
     <string name="lista_vacinas_label">Vacinas</string>
     <string name="lista_efeitos_secundarios_label">Efeitos Secundarios</string>
+    <string name="novo_paciente_label">Novo Paciente</string>
 
 
     <string name="fabricante">Fabricante:</string>
@@ -40,6 +41,5 @@
     <string name="novo_efeito_secundario">Adicionar Efeitos Secundarios</string>
     <string name="alterar_efeitos_secundarios">Alterar Efeitos Secundarios</string>
     <string name="eliminar_efeitos_secundarios">Eliminar Efeitos Secundarios</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

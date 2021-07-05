@@ -49,6 +49,7 @@ class AdapterPacientes(val fragment: ListaPacientesFragment) : RecyclerView.Adap
             selecionado = this
             itemView.setBackgroundResource(R.color.cor_selecao)
             DadosApp.pacienteSeleccionado = paciente
+            DadosApp.activity.atualizaMenuListaPacientes(true)
         }
 
         private fun desSeleciona() {

@@ -77,7 +77,7 @@
     </fragment>
     <fragment
         android:id="@+id/editaPacienteFragment"
-        android:name="com.example.controlovacinas.edita_Paciente_Fragment"
+        android:name="com.example.controlovacinas.EditaPacienteFragment"
         android:label="@string/editar_paciente_label"
         tools:layout="@layout/fragment_edita__paciente_">
         <action

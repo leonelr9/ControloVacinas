@@ -3,6 +3,7 @@ package com.example.controlovacinas
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import com.example.controlovacinas.databinding.FragmentNovoPacienteBinding
@@ -38,5 +39,22 @@ class NovoPacienteFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-    
+
+    fun navegaListaPacientes() {
+        // todo: navegar para a lista de pacientes
+    }
+
+    fun guardar() {
+        // todo: guardar pacientes
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_guardar_novo_paciente -> guardar()
+            R.id.action_cancelar_novo_paciente -> navegaListaPacientes()
+            else -> return false
+        }
+
+        return true
+    }
 }

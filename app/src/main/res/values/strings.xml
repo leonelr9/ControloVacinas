@@ -43,5 +43,6 @@
     <string name="eliminar_efeitos_secundarios">Eliminar Efeitos Secundarios</string>
     <string name="guardar_paciente">Guardar</string>
     <string name="cancelar">Cancelar</string>
+    <string name="versao">Controlo Vacinas 1.0</string>
 
 </resources>

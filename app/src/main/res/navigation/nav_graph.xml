@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_ListaPacientesFragment_to_editaPacienteFragment"
             app:destination="@id/editaPacienteFragment" />
+        <action
+            android:id="@+id/action_ListaPacientesFragment_to_eliminaPacienteFragment"
+            app:destination="@id/eliminaPacienteFragment" />
     </fragment>
     <fragment
         android:id="@+id/PaginaInicialFragment"
@@ -82,6 +85,15 @@
         tools:layout="@layout/fragment_edita__paciente_">
         <action
             android:id="@+id/action_editaPacienteFragment_to_ListaPacientesFragment"
+            app:destination="@id/ListaPacientesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminaPacienteFragment"
+        android:name="com.example.controlovacinas.EliminaPacienteFragment"
+        android:label="@string/eliminar_paciente_label"
+        tools:layout="@layout/fragment_elimina_paciente">
+        <action
+            android:id="@+id/action_eliminaPacienteFragment_to_ListaPacientesFragment"
             app:destination="@id/ListaPacientesFragment" />
     </fragment>
 </navigation>

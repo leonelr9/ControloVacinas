@@ -45,6 +45,11 @@ class EditaPacienteFragment : Fragment() {
         calendarViewDataNascimento = view.findViewById(R.id.calendarViewDataNascimento)
         editTextSexo = view.findViewById(R.id.editTextSexo)
         editTextContacto = view.findViewById(R.id.editTextContacto)
+
+        editTextNome.setText(DadosApp.pacienteSeleccionado!!.nome)
+        //calendarViewDataNascimento.setOnDateChangeListener(DadosApp.pacienteSeleccionado.data_nascimento)
+        editTextSexo.setText(DadosApp.pacienteSeleccionado!!.sexo)
+        editTextContacto.setText(DadosApp.pacienteSeleccionado!!.contacto)
     }
 
 

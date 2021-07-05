@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CalendarView
+import android.widget.EditText
 import androidx.navigation.fragment.findNavController
 import com.example.controlovacinas.databinding.FragmentNovoPacienteBinding
 
@@ -18,6 +20,11 @@ import com.example.controlovacinas.databinding.FragmentNovoPacienteBinding
 class NovoPacienteFragment : Fragment() {
 
     private var _binding: FragmentNovoPacienteBinding? = null
+
+    private lateinit var editTextNome: EditText
+    private lateinit var calendarViewDataNascimento: CalendarView
+    private lateinit var editTextSexo: EditText
+    private lateinit var editTextContacto: EditText
 
     private val binding get() = _binding!!
 
@@ -34,6 +41,11 @@ class NovoPacienteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        editTextNome = view.findViewById(R.id.editTextNome)
+        calendarViewDataNascimento = view.findViewById(R.id.calendarViewDataNascimento)
+        editTextSexo = view.findViewById(R.id.editTextSexo)
+        editTextContacto = view.findViewById(R.id.editTextContacto)
     }
 
     override fun onDestroyView() {

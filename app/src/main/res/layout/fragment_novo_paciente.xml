@@ -23,7 +23,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <CalendarView
-        android:id="@+id/calendarView"
+        android:id="@+id/calendarViewDataNascimento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

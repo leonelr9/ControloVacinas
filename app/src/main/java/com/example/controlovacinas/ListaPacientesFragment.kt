@@ -4,6 +4,7 @@ import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
@@ -30,6 +31,7 @@ class ListaPacientesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        DadosApp.listaPacientesFragment = this
 
         _binding = FragmentListaPacientesBinding.inflate(inflater, container, false)
         return binding.root
@@ -49,6 +51,25 @@ class ListaPacientesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
 
     fun navegaNovoPaciente() {
         findNavController().navigate(R.id.action_ListaPacientesFragment_to_novoPacienteFragment)
+    }
+
+    fun navegaAlterarPaciente() {
+        //todo: navegar para o fragmento da edição de um paciente
+    }
+
+    fun navegaEliminarPaciente() {
+        //todo: navegar para o fragmento para confirmar eliminação de um paciente
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_novo_paciente -> navegaNovoPaciente()
+            R.id.action_alterar_paciente -> navegaAlterarPaciente()
+            R.id.action_eliminar_paciente -> navegaEliminarPaciente()
+            else -> return false
+        }
+
+        return true
     }
 
     override fun onDestroyView() {

@@ -10,6 +10,8 @@ import android.widget.CalendarView
 import android.widget.EditText
 import androidx.navigation.fragment.findNavController
 import com.example.controlovacinas.databinding.FragmentNovoPacienteBinding
+import com.google.android.material.snackbar.Snackbar
+import java.util.*
 
 
 /**
@@ -58,7 +60,43 @@ class NovoPacienteFragment : Fragment() {
     }
 
     fun guardar() {
-        // todo: guardar pacientes
+        val nome = editTextNome.text.toString()
+        if (nome.isEmpty()) {
+            editTextNome.setError(getString(R.string.introduza_nome_paciente))
+            return
+        }
+
+        val data_nascimento = calendarViewDataNascimento.date.toLong()
+
+        val sexo = editTextSexo.text.toString()
+        if (sexo.isEmpty()) {
+            editTextSexo.setError(getString(R.string.introduza_sexo))
+            return
+        }
+
+        val contacto = editTextContacto.text.toString()
+        if (contacto.isEmpty()) {
+            editTextContacto.setError(getString(R.string.introduza_contacto))
+            return
+        }
+
+        val paciente = Paciente(nome = nome, data_nascimento = Date(data_nascimento), sexo = sexo, contacto = contacto)
+
+        val uri = activity?.contentResolver?.insert(
+            ContentProviderControloVacinas.ENDERECO_PACIENTE,
+            paciente.toContentValues()
+        )
+
+        if (uri == null) {
+            Snackbar.make(
+                editTextNome,
+                getString(R.string.erro_inserir_paciente),
+                Snackbar.LENGTH_LONG
+            ).show()
+            return
+        }
+
+        navegaListaPacientes()
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {

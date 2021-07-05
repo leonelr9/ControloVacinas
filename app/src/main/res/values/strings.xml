@@ -44,5 +44,9 @@
     <string name="guardar_paciente">Guardar</string>
     <string name="cancelar">Cancelar</string>
     <string name="versao">Controlo Vacinas 1.0</string>
+    <string name="introduza_nome_paciente">Introduza o nome do paciente</string>
+    <string name="introduza_sexo">Introduza o sexo</string>
+    <string name="introduza_contacto">Introduza o contacto</string>
+    <string name="erro_inserir_paciente">Erro ao inserir paciente</string>
 
 </resources>

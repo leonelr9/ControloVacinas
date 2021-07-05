@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.controlovacinas.databinding.FragmentNovoPacienteBinding
 
 
@@ -41,7 +42,7 @@ class NovoPacienteFragment : Fragment() {
     }
 
     fun navegaListaPacientes() {
-        // todo: navegar para a lista de pacientes
+        findNavController().navigate(R.id.action_novoPacienteFragment_to_ListaPacientesFragment)
     }
 
     fun guardar() {

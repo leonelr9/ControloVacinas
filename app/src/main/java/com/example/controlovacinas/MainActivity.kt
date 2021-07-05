@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var menu: Menu
 
-    var menuAtual = R.menu.menu_lista_pacientes
+    var menuAtual = R.menu.menu_main
         set(value) {
             field = value
             invalidateOptionsMenu()
@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity() {
 
 
             else -> when(menuAtual) {
+                R.menu.menu_main -> (DadosApp.fragment as PaginaInicialFragment).processaOpcaoMenu(item)
                 R.menu.menu_lista_pacientes -> (DadosApp.fragment as ListaPacientesFragment).processaOpcaoMenu(item)
                 R.menu.menu_novo_paciente -> (DadosApp.fragment as NovoPacienteFragment).processaOpcaoMenu(item)
                 R.menu.menu_edita_paciente -> (DadosApp.fragment as EditaPacienteFragment).processaOpcaoMenu(item)

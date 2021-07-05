@@ -58,6 +58,8 @@
     <string name="paciente_guardado_sucesso">Paciente guardado com sucesso</string>
     <string name="erro_alterar_paciente">Erro ao alterar paciente</string>
     <string name="elimina_paciente">Elimar Paciente</string>
+    <string name="erro_elimina_paciente">Erro ao eliminar paciente</string>
+    <string name="paciente_eliminado_sucesso">Paciente eliminado com sucesso</string>
 
 
 </resources>

@@ -27,6 +27,7 @@ class AdapterEfeitosSecundarios(val fragment: ListaEfeitosSecundariosFragment) :
         private val textViewOutros = itemView.findViewById<TextView>(R.id.textViewOutrosSintomas)
         private val textViewNumLote = itemView.findViewById<TextView>(R.id.textViewNumLoteEfeitos)
         private val textViewNomePacienteVacina = itemView.findViewById<TextView>(R.id.textViewNomePacienteVacina)
+        private val textViewNomeFabricanteVacina = itemView.findViewById<TextView>(R.id.textViewNomeFabricanteVacinaEfeitosSecundarios)
 
         init {
             itemView.setOnClickListener(this)
@@ -50,6 +51,7 @@ class AdapterEfeitosSecundarios(val fragment: ListaEfeitosSecundariosFragment) :
             textViewOutros.text = efeitosSecundarios.outro
             textViewNumLote.text = efeitosSecundarios.numLote
             textViewNomePacienteVacina.text = efeitosSecundarios.nomePacienteVacina
+            textViewNomeFabricanteVacina.text = efeitosSecundarios.nomeFabricanteVacina
 
         }
 

@@ -4,7 +4,7 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
 
-data class EfeitosSecundarios (var id: Long = -1, var febre: Boolean, var fadiga: Boolean, var dor_cabeca: Boolean, var dores_mosculares: Boolean, var calafrios: Boolean, var diarreia: Boolean, var dor_braco: Boolean, var outro: String, var idVacina: Long, var numLote: String? = null, var nomePacienteVacina: String? = null){
+data class EfeitosSecundarios (var id: Long = -1, var febre: Boolean, var fadiga: Boolean, var dor_cabeca: Boolean, var dores_mosculares: Boolean, var calafrios: Boolean, var diarreia: Boolean, var dor_braco: Boolean, var outro: String, var idVacina: Long, var numLote: String? = null, var nomePacienteVacina: String? = null, var nomeFabricanteVacina: String? = null){
     fun toContentValues(): ContentValues {
         val valores = ContentValues().apply {
             put(TabelaEfeitosSecundarios.FEBRE, if(febre) 1 else 0)
@@ -35,6 +35,7 @@ data class EfeitosSecundarios (var id: Long = -1, var febre: Boolean, var fadiga
             val colIdVacina = cursor.getColumnIndex(TabelaEfeitosSecundarios.CAMPO_ID_VACINA)
             val colNumLote = cursor.getColumnIndex(TabelaEfeitosSecundarios.CAMPO_EXTERNO_NUM_LOTE)
             val colNomePacienteVacina = cursor.getColumnIndex(TabelaEfeitosSecundarios.CAMPO_EXTERNO_NOME_PACIENTE_VACINA)
+            val colNomeFabricanteVacina = cursor.getColumnIndex(TabelaEfeitosSecundarios.CAMPO_EXTERNO_NOME_FABRICANTE_VACINA)
 
             val id = cursor.getLong(colId)
             val febre = if (cursor.getInt(colFebre)== 1) true else false
@@ -48,8 +49,9 @@ data class EfeitosSecundarios (var id: Long = -1, var febre: Boolean, var fadiga
             val idVacina = cursor.getLong(colIdVacina)
             val numLote = if (colNumLote != -1) cursor.getString(colNumLote) else null
             val nomePacienteVacina = if (colNomePacienteVacina != -1) cursor.getString(colNomePacienteVacina) else null
+            val nomeFabricanteVacina = if (colNomeFabricanteVacina != -1) cursor.getString(colNomeFabricanteVacina) else null
 
-            return EfeitosSecundarios(id, febre, fadiga, dor_cabeca, dores_mosculares, calafrios, diarreia, dor_braco, outro, idVacina, numLote, nomePacienteVacina)
+            return EfeitosSecundarios(id, febre, fadiga, dor_cabeca, dores_mosculares, calafrios, diarreia, dor_braco, outro, idVacina, numLote, nomePacienteVacina, nomeFabricanteVacina)
         }
     }
 }

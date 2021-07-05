@@ -40,4 +40,6 @@
     <string name="novo_efeito_secundario">Adicionar Efeitos Secundarios</string>
     <string name="alterar_efeitos_secundarios">Alterar Efeitos Secundarios</string>
     <string name="eliminar_efeitos_secundarios">Eliminar Efeitos Secundarios</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

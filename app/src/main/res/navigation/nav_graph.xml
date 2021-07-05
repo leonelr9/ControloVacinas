@@ -60,4 +60,9 @@
             android:id="@+id/action_listaEfeitosSecundariosFragment_to_PaginaInicialFragment"
             app:destination="@id/PaginaInicialFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/novoPacienteFragment"
+        android:name="com.example.controlovacinas.NovoPacienteFragment"
+        android:label="fragment_novo_paciente"
+        tools:layout="@layout/fragment_novo_paciente" />
 </navigation>

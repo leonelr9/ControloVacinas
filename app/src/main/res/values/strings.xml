@@ -12,7 +12,7 @@
     <string name="lista_fabricante_label">Fabricantes</string>
 
     <string name="lista_vacinas_label">Vacinas</string>
-    
+
     <string name="lista_efeitos_secundarios_label">Efeitos Secundarios</string>
 
 
@@ -57,7 +57,7 @@
     <string name="erro_inserir_paciente">Erro ao inserir paciente</string>
     <string name="paciente_guardado_sucesso">Paciente guardado com sucesso</string>
     <string name="erro_alterar_paciente">Erro ao alterar paciente</string>
-
+    <string name="elimina_paciente">Elimar Paciente</string>
 
 
 </resources>

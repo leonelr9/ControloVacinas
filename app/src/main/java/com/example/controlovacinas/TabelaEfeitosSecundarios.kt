@@ -49,16 +49,19 @@ class TabelaEfeitosSecundarios(db: SQLiteDatabase) {
 
         var posColNumLote = -1 // -1 indica que a coluna não foi pedida
         var posColNomePacienteVacina = -1
+        var posColNomeFabricanteVacina = -1
 
         for (i in 0..ultimaColuna) {
             if (columns[i] == CAMPO_EXTERNO_NUM_LOTE) {
                 posColNumLote = i
             }else if (columns[i] == CAMPO_EXTERNO_NOME_PACIENTE_VACINA){
                 posColNomePacienteVacina = i
+            }else if (columns[i] == CAMPO_EXTERNO_NOME_FABRICANTE_VACINA) {
+                posColNomeFabricanteVacina = i
             }
         }
 
-        if (posColNumLote == -1 && posColNomePacienteVacina == -1) {
+        if (posColNumLote == -1 && posColNomePacienteVacina == -1 && posColNomeFabricanteVacina == -1) {
             return db.query(NOME_TABELA, columns, selection, selectionArgs, groupBy, having, orderBy)
         }
 
@@ -70,12 +73,14 @@ class TabelaEfeitosSecundarios(db: SQLiteDatabase) {
                 "${TabelaVacina.NOME_TABELA}.${TabelaVacina.NUM_LOTE} AS $CAMPO_EXTERNO_NUM_LOTE"
             } else if (i == posColNomePacienteVacina) {
                 "${TabelaPaciente.NOME_TABELA}.${TabelaPaciente.NOME} AS $CAMPO_EXTERNO_NOME_PACIENTE_VACINA"
-            }else {
+            } else if (i == posColNomeFabricanteVacina) {
+                "${TabelaFabricante.NOME_TABELA}.${TabelaFabricante.NOME} AS $CAMPO_EXTERNO_NOME_FABRICANTE_VACINA"
+            } else {
                 "${NOME_TABELA}.${columns[i]}"
             }
         }
 
-        val tabelas = "$NOME_TABELA INNER JOIN ${TabelaVacina.NOME_TABELA} ON ${TabelaVacina.NOME_TABELA}.${BaseColumns._ID}=$CAMPO_ID_VACINA INNER JOIN ${TabelaPaciente.NOME_TABELA} ON ${TabelaPaciente.NOME_TABELA}.${BaseColumns._ID}=${TabelaVacina.CAMPO_ID_PACIENTE}"
+        val tabelas = "$NOME_TABELA INNER JOIN ${TabelaVacina.NOME_TABELA} ON ${TabelaVacina.NOME_TABELA}.${BaseColumns._ID}=$CAMPO_ID_VACINA INNER JOIN ${TabelaPaciente.NOME_TABELA} ON ${TabelaPaciente.NOME_TABELA}.${BaseColumns._ID}=${TabelaVacina.CAMPO_ID_PACIENTE} INNER JOIN ${TabelaFabricante.NOME_TABELA} ON ${TabelaFabricante.NOME_TABELA}.${BaseColumns._ID}=${TabelaVacina.CAMPO_ID_FABRICANTE}"
 
         var sql = "SELECT $colunas FROM $tabelas"
 
@@ -104,7 +109,8 @@ class TabelaEfeitosSecundarios(db: SQLiteDatabase) {
         const val CAMPO_ID_VACINA = "id_vacina"
         const val CAMPO_EXTERNO_NUM_LOTE = "num_lote"
         const val CAMPO_EXTERNO_NOME_PACIENTE_VACINA = "nome_paciente_vacina"
+        const val CAMPO_EXTERNO_NOME_FABRICANTE_VACINA = "nome_fabricante_vacina"
 
-        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, FEBRE, FADIGA, DOR_CABECA, DORES_MOSCULARES, CALAFRIOS, DIARREIA, DOR_BRACO, OUTRO, CAMPO_ID_VACINA, CAMPO_EXTERNO_NUM_LOTE, CAMPO_EXTERNO_NOME_PACIENTE_VACINA)
+        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, FEBRE, FADIGA, DOR_CABECA, DORES_MOSCULARES, CALAFRIOS, DIARREIA, DOR_BRACO, OUTRO, CAMPO_ID_VACINA, CAMPO_EXTERNO_NUM_LOTE, CAMPO_EXTERNO_NOME_PACIENTE_VACINA, CAMPO_EXTERNO_NOME_FABRICANTE_VACINA)
     }
 }

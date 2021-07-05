@@ -49,6 +49,8 @@
     <string name="introduza_sexo">Introduza o sexo</string>
     <string name="introduza_contacto">Introduza o contacto</string>
     <string name="erro_inserir_paciente">Erro ao inserir paciente</string>
+    <string name="paciente_guardado_sucesso">Paciente guardado com sucesso</string>
+    <string name="erro_alterar_paciente">Erro ao alterar paciente</string>
 
 
 </resources>

@@ -416,7 +416,7 @@ class TestesBaseDados {
         paciente.id = inserePaciente(tabelaPaciente, paciente)
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = Data(2021,5,1), idPaciente = paciente.id, idFabricante = fabricante.id, nomePaciente = paciente.nome)
+        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = Data(2021,5,1), idPaciente = paciente.id, idFabricante = fabricante.id, nomePaciente = paciente.nome, nomeFabricante = fabricante.nome)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)
@@ -431,7 +431,8 @@ class TestesBaseDados {
             outro = "0",
             idVacina = vacina.id,
             numLote = vacina.num_lote,
-            nomePacienteVacina = vacina.nomePaciente
+            nomePacienteVacina = vacina.nomePaciente,
+            nomeFabricanteVacina = vacina.nomeFabricante
         )
         efeitosSecundarios.id = insereEfeitosSecundarios(tabelaEfeitosSecundarios, efeitosSecundarios)
 
@@ -453,7 +454,7 @@ class TestesBaseDados {
         paciente.id = inserePaciente(tabelaPaciente, paciente)
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = Data(2021,6,1), idPaciente = paciente.id, idFabricante = fabricante.id, nomePaciente = paciente.nome)
+        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = Data(2021,6,1), idPaciente = paciente.id, idFabricante = fabricante.id, nomePaciente = paciente.nome, nomeFabricante = fabricante.nome)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)
@@ -468,7 +469,8 @@ class TestesBaseDados {
             outro = "",
             idVacina = vacina.id,
             numLote = vacina.num_lote,
-            nomePacienteVacina = vacina.nomePaciente
+            nomePacienteVacina = vacina.nomePaciente,
+            nomeFabricanteVacina = vacina.nomeFabricante
         )
         efeitosSecundarios.id = insereEfeitosSecundarios(tabelaEfeitosSecundarios, efeitosSecundarios)
 
@@ -503,7 +505,7 @@ class TestesBaseDados {
         paciente.id = inserePaciente(tabelaPaciente, paciente)
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = Data(2021,5,1), idPaciente = paciente.id, idFabricante = fabricante.id, nomePaciente = paciente.nome)
+        val vacina = Vacina(num_lote = "AB1257", data_vacinacao = Data(2021,5,1), idPaciente = paciente.id, idFabricante = fabricante.id, nomePaciente = paciente.nome, nomeFabricante = fabricante.nome)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)
@@ -518,7 +520,8 @@ class TestesBaseDados {
             outro = "",
             idVacina = vacina.id,
             numLote = vacina.num_lote,
-            nomePacienteVacina = vacina.nomePaciente
+            nomePacienteVacina = vacina.nomePaciente,
+            nomeFabricanteVacina = vacina.nomeFabricante
         )
         efeitosSecundarios.id = insereEfeitosSecundarios(tabelaEfeitosSecundarios, efeitosSecundarios)
 
@@ -546,7 +549,7 @@ class TestesBaseDados {
         paciente.id = inserePaciente(tabelaPaciente, paciente)
 
         val tabelaVacina = TabelaVacina(db)
-        val vacina = Vacina(num_lote = "JB2279", data_vacinacao = Data(2021,3,21), idPaciente = paciente.id, idFabricante = fabricante.id, nomePaciente = paciente.nome)
+        val vacina = Vacina(num_lote = "JB2279", data_vacinacao = Data(2021,3,21), idPaciente = paciente.id, idFabricante = fabricante.id, nomePaciente = paciente.nome, nomeFabricante = fabricante.nome)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val tabelaEfeitosSecundarios = TabelaEfeitosSecundarios(db)
@@ -561,7 +564,8 @@ class TestesBaseDados {
             outro = "Tonturas",
             idVacina = vacina.id,
             numLote = vacina.num_lote,
-            nomePacienteVacina = vacina.nomePaciente
+            nomePacienteVacina = vacina.nomePaciente,
+            nomeFabricanteVacina = vacina.nomeFabricante
         )
         efeitosSecundarios.id = insereEfeitosSecundarios(tabelaEfeitosSecundarios, efeitosSecundarios)
 

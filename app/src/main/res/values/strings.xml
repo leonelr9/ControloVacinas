@@ -64,6 +64,9 @@
     <string name="introduza_nome_fabricante">Introduza o nome do Fabricante</string>
     <string name="erro_inserir_fabricante">Erro ao inserir Fabricante</string>
     <string name="fabricante_guardado">Fabricante guardado com sucesso</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="edita_fabricante_label">Editar Fabricante</string>
 
 
 </resources>

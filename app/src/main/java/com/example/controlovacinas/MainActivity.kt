@@ -55,6 +55,9 @@ class MainActivity : AppCompatActivity() {
         if (menuAtual == R.menu.menu_lista_fabricantes) {
             atualizaMenuListaFabricantes(false)
         }
+        if (menuAtual == R.menu.menu_lista_vacinas) {
+            atualizaMenuListaVacinas(false)
+        }
         return true
     }
 
@@ -81,6 +84,8 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_novo_fabricante -> (DadosApp.fragment as NovoFabricanteFragment).processaOpcaoMenu(item)
                 R.menu.menu_edita_fabricante -> (DadosApp.fragment as EditaFabricanteFragment).processaOpcaoMenu(item)
                 R.menu.menu_elimina_fabricante -> (DadosApp.fragment as EliminaFabricanteFragment).processaOpcaoMenu(item)
+
+                R.menu.menu_lista_vacinas -> (DadosApp.fragment as ListaVacinasFragment).processaOpcaoMenu(item)
                 else -> false
             }
         }
@@ -101,5 +106,10 @@ class MainActivity : AppCompatActivity() {
     fun atualizaMenuListaFabricantes(mostraBotoesAlterarEliminar : Boolean) {
         menu.findItem(R.id.action_alterar_fabricante).setVisible(mostraBotoesAlterarEliminar)
         menu.findItem(R.id.action_eliminar_fabricante).setVisible(mostraBotoesAlterarEliminar)
+    }
+
+    fun atualizaMenuListaVacinas(mostraBotoesAlterarEliminar : Boolean) {
+        menu.findItem(R.id.action_alterar_vacina).setVisible(mostraBotoesAlterarEliminar)
+        menu.findItem(R.id.action_eliminar_vacina).setVisible(mostraBotoesAlterarEliminar)
     }
 }

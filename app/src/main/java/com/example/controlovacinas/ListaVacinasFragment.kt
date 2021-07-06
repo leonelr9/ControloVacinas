@@ -3,6 +3,7 @@ package com.example.controlovacinas
 import android.database.Cursor
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -23,6 +24,8 @@ class ListaVacinasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        DadosApp.fragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_lista_vacinas
 
         _binding = FragmentListaVacinasBinding.inflate(inflater, container, false)
         return binding.root
@@ -38,8 +41,29 @@ class ListaVacinasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
         recyclerViewVacinas.layoutManager = LinearLayoutManager(requireContext())
 
         LoaderManager.getInstance(this).initLoader(ID_LOADER_MANAGER_VACINAS, null, this)
+    }
 
-//            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+    fun navegaNovaVacina() {
+        //todo: navegar para o fragmento nova vacina
+    }
+
+    fun navegaAlterarVacina() {
+        //todo: navegar para o fragmento da edição de uma vacina
+    }
+
+    fun navegaEliminarVacina() {
+        //todo: navegar para o fragmento para confirmar eliminação de uma vacina
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_nova_vacina -> navegaNovaVacina()
+            R.id.action_alterar_vacina -> navegaAlterarVacina()
+            R.id.action_eliminar_vacina -> navegaEliminarVacina()
+            else -> return false
+        }
+
+        return true
     }
 
     override fun onDestroyView() {

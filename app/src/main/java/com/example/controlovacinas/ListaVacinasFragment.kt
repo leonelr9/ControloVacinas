@@ -49,7 +49,7 @@ class ListaVacinasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
     }
 
     fun navegaAlterarVacina() {
-        //todo: navegar para o fragmento da edição de uma vacina
+        findNavController().navigate(R.id.action_listaVacinasFragment_to_editaVacinaFragment)
     }
 
     fun navegaEliminarVacina() {

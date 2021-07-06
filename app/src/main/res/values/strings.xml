@@ -76,7 +76,8 @@
     <string name="guardar_vacina">Guardar</string>
     <string name="erro_introduzir_lote">Intruduza o número do lote</string>
     <string name="erro_inserir_vacina">Erro ao inserir vacina</string>
-
+    <string name="erro_alterar_vacina">Erro ao alterar vacina</string>
+    <string name="vacina_guardada_sucesso">Vacina guardada com sucesso</string>
 
 
 </resources>

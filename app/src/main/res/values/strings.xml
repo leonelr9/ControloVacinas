@@ -61,6 +61,9 @@
     <string name="erro_elimina_paciente">Erro ao eliminar paciente</string>
     <string name="paciente_eliminado_sucesso">Paciente eliminado com sucesso</string>
     <string name="guardar_fabricante">Guardar</string>
+    <string name="introduza_nome_fabricante">Introduza o nome do Fabricante</string>
+    <string name="erro_inserir_fabricante">Erro ao inserir Fabricante</string>
+    <string name="fabricante_guardado">Fabricante guardado com sucesso</string>
 
 
 </resources>

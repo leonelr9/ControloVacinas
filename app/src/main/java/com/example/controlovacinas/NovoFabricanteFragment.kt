@@ -7,8 +7,10 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.controlovacinas.databinding.FragmentNovoFabricanteBinding
+import com.google.android.material.snackbar.Snackbar
 
 
 /**
@@ -51,7 +53,35 @@ class NovoFabricanteFragment : Fragment() {
     }
 
     fun guardar() {
-        // todo: guardar fabricante
+        val nome = editTextNome.text.toString()
+        if (nome.isEmpty()) {
+            editTextNome.setError(getString(R.string.introduza_nome_fabricante))
+            editTextNome.requestFocus()
+            return
+        }
+
+        val fabricante = Fabricante(nome = nome)
+
+        val uri = activity?.contentResolver?.insert(
+            ContentProviderControloVacinas.ENDERECO_FABRICANTE,
+            fabricante.toContentValues()
+        )
+
+        if (uri == null) {
+            Snackbar.make(
+                editTextNome,
+                getString(R.string.erro_inserir_fabricante),
+                Snackbar.LENGTH_LONG
+            ).show()
+            return
+        }
+
+        Toast.makeText(
+            requireContext(),
+            getString(R.string.fabricante_guardado),
+            Toast.LENGTH_LONG
+        ).show()
+        navegaListaFabricante()
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {

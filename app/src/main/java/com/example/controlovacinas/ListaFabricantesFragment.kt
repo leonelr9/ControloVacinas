@@ -44,12 +44,10 @@ class ListaFabricantesFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
         recyclerViewFabricante.layoutManager = LinearLayoutManager(requireContext())
 
         LoaderManager.getInstance(this).initLoader(ID_LOADER_MANAGER_FABRICANTES, null, this)
-
-//            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
     }
 
     fun navegaNovoFabricante() {
-        //todo: navegar para o fragmento novo fabricante
+        findNavController().navigate(R.id.action_listaFabricantesFragment_to_novoFabricanteFragment)
     }
 
     fun navegaAlterarFabricante() {

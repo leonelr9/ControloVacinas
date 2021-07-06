@@ -53,7 +53,7 @@ class ListaVacinasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
     }
 
     fun navegaEliminarVacina() {
-        //todo: navegar para o fragmento para confirmar eliminação de uma vacina
+        findNavController().navigate(R.id.action_listaVacinasFragment_to_eliminaVacinaFragment)
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {

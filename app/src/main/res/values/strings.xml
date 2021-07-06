@@ -17,6 +17,7 @@
     <string name="lista_vacinas_label">Vacinas</string>
     <string name="nova_vacina_label">Nova vacina</string>
     <string name="edita_vacina_label">Edita Vacina</string>
+    <string name="elimina_vacina_label">Eliminar Vacina?</string>
 
     <string name="lista_efeitos_secundarios_label">Efeitos Secundarios</string>
 
@@ -78,6 +79,7 @@
     <string name="erro_inserir_vacina">Erro ao inserir vacina</string>
     <string name="erro_alterar_vacina">Erro ao alterar vacina</string>
     <string name="vacina_guardada_sucesso">Vacina guardada com sucesso</string>
+
 
 
 </resources>

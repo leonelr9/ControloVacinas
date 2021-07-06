@@ -72,6 +72,7 @@
     <string name="erro_eliminar_fabricante">Erro ao eliminar Fabricante</string>
     <string name="fabricante_eliminado_sucesso">Fabricante eliminado com sucesso</string>
     <string name="paciente">Paciente:</string>
+    <string name="guardar_vacina">Guardar</string>
 
 
 </resources>

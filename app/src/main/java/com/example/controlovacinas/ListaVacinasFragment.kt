@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.controlovacinas.databinding.FragmentListaVacinasBinding
@@ -44,7 +45,7 @@ class ListaVacinasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>{
     }
 
     fun navegaNovaVacina() {
-        //todo: navegar para o fragmento nova vacina
+        findNavController().navigate(R.id.action_listaVacinasFragment_to_novaVacinaFragment)
     }
 
     fun navegaAlterarVacina() {

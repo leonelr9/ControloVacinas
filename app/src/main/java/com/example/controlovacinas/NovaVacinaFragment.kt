@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CalendarView
+import android.widget.EditText
+import android.widget.Spinner
 import androidx.navigation.fragment.findNavController
 import com.example.controlovacinas.databinding.FragmentNovaVacinaBinding
 import com.example.controlovacinas.databinding.FragmentNovoFabricanteBinding
@@ -20,6 +23,11 @@ class NovaVacinaFragment : Fragment() {
 
     private var _binding: FragmentNovaVacinaBinding? = null
 
+    private lateinit var spinnerPaciente: Spinner
+    private lateinit var spinnerFabricante: Spinner
+    private lateinit var editTextNumLote: EditText
+    private lateinit var calendarViewDataVacinacao: CalendarView
+
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -31,6 +39,15 @@ class NovaVacinaFragment : Fragment() {
 
         _binding = FragmentNovaVacinaBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        spinnerPaciente = view.findViewById(R.id.spinnerPaciente)
+        spinnerFabricante = view.findViewById(R.id.spinnerFabricante)
+        editTextNumLote = view.findViewById(R.id.editTextNumLote)
+        calendarViewDataVacinacao = view.findViewById(R.id.calendarViewDataVacinacao)
     }
 
     override fun onDestroyView() {

@@ -3,12 +3,14 @@ package com.example.controlovacinas
 import android.database.Cursor
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.controlovacinas.databinding.FragmentListaFabricantesBinding
@@ -25,6 +27,8 @@ class ListaFabricantesFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        DadosApp.fragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_lista_fabricantes
 
         _binding = FragmentListaFabricantesBinding.inflate(inflater, container, false)
         return binding.root
@@ -42,6 +46,29 @@ class ListaFabricantesFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
         LoaderManager.getInstance(this).initLoader(ID_LOADER_MANAGER_FABRICANTES, null, this)
 
 //            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+    }
+
+    fun navegaNovoFabricante() {
+        //todo: navegar para o fragmento novo fabricante
+    }
+
+    fun navegaAlterarFabricante() {
+        //todo: navegar para o fragmento da edição de um fabricante
+    }
+
+    fun navegaEliminarFabricante() {
+        //todo: navegar para o fragmento para confirmar eliminação de um fabricante
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_novo_fabricante -> navegaNovoFabricante()
+            R.id.action_alterar_fabricante -> navegaAlterarFabricante()
+            R.id.action_eliminar_fabricante -> navegaEliminarFabricante()
+            else -> return false
+        }
+
+        return true
     }
 
     override fun onDestroyView() {

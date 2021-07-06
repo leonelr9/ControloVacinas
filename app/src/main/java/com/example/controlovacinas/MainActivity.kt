@@ -52,6 +52,9 @@ class MainActivity : AppCompatActivity() {
         if (menuAtual == R.menu.menu_lista_pacientes) {
             atualizaMenuListaPacientes(false)
         }
+        if (menuAtual == R.menu.menu_lista_fabricantes) {
+            atualizaMenuListaFabricantes(false)
+        }
         return true
     }
 
@@ -68,10 +71,13 @@ class MainActivity : AppCompatActivity() {
 
             else -> when(menuAtual) {
                 R.menu.menu_main -> (DadosApp.fragment as PaginaInicialFragment).processaOpcaoMenu(item)
+
                 R.menu.menu_lista_pacientes -> (DadosApp.fragment as ListaPacientesFragment).processaOpcaoMenu(item)
                 R.menu.menu_novo_paciente -> (DadosApp.fragment as NovoPacienteFragment).processaOpcaoMenu(item)
                 R.menu.menu_edita_paciente -> (DadosApp.fragment as EditaPacienteFragment).processaOpcaoMenu(item)
                 R.menu.menu_elimina_paciente -> (DadosApp.fragment as EliminaPacienteFragment).processaOpcaoMenu(item)
+
+                R.menu.menu_lista_fabricantes -> (DadosApp.fragment as ListaFabricantesFragment).processaOpcaoMenu(item)
                 else -> false
             }
         }
@@ -87,5 +93,10 @@ class MainActivity : AppCompatActivity() {
     fun atualizaMenuListaPacientes(mostraBotoesAlterarEliminar : Boolean) {
         menu.findItem(R.id.action_alterar_paciente).setVisible(mostraBotoesAlterarEliminar)
         menu.findItem(R.id.action_eliminar_paciente).setVisible(mostraBotoesAlterarEliminar)
+    }
+
+    fun atualizaMenuListaFabricantes(mostraBotoesAlterarEliminar : Boolean) {
+        menu.findItem(R.id.action_alterar_fabricante).setVisible(mostraBotoesAlterarEliminar)
+        menu.findItem(R.id.action_eliminar_fabricante).setVisible(mostraBotoesAlterarEliminar)
     }
 }

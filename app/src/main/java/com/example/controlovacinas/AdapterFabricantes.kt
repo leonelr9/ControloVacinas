@@ -43,6 +43,7 @@ class AdapterFabricantes(val fragment: ListaFabricantesFragment) : RecyclerView.
             selecionado = this
             itemView.setBackgroundResource(R.color.cor_selecao)
             DadosApp.fabricanteSeleccionado = fabricante
+            DadosApp.activity.atualizaMenuListaFabricantes(true)
         }
 
         private fun desSeleciona() {

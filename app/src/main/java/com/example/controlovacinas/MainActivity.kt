@@ -78,6 +78,7 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_elimina_paciente -> (DadosApp.fragment as EliminaPacienteFragment).processaOpcaoMenu(item)
 
                 R.menu.menu_lista_fabricantes -> (DadosApp.fragment as ListaFabricantesFragment).processaOpcaoMenu(item)
+                R.menu.menu_novo_fabricante -> (DadosApp.fragment as NovoFabricanteFragment).processaOpcaoMenu(item)
                 else -> false
             }
         }

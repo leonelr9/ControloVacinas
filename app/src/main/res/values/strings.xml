@@ -10,11 +10,11 @@
     <string name="eliminar_paciente_label">Eliminar paciente?</string>
 
     <string name="lista_fabricante_label">Fabricantes</string>
+    <string name="novo_fabricante_label">Novo Fabricante</string>
 
     <string name="lista_vacinas_label">Vacinas</string>
 
     <string name="lista_efeitos_secundarios_label">Efeitos Secundarios</string>
-
 
 
     <string name="fabricante">Fabricante:</string>
@@ -60,6 +60,7 @@
     <string name="elimina_paciente">Elimar Paciente</string>
     <string name="erro_elimina_paciente">Erro ao eliminar paciente</string>
     <string name="paciente_eliminado_sucesso">Paciente eliminado com sucesso</string>
+
 
 
 </resources>

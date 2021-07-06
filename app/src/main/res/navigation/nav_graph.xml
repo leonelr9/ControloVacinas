@@ -50,6 +50,9 @@
         <action
             android:id="@+id/action_listaFabricantesFragment_to_PaginaInicialFragment"
             app:destination="@id/PaginaInicialFragment" />
+        <action
+            android:id="@+id/action_listaFabricantesFragment_to_novoFabricanteFragment"
+            app:destination="@id/novoFabricanteFragment" />
     </fragment>
     <fragment
         android:id="@+id/listaVacinasFragment"
@@ -95,5 +98,14 @@
         <action
             android:id="@+id/action_eliminaPacienteFragment_to_ListaPacientesFragment"
             app:destination="@id/ListaPacientesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/novoFabricanteFragment"
+        android:name="com.example.controlovacinas.NovoFabricanteFragment"
+        android:label="@string/novo_fabricante_label"
+        tools:layout="@layout/fragment_novo_fabricante">
+        <action
+            android:id="@+id/action_novoFabricanteFragment_to_listaFabricantesFragment"
+            app:destination="@id/listaFabricantesFragment" />
     </fragment>
 </navigation>

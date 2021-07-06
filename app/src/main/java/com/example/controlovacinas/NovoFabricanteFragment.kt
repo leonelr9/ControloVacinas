@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.navigation.fragment.findNavController
 import com.example.controlovacinas.databinding.FragmentNovoFabricanteBinding
 
@@ -19,6 +20,8 @@ class NovoFabricanteFragment : Fragment() {
 
     private var _binding: FragmentNovoFabricanteBinding? = null
 
+    private lateinit var editTextNome: EditText
+
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -30,6 +33,12 @@ class NovoFabricanteFragment : Fragment() {
 
         _binding = FragmentNovoFabricanteBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        editTextNome = view.findViewById(R.id.editTextNome)
     }
 
     override fun onDestroyView() {

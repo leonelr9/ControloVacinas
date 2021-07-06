@@ -3,8 +3,10 @@ package com.example.controlovacinas
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.controlovacinas.databinding.FragmentNovaVacinaBinding
 import com.example.controlovacinas.databinding.FragmentNovoFabricanteBinding
 
@@ -31,4 +33,26 @@ class NovaVacinaFragment : Fragment() {
         return binding.root
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    fun navegaListaVacinas() {
+        findNavController().navigate(R.id.action_novaVacinaFragment_to_listaVacinasFragment)
+    }
+
+    fun guardar() {
+        // todo: guardar fabricante
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_guardar_nova_vacina -> guardar()
+            R.id.action_cancelar_nova_vacina -> navegaListaVacinas()
+            else -> return false
+        }
+
+        return true
+    }
 }

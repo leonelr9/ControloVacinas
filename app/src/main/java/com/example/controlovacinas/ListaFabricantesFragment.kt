@@ -51,7 +51,7 @@ class ListaFabricantesFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
     }
 
     fun navegaAlterarFabricante() {
-        //todo: navegar para o fragmento da edição de um fabricante
+        findNavController().navigate(R.id.action_listaFabricantesFragment_to_editaFabricanteFragment)
     }
 
     fun navegaEliminarFabricante() {

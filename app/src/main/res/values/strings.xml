@@ -67,6 +67,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="edita_fabricante_label">Editar Fabricante</string>
+    <string name="erro_alterar_fabricante">Erro ao alterar Fabricante</string>
+    <string name="fabricante_guardado_sucesso">Fabricante guardado com sucesso</string>
 
 
 </resources>

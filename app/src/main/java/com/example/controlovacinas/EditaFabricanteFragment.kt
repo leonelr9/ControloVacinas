@@ -1,15 +1,17 @@
 package com.example.controlovacinas
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -17,43 +19,79 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class EditaFabricanteFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var editTextNome: EditText
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        DadosApp.fragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_edita_fabricante
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_edita_fabricante, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment EditaFabricanteFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            EditaFabricanteFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        editTextNome = view.findViewById(R.id.editTextNome)
+
+        editTextNome.setText(DadosApp.fabricanteSeleccionado!!.nome)
+    }
+
+    fun navegaListaFabricante() {
+        findNavController().navigate(R.id.action_editaFabricanteFragment_to_listaFabricantesFragment)
+    }
+
+    fun guardar() {
+        val nome = editTextNome.text.toString()
+        if (nome.isEmpty()) {
+            editTextNome.setError(getString(R.string.introduza_nome_fabricante))
+            editTextNome.requestFocus()
+            return
+        }
+
+        val fabricante = DadosApp.fabricanteSeleccionado!!
+        fabricante.nome = nome
+
+        val uriFabricante = Uri.withAppendedPath(
+            ContentProviderControloVacinas.ENDERECO_FABRICANTE,
+            fabricante.id.toString()
+        )
+        val registos = activity?.contentResolver?.update(
+            uriFabricante,
+            fabricante.toContentValues(),
+            null,
+            null
+        )
+
+        if (registos != 1) {
+            Toast.makeText(
+                requireContext(),
+                getString(R.string.erro_alterar_fabricante),
+                Toast.LENGTH_LONG
+            ).show()
+            return
+        }
+
+        Toast.makeText(
+            requireContext(),
+            getString(R.string.fabricante_guardado_sucesso),
+            Toast.LENGTH_LONG
+        ).show()
+        navegaListaFabricante()
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_guardar_edita_fabricante -> guardar()
+            R.id.action_cancelar_edita_fabricante -> navegaListaFabricante()
+            else -> return false
+        }
+
+        return true
     }
 }

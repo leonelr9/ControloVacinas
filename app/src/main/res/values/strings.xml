@@ -68,6 +68,8 @@
     <string name="fabricante_guardado">Fabricante guardado com sucesso</string>
     <string name="erro_alterar_fabricante">Erro ao alterar Fabricante</string>
     <string name="fabricante_guardado_sucesso">Fabricante guardado com sucesso</string>
+    <string name="erro_eliminar_fabricante">Erro ao eliminar Fabricante</string>
+    <string name="fabricante_eliminado_sucesso">Fabricante eliminado com sucesso</string>
 
 
 </resources>

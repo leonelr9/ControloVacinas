@@ -80,6 +80,7 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_lista_fabricantes -> (DadosApp.fragment as ListaFabricantesFragment).processaOpcaoMenu(item)
                 R.menu.menu_novo_fabricante -> (DadosApp.fragment as NovoFabricanteFragment).processaOpcaoMenu(item)
                 R.menu.menu_edita_fabricante -> (DadosApp.fragment as EditaFabricanteFragment).processaOpcaoMenu(item)
+                R.menu.menu_elimina_fabricante -> (DadosApp.fragment as EliminaFabricanteFragment).processaOpcaoMenu(item)
                 else -> false
             }
         }

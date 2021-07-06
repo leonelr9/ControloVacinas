@@ -56,6 +56,9 @@
         <action
             android:id="@+id/action_listaFabricantesFragment_to_editaFabricanteFragment"
             app:destination="@id/editaFabricanteFragment" />
+        <action
+            android:id="@+id/action_listaFabricantesFragment_to_eliminaFabricanteFragment"
+            app:destination="@id/eliminaFabricanteFragment" />
     </fragment>
     <fragment
         android:id="@+id/listaVacinasFragment"
@@ -118,6 +121,15 @@
         tools:layout="@layout/fragment_edita_fabricante" >
         <action
             android:id="@+id/action_editaFabricanteFragment_to_listaFabricantesFragment"
+            app:destination="@id/listaFabricantesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminaFabricanteFragment"
+        android:name="com.example.controlovacinas.EliminaFabricanteFragment"
+        android:label="@string/elimina_fabricante_label"
+        tools:layout="@layout/fragment_elimina_fabricante" >
+        <action
+            android:id="@+id/action_eliminaFabricanteFragment_to_listaFabricantesFragment"
             app:destination="@id/listaFabricantesFragment" />
     </fragment>
 </navigation>

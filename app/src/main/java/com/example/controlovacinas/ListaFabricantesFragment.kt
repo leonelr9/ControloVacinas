@@ -55,7 +55,7 @@ class ListaFabricantesFragment : Fragment(), LoaderManager.LoaderCallbacks<Curso
     }
 
     fun navegaEliminarFabricante() {
-        //todo: navegar para o fragmento para confirmar eliminação de um fabricante
+        findNavController().navigate(R.id.action_listaFabricantesFragment_to_eliminaFabricanteFragment)
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {

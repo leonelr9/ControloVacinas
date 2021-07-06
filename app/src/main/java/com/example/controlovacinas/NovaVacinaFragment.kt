@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CalendarView
 import android.widget.EditText
+import android.widget.SimpleCursorAdapter
 import android.widget.Spinner
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
@@ -147,6 +148,7 @@ class NovaVacinaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
      */
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
         atualizaSpinnerPacientes(data)
+        //atualizaSpinnerFabricantes(data)
     }
 
     /**
@@ -161,12 +163,31 @@ class NovaVacinaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
      */
     override fun onLoaderReset(loader: Loader<Cursor>) {
         atualizaSpinnerPacientes(null)
+        //atualizaSpinnerFabricantes(null)
     }
 
     private fun atualizaSpinnerPacientes(data: Cursor?) {
-
+        spinnerPaciente.adapter = SimpleCursorAdapter(
+            requireContext(),
+            android.R.layout.simple_list_item_1,
+            data,
+            arrayOf(TabelaPaciente.NOME),
+            intArrayOf(android.R.id.text1),
+            0
+        )
     }
-
+/*
+    private fun atualizaSpinnerFabricantes(data: Cursor?) {
+        spinnerFabricante.adapter = SimpleCursorAdapter(
+            requireContext(),
+            android.R.layout.simple_list_item_1,
+            data,
+            arrayOf(TabelaFabricante.NOME),
+            intArrayOf(android.R.id.text1),
+            0
+        )
+    }
+*/
     companion object {
         const val ID_LOADER_MANAGER_PACIENTES = 0
         const val ID_LOADER_MANAGER_FABRICANTES = 1

@@ -79,7 +79,8 @@
     <string name="erro_inserir_vacina">Erro ao inserir vacina</string>
     <string name="erro_alterar_vacina">Erro ao alterar vacina</string>
     <string name="vacina_guardada_sucesso">Vacina guardada com sucesso</string>
-
+    <string name="erro_eliminar_vacina">Erro ao eliminar vacina</string>
+    <string name="vacina_eliminada_sucesso">Vacina eliminada com sucesso</string>
 
 
 </resources>

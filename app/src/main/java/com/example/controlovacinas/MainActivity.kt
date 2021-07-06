@@ -88,6 +88,7 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_lista_vacinas -> (DadosApp.fragment as ListaVacinasFragment).processaOpcaoMenu(item)
                 R.menu.menu_nova_vacina -> (DadosApp.fragment as NovaVacinaFragment).processaOpcaoMenu(item)
                 R.menu.menu_edita_vacina -> (DadosApp.fragment as EditaVacinaFragment).processaOpcaoMenu(item)
+                R.menu.menu_elimina_vacina -> (DadosApp.fragment as EliminaVacinaFragment).processaOpcaoMenu(item)
                 else -> false
             }
         }

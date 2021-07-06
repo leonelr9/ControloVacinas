@@ -73,6 +73,8 @@
     <string name="fabricante_eliminado_sucesso">Fabricante eliminado com sucesso</string>
     <string name="paciente">Paciente:</string>
     <string name="guardar_vacina">Guardar</string>
+    <string name="erro_introduzir_lote">Intruduza o número do lote</string>
+    <string name="erro_inserir_vacina">Erro ao inserir vacina</string>
 
 
 </resources>

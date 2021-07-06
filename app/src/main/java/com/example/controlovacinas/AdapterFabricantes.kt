@@ -17,11 +17,15 @@ class AdapterFabricantes(val fragment: ListaFabricantesFragment) : RecyclerView.
     class ViewHolderFabricantes(itemView: View) :RecyclerView.ViewHolder(itemView), View.OnClickListener{
         private val textViewNomeFabricante = itemView.findViewById<TextView>(R.id.textViewNomeFabricante)
 
+        private lateinit var fabricante: Fabricante
+
         init {
             itemView.setOnClickListener(this)
         }
 
         fun atualizaFabricante(fabricante: Fabricante){
+            this.fabricante = fabricante
+
             textViewNomeFabricante.text = fabricante.nome
         }
 
@@ -38,6 +42,7 @@ class AdapterFabricantes(val fragment: ListaFabricantesFragment) : RecyclerView.
         private fun seleciona() {
             selecionado = this
             itemView.setBackgroundResource(R.color.cor_selecao)
+            DadosApp.fabricanteSeleccionado = fabricante
         }
 
         private fun desSeleciona() {

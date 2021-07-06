@@ -60,7 +60,7 @@
     <string name="elimina_paciente">Elimar Paciente</string>
     <string name="erro_elimina_paciente">Erro ao eliminar paciente</string>
     <string name="paciente_eliminado_sucesso">Paciente eliminado com sucesso</string>
-
+    <string name="guardar_fabricante">Guardar</string>
 
 
 </resources>

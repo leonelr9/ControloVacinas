@@ -15,6 +15,7 @@
     <string name="elimina_fabricante_label">Eliminar Fabricante?</string>
 
     <string name="lista_vacinas_label">Vacinas</string>
+    <string name="nova_vacina_label">Nova vacina</string>
 
     <string name="lista_efeitos_secundarios_label">Efeitos Secundarios</string>
 
@@ -70,6 +71,7 @@
     <string name="fabricante_guardado_sucesso">Fabricante guardado com sucesso</string>
     <string name="erro_eliminar_fabricante">Erro ao eliminar Fabricante</string>
     <string name="fabricante_eliminado_sucesso">Fabricante eliminado com sucesso</string>
+    <string name="paciente">Paciente:</string>
 
 
 </resources>

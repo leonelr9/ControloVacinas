@@ -6,13 +6,32 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="5dp"
+        android:layout_marginStart="@dimen/fab_margin"
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:layout_marginTop="@dimen/margem_campos"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:background="#FF0000"
+        android:clickable="false"
+        android:indeterminate="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewContato" />
+
     <TextView
         android:id="@+id/textViewNome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margem_campos"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintEnd_toEndOf="@+id/textView5"
+        android:textColor="@color/cor_texto_preto"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         tools:text="José Alberto Martins" />
@@ -23,6 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margem_campos"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/cor_texto_preto"
         app:layout_constraintEnd_toEndOf="@+id/textView6"
         app:layout_constraintStart_toStartOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
@@ -34,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margem_campos"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/cor_texto_preto"
         app:layout_constraintEnd_toEndOf="@+id/textView7"
         app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
@@ -44,8 +65,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margem_campos"
-        android:paddingBottom="@dimen/margem_campos"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/cor_texto_preto"
         app:layout_constraintEnd_toEndOf="@+id/textView8"
         app:layout_constraintStart_toStartOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
@@ -57,8 +78,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margem_campos"
         android:text="@string/sexo"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/cor_texto_nao_essecial"
         app:layout_constraintEnd_toEndOf="@+id/textViewDataNascimento"
         app:layout_constraintStart_toStartOf="@+id/textViewDataNascimento"
         app:layout_constraintTop_toBottomOf="@+id/textViewDataNascimento" />
@@ -69,8 +90,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margem_campos"
         android:text="@string/contacto"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/cor_texto_nao_essecial"
         app:layout_constraintEnd_toEndOf="@+id/textViewSexo"
         app:layout_constraintStart_toStartOf="@+id/textViewSexo"
         app:layout_constraintTop_toBottomOf="@+id/textViewSexo" />
@@ -81,9 +102,9 @@
         android:layout_height="23dp"
         android:layout_marginTop="@dimen/margem_campos"
         android:text="@string/data_nascimento"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="@+id/textViewNome"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/cor_texto_nao_essecial"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textViewNome"
         app:layout_constraintTop_toBottomOf="@+id/textViewNome" />
 
@@ -94,13 +115,23 @@
         android:layout_marginStart="@dimen/margem_campos"
         android:layout_marginLeft="@dimen/margem_campos"
         android:layout_marginTop="@dimen/margem_campos"
-        android:layout_marginEnd="@dimen/margem_campos"
-        android:layout_marginRight="@dimen/margem_campos"
         android:text="@string/nome"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/cor_texto_nao_essecial"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="57dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="@dimen/margem_ecran"
+        android:layout_marginEnd="@dimen/margem_ecran"
+        android:layout_marginRight="@dimen/margem_ecran"
+        android:contentDescription="@string/pacientes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pessoa" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

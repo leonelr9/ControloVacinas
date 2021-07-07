@@ -7,20 +7,28 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margem_campos"
+        android:layout_marginEnd="@dimen/margem_campos"
+        android:layout_marginRight="@dimen/margem_campos"
         android:text="@string/numero_do_lote"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/cor_texto_nao_essecial"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textViewNomeFabricanteVacina"
         app:layout_constraintTop_toBottomOf="@+id/textViewNomeFabricanteVacina" />
 
     <TextView
         android:id="@+id/textViewNumLote"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margem_campos"
+        android:layout_marginEnd="@dimen/margem_campos"
+        android:layout_marginRight="@dimen/margem_campos"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/cor_texto_preto"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:text="AB1257" />
@@ -32,7 +40,7 @@
         android:layout_height="5dp"
         android:layout_marginStart="@dimen/fab_margin"
         android:layout_marginLeft="@dimen/fab_margin"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/margem_campos"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginRight="@dimen/fab_margin"
         android:background="#FF0000"
@@ -45,42 +53,58 @@
 
     <TextView
         android:id="@+id/textViewDataVacinacao"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margem_campos"
+        android:layout_marginEnd="@dimen/margem_campos"
+        android:layout_marginRight="@dimen/margem_campos"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/cor_texto_preto"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:text="2021,6,1" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margem_campos"
+        android:layout_marginEnd="@dimen/margem_campos"
+        android:layout_marginRight="@dimen/margem_campos"
         android:text="@string/data_da_vacinacao"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/cor_texto_nao_essecial"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textViewNumLote"
         app:layout_constraintTop_toBottomOf="@+id/textViewNumLote" />
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margem_campos"
         android:layout_marginLeft="@dimen/margem_campos"
         android:layout_marginTop="@dimen/margem_campos"
+        android:layout_marginEnd="@dimen/margem_campos"
+        android:layout_marginRight="@dimen/margem_campos"
         android:text="@string/nome"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/cor_texto_nao_essecial"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewNomePaciente"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margem_campos"
+        android:layout_marginEnd="@dimen/margem_campos"
+        android:layout_marginRight="@dimen/margem_campos"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/cor_texto_preto"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
         tools:text="Jose Alberto David" />
@@ -101,18 +125,26 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margem_campos"
+        android:layout_marginEnd="@dimen/margem_campos"
+        android:layout_marginRight="@dimen/margem_campos"
         android:text="AstraZeneca"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/cor_texto_preto"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margem_campos"
+        android:layout_marginEnd="@dimen/margem_campos"
+        android:layout_marginRight="@dimen/margem_campos"
         android:text="@string/fabricante"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/cor_texto_nao_essecial"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textViewNomePaciente"
         app:layout_constraintTop_toBottomOf="@+id/textViewNomePaciente" />
 </androidx.constraintlayout.widget.ConstraintLayout>

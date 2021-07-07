@@ -18,7 +18,7 @@
         android:text="@string/paciente" />
 
     <Spinner
-        android:id="@+id/spinnerPaciente"
+        android:id="@+id/spinnerPacienteEdita"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margem_campos"
@@ -39,7 +39,7 @@
         android:text="@string/fabricante" />
 
     <Spinner
-        android:id="@+id/spinnerFabricante"
+        android:id="@+id/spinnerFabricanteEdita"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margem_campos"

@@ -23,8 +23,8 @@ import java.util.*
  */
 class EditaVacinaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
-    private lateinit var spinnerPaciente: Spinner
-    private lateinit var spinnerFabricante: Spinner
+    private lateinit var spinnerPacienteEdita: Spinner
+    private lateinit var spinnerFabricanteEdita: Spinner
     private lateinit var editTextNumLote: EditText
     private lateinit var calendarViewDataVacinacao: CalendarView
 
@@ -42,8 +42,8 @@ class EditaVacinaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        spinnerPaciente = view.findViewById(R.id.spinnerPaciente)
-        spinnerFabricante = view.findViewById(R.id.spinnerFabricante)
+        spinnerPacienteEdita = view.findViewById(R.id.spinnerPacienteEdita)
+        spinnerFabricanteEdita = view.findViewById(R.id.spinnerFabricanteEdita)
         editTextNumLote = view.findViewById(R.id.editTextNumLote)
         calendarViewDataVacinacao = view.findViewById(R.id.calendarViewDataVacinacao)
 
@@ -58,9 +58,9 @@ class EditaVacinaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     fun guardar() {
-        val idPaciente = spinnerPaciente.selectedItemId
+        val idPaciente = spinnerPacienteEdita.selectedItemId
 
-        val idFabricante = spinnerFabricante.selectedItemId
+        val idFabricante = spinnerFabricanteEdita.selectedItemId
 
 
         val numLote = editTextNumLote.text.toString()
@@ -194,10 +194,10 @@ class EditaVacinaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
         when(loader.id){
             ID_LOADER_MANAGER_PACIENTES -> atualizaSpinnerPacientes(data)
-            ID_LOADER_MANAGER_PACIENTES -> atualizaPacienteSelecionado()
             ID_LOADER_MANAGER_FABRICANTES -> atualizaSpinnerFabricantes(data)
-            ID_LOADER_MANAGER_FABRICANTES -> atualizaFabricanteSelecionado()
         }
+        atualizaPacienteSelecionado()
+        atualizaFabricanteSelecionado()
     }
 
     /**
@@ -216,7 +216,7 @@ class EditaVacinaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     private fun atualizaSpinnerPacientes(data: Cursor?) {
-        spinnerPaciente.adapter = SimpleCursorAdapter(
+        spinnerPacienteEdita.adapter = SimpleCursorAdapter(
             requireContext(),
             android.R.layout.simple_list_item_1,
             data,
@@ -227,7 +227,7 @@ class EditaVacinaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     private fun atualizaSpinnerFabricantes(data: Cursor?) {
-        spinnerFabricante.adapter = SimpleCursorAdapter(
+        spinnerFabricanteEdita.adapter = SimpleCursorAdapter(
             requireContext(),
             android.R.layout.simple_list_item_1,
             data,
@@ -240,10 +240,10 @@ class EditaVacinaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     private fun atualizaPacienteSelecionado() {
         val idPaciente = DadosApp.vacinaSeleccionada!!.idPaciente
 
-        val ultimoPaciente = spinnerPaciente.count - 1
+        val ultimoPaciente = spinnerPacienteEdita.count - 1
         for (i in 0..ultimoPaciente) {
-            if (idPaciente == spinnerPaciente.getItemIdAtPosition(i)) {
-                spinnerPaciente.setSelection(i)
+            if (idPaciente == spinnerPacienteEdita.getItemIdAtPosition(i)) {
+                spinnerPacienteEdita.setSelection(i)
                 return
             }
         }
@@ -252,10 +252,10 @@ class EditaVacinaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     private fun atualizaFabricanteSelecionado() {
         val idFabricante = DadosApp.vacinaSeleccionada!!.idFabricante
 
-        val ultimoFabricante = spinnerFabricante.count - 1
+        val ultimoFabricante = spinnerFabricanteEdita.count - 1
         for (i in 0..ultimoFabricante) {
-            if (idFabricante == spinnerFabricante.getItemIdAtPosition(i)) {
-                spinnerFabricante.setSelection(i)
+            if (idFabricante == spinnerFabricanteEdita.getItemIdAtPosition(i)) {
+                spinnerFabricanteEdita.setSelection(i)
                 return
             }
         }

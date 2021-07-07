@@ -204,6 +204,7 @@ class EditaEfeitosSecundariosFragment : Fragment(), LoaderManager.LoaderCallback
      */
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
         atualizaSpinnerVacina(data)
+        atualizaSpinnerVacinaSelecionada()
     }
 
     /**
@@ -230,6 +231,19 @@ class EditaEfeitosSecundariosFragment : Fragment(), LoaderManager.LoaderCallback
             0
         )
     }
+
+    private fun atualizaSpinnerVacinaSelecionada() {
+        val idVacina = DadosApp.efeitosSecundariosSeleccionado!!.idVacina
+
+        val ultimaVacina = spinnerVacina.count - 1
+        for (i in 0..ultimaVacina) {
+            if (idVacina == spinnerVacina.getItemIdAtPosition(i)) {
+                spinnerVacina.setSelection(i)
+                return
+            }
+        }
+    }
+
 
     companion object {
         const val ID_LOADER_MANAGER_VACINA = 0

@@ -17,6 +17,7 @@ import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import com.example.controlovacinas.databinding.FragmentNovaVacinaBinding
 import com.example.controlovacinas.databinding.FragmentNovoEfeitoSecundarioBinding
+import com.google.android.material.snackbar.Snackbar
 
 /**
  * A simple [Fragment] subclass.
@@ -77,7 +78,35 @@ class NovoEfeitoSecundarioFragment : Fragment(), LoaderManager.LoaderCallbacks<C
     }
 
     fun guardar() {
-        // todo: guardar efeitos secundarios
+        val idVacina = spinnerVacina.selectedItemId
+
+        val febre = checkBoxFebre.isChecked
+        val fadiga = checkBoxFadiga.isChecked
+        val dorCabeca = checkBoxDorCabeca.isChecked
+        val doresMosculares = checkBoxDoresMoscular.isChecked
+        val calafrios = checkBoxCalafrios.isChecked
+        val diarreia = checkBoxDiarreia.isChecked
+        val dorBraco = checkBoxDorBraco.isChecked
+
+        val outros = editTextOutros.text.toString()
+
+        val efeitosSecundarios = EfeitosSecundarios(idVacina = idVacina, febre = febre, fadiga = fadiga, dor_cabeca = dorCabeca, dores_mosculares = doresMosculares, calafrios = calafrios, diarreia = diarreia, dor_braco = dorBraco, outro = outros)
+
+        val uri = activity?.contentResolver?.insert(
+            ContentProviderControloVacinas.ENDERECO_EFEITOS_SECUNDARIOS,
+            efeitosSecundarios.toContentValues()
+        )
+
+        if (uri == null) {
+            Snackbar.make(
+                editTextOutros,
+                "Erro ao inserir Efeitos Secundarios",
+                Snackbar.LENGTH_LONG
+            ).show()
+            return
+        }
+
+        navegaListaEfeitosSecundarios()
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {

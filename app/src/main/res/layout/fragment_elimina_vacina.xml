@@ -15,7 +15,9 @@
         android:layout_marginTop="@dimen/margem_campos"
         android:layout_marginEnd="@dimen/margem_campos"
         android:layout_marginRight="@dimen/margem_campos"
-        android:text="@string/paciente" />
+        android:text="@string/paciente"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/cor_texto_nao_essecial" />
 
     <TextView
         android:id="@+id/textViewNomePaciente"
@@ -27,7 +29,7 @@
         android:layout_marginEnd="@dimen/margem_campos"
         android:layout_marginRight="@dimen/margem_campos"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000"
+        android:textColor="@color/cor_texto_preto"
         tools:text="Antonio Martins Santos" />
 
     <TextView
@@ -39,7 +41,9 @@
         android:layout_marginTop="@dimen/margem_campos"
         android:layout_marginEnd="@dimen/margem_campos"
         android:layout_marginRight="@dimen/margem_campos"
-        android:text="@string/fabricante" />
+        android:text="@string/fabricante"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/cor_texto_nao_essecial" />
 
     <TextView
         android:id="@+id/textViewNomeFabricante"
@@ -51,7 +55,7 @@
         android:layout_marginEnd="@dimen/margem_campos"
         android:layout_marginRight="@dimen/margem_campos"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000"
+        android:textColor="@color/cor_texto_preto"
         tools:text="Moderna" />
 
     <TextView
@@ -63,7 +67,9 @@
         android:layout_marginTop="@dimen/margem_campos"
         android:layout_marginEnd="@dimen/margem_campos"
         android:layout_marginRight="@dimen/margem_campos"
-        android:text="@string/numero_do_lote" />
+        android:text="@string/numero_do_lote"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/cor_texto_nao_essecial" />
 
     <TextView
         android:id="@+id/textViewNumLote"
@@ -75,7 +81,7 @@
         android:layout_marginEnd="@dimen/margem_campos"
         android:layout_marginRight="@dimen/margem_campos"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000"
+        android:textColor="@color/cor_texto_preto"
         tools:text="Ab2579" />
 
     <TextView
@@ -87,7 +93,9 @@
         android:layout_marginTop="@dimen/margem_campos"
         android:layout_marginEnd="@dimen/margem_campos"
         android:layout_marginRight="@dimen/margem_campos"
-        android:text="@string/data_da_vacinacao" />
+        android:text="@string/data_da_vacinacao"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/cor_texto_nao_essecial" />
 
     <TextView
         android:id="@+id/textViewDataVacinacao"
@@ -99,6 +107,6 @@
         android:layout_marginEnd="@dimen/margem_campos"
         android:layout_marginRight="@dimen/margem_campos"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000"
+        android:textColor="@color/cor_texto_preto"
         tools:text="22/06/2021" />
 </LinearLayout>

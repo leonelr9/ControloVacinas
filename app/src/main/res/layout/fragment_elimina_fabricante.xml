@@ -15,7 +15,9 @@
         android:layout_marginTop="@dimen/margem_campos"
         android:layout_marginEnd="@dimen/margem_campos"
         android:layout_marginRight="@dimen/margem_campos"
-        android:text="@string/nome" />
+        android:text="@string/nome"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/cor_texto_nao_essecial" />
 
     <TextView
         android:id="@+id/textViewNome"
@@ -27,6 +29,6 @@
         android:layout_marginEnd="@dimen/margem_campos"
         android:layout_marginRight="@dimen/margem_campos"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000"
+        android:textColor="@color/cor_texto_preto"
         tools:text="Moderna" />
 </LinearLayout>

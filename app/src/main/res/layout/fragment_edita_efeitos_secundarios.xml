@@ -15,7 +15,9 @@
         android:layout_marginTop="@dimen/margem_campos"
         android:layout_marginEnd="@dimen/margem_campos"
         android:layout_marginRight="@dimen/margem_campos"
-        android:text="@string/nome_paciente" />
+        android:text="@string/nome_paciente"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/cor_texto_nao_essecial" />
 
     <Spinner
         android:id="@+id/spinnerVacina"

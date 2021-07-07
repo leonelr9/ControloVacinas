@@ -15,7 +15,9 @@
         android:layout_marginTop="@dimen/margem_campos"
         android:layout_marginEnd="@dimen/margem_campos"
         android:layout_marginRight="@dimen/margem_campos"
-        android:text="@string/paciente" />
+        android:text="@string/paciente"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/cor_texto_nao_essecial" />
 
     <Spinner
         android:id="@+id/spinnerPacienteEdita"
@@ -36,7 +38,9 @@
         android:layout_marginTop="@dimen/margem_campos"
         android:layout_marginEnd="@dimen/margem_campos"
         android:layout_marginRight="@dimen/margem_campos"
-        android:text="@string/fabricante" />
+        android:text="@string/fabricante"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/cor_texto_nao_essecial" />
 
     <Spinner
         android:id="@+id/spinnerFabricanteEdita"

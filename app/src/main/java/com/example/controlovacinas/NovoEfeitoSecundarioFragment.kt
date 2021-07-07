@@ -23,6 +23,9 @@ class NovoEfeitoSecundarioFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        DadosApp.fragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_novo_efeito_secundario
+
         _binding = FragmentNovoEfeitoSecundarioBinding.inflate(inflater, container, false)
         return binding.root
     }

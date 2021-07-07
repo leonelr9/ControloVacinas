@@ -89,6 +89,8 @@
     <string name="erro_inserir_efeito_secundario">Error entering Secundary effect</string>
     <string name="efeito_secundario_introduzido_sucesso">New Secundary effect saved successfully</string>
     <string name="efeitos_secundarios_alterados_sucesso">Secundary effect saved successfully</string>
+    <string name="leonel_rita">Leonel Rita</string>
+    <string name="realizado">Made By:</string>
 
 
 </resources>

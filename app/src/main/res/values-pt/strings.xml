@@ -87,4 +87,6 @@
     <string name="nova_vacina_sucesso">Nova vacina introduzida com sucesso</string>
     <string name="erro_inserir_efeito_secundario">Erro ao inserir Efeitos Secundarios</string>
     <string name="efeito_secundario_introduzido_sucesso">Novo efeito secundario introduzido com sucesso</string>
+    <string name="realizado">Realizado por:</string>
+    <string name="leonel_rita">Leonel Rita</string>
 </resources>

@@ -20,6 +20,7 @@
     <string name="elimina_vacina_label">Eliminar Vacina?</string>
 
     <string name="lista_efeitos_secundarios_label">Efeitos Secundarios</string>
+    <string name="novo_efeito_secundario_label">Novo Efeitos Secundarios</string>
 
 
     <string name="fabricante">Fabricante:</string>

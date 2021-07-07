@@ -89,6 +89,9 @@
         <action
             android:id="@+id/action_listaEfeitosSecundariosFragment_to_novoEfeitoSecundarioFragment"
             app:destination="@id/novoEfeitoSecundarioFragment" />
+        <action
+            android:id="@+id/action_listaEfeitosSecundariosFragment_to_editaEfeitosSecundariosFragment"
+            app:destination="@id/editaEfeitosSecundariosFragment" />
     </fragment>
     <fragment
         android:id="@+id/novoPacienteFragment"
@@ -178,6 +181,15 @@
         tools:layout="@layout/fragment_novo_efeito_secundario" >
         <action
             android:id="@+id/action_novoEfeitoSecundarioFragment_to_listaEfeitosSecundariosFragment"
+            app:destination="@id/listaEfeitosSecundariosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editaEfeitosSecundariosFragment"
+        android:name="com.example.controlovacinas.EditaEfeitosSecundariosFragment"
+        android:label="@string/edita_efeito_secundario_label"
+        tools:layout="@layout/fragment_edita_efeitos_secundarios" >
+        <action
+            android:id="@+id/action_editaEfeitosSecundariosFragment_to_listaEfeitosSecundariosFragment"
             app:destination="@id/listaEfeitosSecundariosFragment" />
     </fragment>
 </navigation>

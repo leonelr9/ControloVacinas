@@ -73,6 +73,7 @@ class AdapterEfeitosSecundarios(val fragment: ListaEfeitosSecundariosFragment) :
             selecionado = this
             itemView.setBackgroundResource(R.color.cor_selecao)
             DadosApp.efeitosSecundariosSeleccionado = efeitosSecundarios
+            DadosApp.activity.atualizaMenuListaEfeitosSecundarios(true)
         }
 
         private fun desSeleciona() {

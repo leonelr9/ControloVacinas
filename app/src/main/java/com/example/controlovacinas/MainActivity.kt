@@ -58,6 +58,9 @@ class MainActivity : AppCompatActivity() {
         if (menuAtual == R.menu.menu_lista_vacinas) {
             atualizaMenuListaVacinas(false)
         }
+        if (menuAtual == R.menu.menu_lista_efeitos_secundarios) {
+            atualizaMenuListaEfeitosSecundarios(false)
+        }
         return true
     }
 
@@ -89,6 +92,8 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_nova_vacina -> (DadosApp.fragment as NovaVacinaFragment).processaOpcaoMenu(item)
                 R.menu.menu_edita_vacina -> (DadosApp.fragment as EditaVacinaFragment).processaOpcaoMenu(item)
                 R.menu.menu_elimina_vacina -> (DadosApp.fragment as EliminaVacinaFragment).processaOpcaoMenu(item)
+
+                R.menu.menu_lista_efeitos_secundarios -> (DadosApp.fragment as ListaEfeitosSecundariosFragment).processaOpcaoMenu(item)
                 else -> false
             }
         }
@@ -114,5 +119,10 @@ class MainActivity : AppCompatActivity() {
     fun atualizaMenuListaVacinas(mostraBotoesAlterarEliminar : Boolean) {
         menu.findItem(R.id.action_alterar_vacina).setVisible(mostraBotoesAlterarEliminar)
         menu.findItem(R.id.action_eliminar_vacina).setVisible(mostraBotoesAlterarEliminar)
+    }
+
+    fun atualizaMenuListaEfeitosSecundarios(mostraBotoesAlterarEliminar : Boolean) {
+        menu.findItem(R.id.action_alterar_efeitos_secundarios).setVisible(mostraBotoesAlterarEliminar)
+        menu.findItem(R.id.action_eliminar_efeitos_secundarios).setVisible(mostraBotoesAlterarEliminar)
     }
 }

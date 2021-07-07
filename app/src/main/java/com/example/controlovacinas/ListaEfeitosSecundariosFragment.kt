@@ -4,6 +4,7 @@ import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
@@ -27,6 +28,8 @@ class ListaEfeitosSecundariosFragment : Fragment(), LoaderManager.LoaderCallback
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        DadosApp.fragment = this
+        (activity as MainActivity).menuAtual = R.menu.menu_lista_efeitos_secundarios
 
         _binding = FragmentListaEfeitosSecundariosBinding.inflate(inflater, container, false)
         return binding.root
@@ -42,8 +45,29 @@ class ListaEfeitosSecundariosFragment : Fragment(), LoaderManager.LoaderCallback
         recyclerViewEfeitosSecundarios.layoutManager = LinearLayoutManager(requireContext())
 
         LoaderManager.getInstance(this).initLoader(ID_LOADER_MANAGER_EFEITOS_SECUNDARIOS, null, this)
+    }
 
-//            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+    fun navegaNovosEfeitosSecundarios() {
+        //todo: navegar para o fragmento novos EfeitosSecundarios
+    }
+
+    fun navegaAlterarEfeitosSecundarios() {
+        //todo: navegar para o fragmento da edição de EfeitosSecundarios
+    }
+
+    fun navegaEliminarEfeitosSecundarios() {
+        //todo: navegar para o fragmento para confirmar eliminação de EfeitosSecundarios
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_novo_efeitos_secundarios -> navegaNovosEfeitosSecundarios()
+            R.id.action_alterar_efeitos_secundarios -> navegaAlterarEfeitosSecundarios()
+            R.id.action_eliminar_efeitos_secundarios -> navegaEliminarEfeitosSecundarios()
+            else -> return false
+        }
+
+        return true
     }
 
     override fun onDestroyView() {

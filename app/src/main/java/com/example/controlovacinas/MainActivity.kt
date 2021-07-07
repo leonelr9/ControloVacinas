@@ -94,6 +94,7 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_elimina_vacina -> (DadosApp.fragment as EliminaVacinaFragment).processaOpcaoMenu(item)
 
                 R.menu.menu_lista_efeitos_secundarios -> (DadosApp.fragment as ListaEfeitosSecundariosFragment).processaOpcaoMenu(item)
+                R.menu.menu_novo_efeito_secundario -> (DadosApp.fragment as NovoEfeitoSecundarioFragment).processaOpcaoMenu(item)
                 else -> false
             }
         }

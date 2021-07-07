@@ -10,5 +10,6 @@ class DadosApp {
         var pacienteSeleccionado : Paciente? = null
         var fabricanteSeleccionado : Fabricante? = null
         var vacinaSeleccionada : Vacina? = null
+        var efeitosSecundariosSeleccionado : EfeitosSecundarios? = null
     }
 }

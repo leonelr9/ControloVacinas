@@ -29,11 +29,15 @@ class AdapterEfeitosSecundarios(val fragment: ListaEfeitosSecundariosFragment) :
         private val textViewNomePacienteVacina = itemView.findViewById<TextView>(R.id.textViewNomePacienteVacina)
         private val textViewNomeFabricanteVacina = itemView.findViewById<TextView>(R.id.textViewNomeFabricanteVacinaEfeitosSecundarios)
 
+        private lateinit var efeitosSecundarios: EfeitosSecundarios
+
         init {
             itemView.setOnClickListener(this)
         }
 
         fun atualizaEfeitosSecundarios(efeitosSecundarios: EfeitosSecundarios){
+            this.efeitosSecundarios = efeitosSecundarios
+
             checkBoxFebre.isChecked = efeitosSecundarios.febre
             checkBoxFebre.isClickable = false
             checkBoxFadiga.isChecked = efeitosSecundarios.fadiga
@@ -68,6 +72,7 @@ class AdapterEfeitosSecundarios(val fragment: ListaEfeitosSecundariosFragment) :
         private fun seleciona() {
             selecionado = this
             itemView.setBackgroundResource(R.color.cor_selecao)
+            DadosApp.efeitosSecundariosSeleccionado = efeitosSecundarios
         }
 
         private fun desSeleciona() {

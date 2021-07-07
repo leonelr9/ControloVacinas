@@ -57,7 +57,7 @@ class ListaEfeitosSecundariosFragment : Fragment(), LoaderManager.LoaderCallback
     }
 
     fun navegaEliminarEfeitosSecundarios() {
-        //todo: navegar para o fragmento para confirmar eliminação de EfeitosSecundarios
+        findNavController().navigate(R.id.action_listaEfeitosSecundariosFragment_to_eliminaEfeitosSecundariosFragment)
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {

@@ -88,6 +88,11 @@
     <string name="nome_paciente">Nome Paciente:</string>
     <string name="erro_eliminar_efeitos_secundarios">Erro ao eliminar Efeitos secundarios</string>
     <string name="efeitos_secundarios_eliminados_sucesso">Efeitos secundarios eliminados com sucesso</string>
+    <string name="Erro_edita_efeitos_secundarios">Erro ao alterar efeitos secundarios</string>
+    <string name="efeitos_secundarios_alterados_sucesso">Efeitos secundarios alterados com sucesso</string>
+    <string name="nova_vacina_sucesso">Nova vacina introduzida com sucesso</string>
+    <string name="erro_inserir_efeito_secundario">Erro ao inserir Efeitos Secundarios</string>
+    <string name="efeito_secundario_introduzido_sucesso">Novo efeito secundario introduzido com sucesso</string>
 
 
 </resources>

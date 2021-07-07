@@ -7,10 +7,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CalendarView
-import android.widget.EditText
-import android.widget.SimpleCursorAdapter
-import android.widget.Spinner
+import android.widget.*
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
@@ -99,6 +96,12 @@ class NovaVacinaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             return
         }
 
+        Toast.makeText(
+            requireContext(),
+            getString(R.string.nova_vacina_sucesso),
+            Toast.LENGTH_LONG
+        ).show()
+
         navegaListaVacinas()
     }
 
@@ -123,8 +126,6 @@ class NovaVacinaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
      * @return Return a new Loader instance that is ready to start loading.
      */
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
-        // todo: falta o nome do fabricante
-
         when (id) {
             ID_LOADER_MANAGER_PACIENTES -> return CursorLoader(
                 requireContext(),

@@ -113,7 +113,7 @@ class EditaEfeitosSecundariosFragment : Fragment(), LoaderManager.LoaderCallback
         if (registos != 1) {
             Toast.makeText(
                 requireContext(),
-                "Erro ao alterar efeitos secundarios",
+                getString(R.string.Erro_edita_efeitos_secundarios),
                 Toast.LENGTH_LONG
             ).show()
             return
@@ -121,7 +121,7 @@ class EditaEfeitosSecundariosFragment : Fragment(), LoaderManager.LoaderCallback
 
         Toast.makeText(
             requireContext(),
-            "Efeitos secundarios alterados com sucesso",
+            getString(R.string.efeitos_secundarios_alterados_sucesso),
             Toast.LENGTH_LONG
         ).show()
 

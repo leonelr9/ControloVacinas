@@ -7,10 +7,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.SimpleCursorAdapter
-import android.widget.Spinner
+import android.widget.*
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
@@ -100,11 +97,17 @@ class NovoEfeitoSecundarioFragment : Fragment(), LoaderManager.LoaderCallbacks<C
         if (uri == null) {
             Snackbar.make(
                 editTextOutros,
-                "Erro ao inserir Efeitos Secundarios",
+                getString(R.string.erro_inserir_efeito_secundario),
                 Snackbar.LENGTH_LONG
             ).show()
             return
         }
+
+        Toast.makeText(
+            requireContext(),
+            getString(R.string.efeito_secundario_introduzido_sucesso),
+            Toast.LENGTH_LONG
+        ).show()
 
         navegaListaEfeitosSecundarios()
     }

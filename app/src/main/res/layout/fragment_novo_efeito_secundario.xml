@@ -15,7 +15,7 @@
         android:layout_marginTop="@dimen/margem_campos"
         android:layout_marginEnd="@dimen/margem_campos"
         android:layout_marginRight="@dimen/margem_campos"
-        android:text="@string/numero_do_lote" />
+        android:text="@string/nome_paciente" />
 
     <Spinner
         android:id="@+id/spinnerVacina"

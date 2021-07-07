@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.controlovacinas.databinding.FragmentListaEfeitosSecundariosBinding
@@ -48,7 +49,7 @@ class ListaEfeitosSecundariosFragment : Fragment(), LoaderManager.LoaderCallback
     }
 
     fun navegaNovosEfeitosSecundarios() {
-        //todo: navegar para o fragmento novos EfeitosSecundarios
+        findNavController().navigate(R.id.action_listaEfeitosSecundariosFragment_to_novoEfeitoSecundarioFragment)
     }
 
     fun navegaAlterarEfeitosSecundarios() {

@@ -86,6 +86,8 @@
     <string name="vacina_eliminada_sucesso">Vacina eliminada com sucesso</string>
     <string name="guardar_efeito_secundario">Guardar</string>
     <string name="nome_paciente">Nome Paciente:</string>
+    <string name="erro_eliminar_efeitos_secundarios">Erro ao eliminar Efeitos secundarios</string>
+    <string name="efeitos_secundarios_eliminados_sucesso">Efeitos secundarios eliminados com sucesso</string>
 
 
 </resources>

@@ -53,7 +53,7 @@ class ListaEfeitosSecundariosFragment : Fragment(), LoaderManager.LoaderCallback
     }
 
     fun navegaAlterarEfeitosSecundarios() {
-        //todo: navegar para o fragmento da edição de EfeitosSecundarios
+        findNavController().navigate(R.id.action_listaEfeitosSecundariosFragment_to_editaEfeitosSecundariosFragment)
     }
 
     fun navegaEliminarEfeitosSecundarios() {

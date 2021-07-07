@@ -95,6 +95,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.menu.menu_lista_efeitos_secundarios -> (DadosApp.fragment as ListaEfeitosSecundariosFragment).processaOpcaoMenu(item)
                 R.menu.menu_novo_efeito_secundario -> (DadosApp.fragment as NovoEfeitoSecundarioFragment).processaOpcaoMenu(item)
+                R.menu.menu_edita_efeitos_secundarios -> (DadosApp.fragment as EditaEfeitosSecundariosFragment).processaOpcaoMenu(item)
                 else -> false
             }
         }
